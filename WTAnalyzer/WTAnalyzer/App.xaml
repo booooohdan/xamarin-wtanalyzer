@@ -7,26 +7,41 @@
     -->
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Disabled">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#332196F3" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
+            <Color x:Key="Primary">#1f2428</Color>
+            <Color x:Key="MyWhite">#f6f6f6</Color>
+            <Color x:Key="MyLight">#E0E0E0</Color>
+            <Color x:Key="MyDark">#4d5962</Color>
+            <Color x:Key="MyDarkest">#353c43</Color>
+
+            <Style x:Key="MainBackground" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" 
+                        Value="{AppThemeBinding Dark={StaticResource MyDarkest}, Light={StaticResource MyLight}}"/>
             </Style>
-        </ResourceDictionary>        
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor"  
+                        Value="{AppThemeBinding Dark={StaticResource MyDarkest}, Light={StaticResource MyLight}}"/>
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" 
+                        Value="{AppThemeBinding Dark={StaticResource MyLight}, Light={StaticResource MyDarkest}}"/>
+            </Style>
+
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="BackgroundColor" 
+                         Value="{AppThemeBinding Dark={StaticResource MyDark}, Light={StaticResource MyWhite}}"/>
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

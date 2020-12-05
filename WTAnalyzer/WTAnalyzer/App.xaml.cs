@@ -1,5 +1,4 @@
 ﻿using System;
-using WTAnalyzer.Services;
 using WTAnalyzer.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,10 +10,9 @@ namespace WTAnalyzer
 
         public App()
         {
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Helpers.License.Key());
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new _TabPage();
         }
 
         protected override void OnStart()
