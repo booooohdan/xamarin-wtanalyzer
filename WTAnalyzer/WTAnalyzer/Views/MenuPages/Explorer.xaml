@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WTAnalyzer.Views.MenuPages.Explorer"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:pages="clr-namespace:WTAnalyzer.Views.VehiclePages"
+    android:TabbedPage.ToolbarPlacement="Top"
+    NavigationPage.HasNavigationBar="False"
+    BarBackgroundColor="#2a2a2a"
+    SelectedTabColor="White"
+    UnselectedTabColor="Gray">
+    <TabbedPage.Children>
+
+        <NavigationPage IconImageSource="menu_avia">
+            <x:Arguments>
+                <pages:AviaPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage IconImageSource="menu_tank">
+            <x:Arguments>
+                <pages:TankPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage IconImageSource="menu_heli">
+            <x:Arguments>
+                <pages:HeliPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage IconImageSource="menu_ship">
+            <x:Arguments>
+                <pages:ShipPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+
+    </TabbedPage.Children>
+
+</TabbedPage>

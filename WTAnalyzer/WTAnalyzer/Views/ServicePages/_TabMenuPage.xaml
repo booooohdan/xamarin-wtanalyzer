@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="WTAnalyzer.Views.ServicePages._TabMenuPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+            xmlns:pages="clr-namespace:WTAnalyzer.Views.MenuPages"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="#2a2a2a"
+            SelectedTabColor="White"
+            UnselectedTabColor="Gray">
+
+    <TabbedPage.Children>
+
+        <NavigationPage Title="Explorer" IconImageSource="menu_explorer">
+            <x:Arguments>
+                <pages:Explorer/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="±1.0 BR" IconImageSource="menu_onepointbr">
+            <x:Arguments>
+                <pages:OnePointBrPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Feedback" IconImageSource="menu_feedback">
+            <x:Arguments>
+                <pages:FeedbackPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+    </TabbedPage.Children>
+
+</TabbedPage>

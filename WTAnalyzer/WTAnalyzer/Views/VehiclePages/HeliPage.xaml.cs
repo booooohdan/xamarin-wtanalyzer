@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WTAnalyzer.Views
+namespace WTAnalyzer.Views.VehiclePages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class _TabPage : ContentPage
+    public partial class HeliPage : ContentPage
     {
-        public _TabPage()
+        public HeliPage()
         {
             InitializeComponent();
         }

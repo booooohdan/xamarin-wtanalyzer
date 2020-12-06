@@ -1,7 +1,5 @@
-﻿using System;
-using WTAnalyzer.Views;
+﻿using WTAnalyzer.Views.ServicePages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace WTAnalyzer
 {
@@ -12,7 +10,7 @@ namespace WTAnalyzer
         {
             //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Helpers.License.Key());
             InitializeComponent();
-            MainPage = new _TabPage();
+            MainPage = new _TabMenuPage();
         }
 
         protected override void OnStart()
