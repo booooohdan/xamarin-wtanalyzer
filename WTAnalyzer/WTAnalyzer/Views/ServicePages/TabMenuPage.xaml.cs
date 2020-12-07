@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WTAnalyzer.Views.ServicePages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class _TabMenuPage : TabbedPage
+    public partial class TabMenuPage : TabbedPage
     {
-        public _TabMenuPage()
+        public TabMenuPage()
         {
             InitializeComponent();
         }

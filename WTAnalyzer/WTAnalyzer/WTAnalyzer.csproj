@@ -6,13 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="akavache" Version="7.1.1" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.3.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.3.0.52" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1709-pre4" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
+    <Compile Update="Views\ServicePages\TabMenuPage.xaml.cs">
+      <DependentUpon>TabMenuPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +29,10 @@
     <EmbeddedResource Update="Views\MenuPages\OnePointBrPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ServicePages\_TabMenuPage.xaml">
+    <EmbeddedResource Update="Views\ServicePages\Startup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ServicePages\TabMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VehiclePages\AviaPage.xaml">
