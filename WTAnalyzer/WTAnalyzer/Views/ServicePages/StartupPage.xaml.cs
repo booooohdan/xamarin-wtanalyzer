@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 namespace WTAnalyzer.Views.ServicePages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Startup : ContentPage
+    public partial class StartupPage : ContentPage
     {
-        public Startup()
+        public StartupPage()
         {
             InitializeComponent();
             BindingContext = new StartupViewModel(Navigation);

@@ -10,7 +10,7 @@ namespace WTAnalyzer
         {
             //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Helpers.License.Key());
             InitializeComponent();
-            MainPage = new NavigationPage(new Startup());
+            MainPage = new NavigationPage(new StartupPage());
         }
 
         protected override void OnStart()

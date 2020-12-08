@@ -15,7 +15,7 @@
 
         <NavigationPage Title="Explorer" IconImageSource="menu_explorer">
             <x:Arguments>
-                <pages:Explorer/>
+                <pages:ExplorerPage/>
             </x:Arguments>
         </NavigationPage>
 

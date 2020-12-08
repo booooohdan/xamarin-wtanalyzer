@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WTAnalyzer.Views.MenuPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Explorer : TabbedPage
+    public partial class ExplorerPage : TabbedPage
     {
-        public Explorer()
+        public ExplorerPage()
         {
             InitializeComponent();
         }

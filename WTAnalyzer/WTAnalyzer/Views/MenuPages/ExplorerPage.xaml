@@ -2,7 +2,7 @@
 <TabbedPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="WTAnalyzer.Views.MenuPages.Explorer"
+    x:Class="WTAnalyzer.Views.MenuPages.ExplorerPage"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
     xmlns:pages="clr-namespace:WTAnalyzer.Views.VehiclePages"
     android:TabbedPage.ToolbarPlacement="Top"

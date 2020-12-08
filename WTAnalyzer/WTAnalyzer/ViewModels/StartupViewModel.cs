@@ -30,13 +30,17 @@ namespace WTAnalyzer.ViewModels
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
-                Device.BeginInvokeOnMainThread(() =>{
-                    App.Current.MainPage.DisplayAlert("No internet", "Please make sure the Internet is available and restart the app", "OK");});
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    App.Current.MainPage.DisplayAlert("No internet", "Please make sure the Internet is available and restart the app", "OK");
+                });
                 return;
             }
             await CheckIfDBCached();
         }
-
+        
+        //TODO: move to separate file
+        #region refactor
         private async Task CheckIfDBCached()
         {
             try
@@ -46,7 +50,7 @@ namespace WTAnalyzer.ViewModels
                 var arrayOfTanksCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfTanks");
                 var arrayOfHelisCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfHelis");
                 var arrayOfShipsCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfShips");
-                //await Navigation.PushAsync(new TabMenuPage());
+                await Navigation.PushAsync(new TabMenuPage());
             }
             catch (KeyNotFoundException)
             {
@@ -97,5 +101,6 @@ namespace WTAnalyzer.ViewModels
             arrayOfShips = (ArrayOfShips)serializer.Deserialize(xReader);
             await BlobCache.UserAccount.InsertObject("cachedArrayOfShips", arrayOfShips, TimeSpan.FromDays(7));
         }
+        #endregion
     }
 }

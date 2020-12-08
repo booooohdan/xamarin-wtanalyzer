@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="WTAnalyzer.Views.ServicePages.Startup"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:vm="clr-namespace:WTAnalyzer.ViewModels"
+             x:Class="WTAnalyzer.Views.ServicePages.StartupPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.BindingContext>
-        <vm:StartupViewModel/>
-    </ContentPage.BindingContext>
+
     <Frame BackgroundColor="{StaticResource MyWhite}"
            CornerRadius="20"
            Padding="50">
@@ -24,7 +22,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-            <Label Text="ABBBADDDD" TextColor="Black"/>
+            <Label Text="{Binding Aaa}" TextColor="Black"/>
 
         </Grid>
     </Frame>
