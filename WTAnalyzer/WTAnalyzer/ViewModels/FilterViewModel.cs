@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
@@ -11,74 +10,242 @@ namespace WTAnalyzer.ViewModels
 {
     public class FilterViewModel : BaseViewModel
     {
+        #region Define variables
+
         public INavigation Navigation { get; set; }
         public ICommand SubmitCommand { get; }
-        private ObservableCollection<ChipsItem> employees;
-        private ObservableCollection<ChipsItem> selectedItems;
+        private ObservableCollection<ChipsItem> nations;
+        private ObservableCollection<ChipsItem> selectedNations;
+        private ObservableCollection<ChipsItem> ranks;
+        private ObservableCollection<ChipsItem> selectedRanks;
+        private ObservableCollection<ChipsItem> types;
+        private ObservableCollection<ChipsItem> selectedTypes;
+        private ObservableCollection<string> orders;
+        private string selectedOrder;
+        private ObservableCollection<string> tasks;
+        private string selectedTask;
 
+        #endregion
 
+        #region Ctor
 
         public FilterViewModel(INavigation navigation)
         {
             Navigation = navigation;
             SubmitCommand = new Command(SubmitHandler);
 
-            Employees = new ObservableCollection<ChipsItem>()
-        {
-            new ChipsItem() { Name = "USA", ChipColor = Color.DarkCyan },
-            new ChipsItem() { Name = "Germany", ChipColor = Color.Black },
-            new ChipsItem() { Name = "USSR", ChipColor = Color.DarkBlue },
-            new ChipsItem() { Name = "Britain", ChipColor = Color.DeepPink },
-            new ChipsItem() { Name = "Japan", ChipColor = Color.DeepPink },
-            new ChipsItem() { Name = "Italy", ChipColor = Color.DeepPink },
-            new ChipsItem() { Name = "France", ChipColor = Color.DeepPink },
-            new ChipsItem() { Name = "China", ChipColor = Color.DeepPink },
-            new ChipsItem() { Name = "Sweden", ChipColor = Color.DeepPink }
-        };
-
-            selectedItems = new ObservableCollection<ChipsItem>()
+            Nations = new ObservableCollection<ChipsItem>()
             {
-                Employees[0],
-                Employees[1],
-                Employees[2],
-                Employees[3],
-                Employees[4],
-                Employees[5],
-                Employees[6],
-                Employees[7],
-                Employees[8],
+                new ChipsItem() { Name = "USA", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Germany", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "USSR", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Britain", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Japan", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Italy", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "France", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "China", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Sweden", ChipColor = Color.Gray }
             };
 
+            selectedNations = new ObservableCollection<ChipsItem>()
+            {
+                Nations[0],
+                Nations[1],
+                Nations[2],
+                Nations[3],
+                Nations[4],
+                Nations[5],
+                Nations[6],
+                Nations[7],
+                Nations[8],
+            };
+
+            Ranks = new ObservableCollection<ChipsItem>()
+            {
+                new ChipsItem() { Name = "I", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "II", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "III", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "IV", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "V", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "VI", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "VII", ChipColor = Color.Gray },
+            };
+
+            selectedRanks = new ObservableCollection<ChipsItem>()
+            {
+                Ranks[0],
+                Ranks[1],
+                Ranks[2],
+                Ranks[3],
+                Ranks[4],
+                Ranks[5],
+                Ranks[6],
+            };
+
+            Types = new ObservableCollection<ChipsItem>()
+            {
+                new ChipsItem() { Name = "Fighter", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Attacker", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Bomber", ChipColor = Color.Gray },
+            };
+
+            selectedTypes = new ObservableCollection<ChipsItem>()
+            {
+                Types[0],
+                Types[1],
+                Types[2],
+            };
+
+            Orders = new ObservableCollection<string>()
+            {
+                 "Ascending",
+                 "Descending",
+            };
+
+            SelectedOrder = "Ascending";
+
+            Tasks = new ObservableCollection<string>()
+            {
+                 "Count",
+                 "Repair Cost",
+                 "Max Speed",
+                 "Max Speed at 5000 m",
+                 "Climb",
+                 "Turn Time",
+                 "Engine Power",
+                 "Weight",
+                 "Flutter",
+                 "Optimal Alitude",
+                 "Bomb Load",
+                 "Burst Mass",
+                 "First fly Year",
+            };
+
+            SelectedTask = "Count";
         }
 
+        #endregion
 
-        public ObservableCollection<ChipsItem> Employees
+        #region Public propertys
+
+        public ObservableCollection<ChipsItem> Nations
         {
-            get => employees;
+            get => nations;
             set
             {
-                employees = value;
+                nations = value;
                 OnPropertyChanged();
             }
         }
 
-        public ObservableCollection<ChipsItem> SelectedItems
+        public ObservableCollection<ChipsItem> SelectedNations
         {
-            get => selectedItems;
+            get => selectedNations;
             set
             {
-                selectedItems = value;
+                selectedNations = value;
                 OnPropertyChanged();
             }
         }
 
-        private async void SubmitHandler(object obj)
+        public ObservableCollection<ChipsItem> Ranks
         {
-            string filter = string.Join("|", selectedItems.Select(x => x.Name.ToString()).ToArray());
+            get => ranks;
+            set
+            {
+                ranks = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<ChipsItem> SelectedRanks
+        {
+            get => selectedRanks;
+            set
+            {
+                selectedRanks = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<ChipsItem> Types
+        {
+            get => types;
+            set
+            {
+                types = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<ChipsItem> SelectedTypes
+        {
+            get => selectedTypes;
+            set
+            {
+                selectedTypes = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<string> Orders
+        {
+            get => orders;
+            set
+            {
+                orders = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SelectedOrder
+        {
+            get => selectedOrder;
+            set
+            {
+                selectedOrder = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<string> Tasks
+        {
+            get => tasks;
+            set
+            {
+                tasks = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SelectedTask
+        {
+            get => selectedTask;
+            set
+            {
+                selectedTask = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #endregion
+
+        private async void SubmitHandler(object obj) //Close filter page
+        {
+            string filterTask = selectedTask;
+            string filterNations = string.Join("|", selectedNations.Select(x => x.Name.ToString()).ToArray());
+            string filterRank = string.Join("|", selectedRanks.Select(x => x.Name.ToString()).ToArray());
+            string filterTypes = string.Join("|", selectedTypes.Select(x => x.Name.ToString()).ToArray());
+            string filterOrder = selectedOrder;
 
             if (Navigation.ModalStack.Count != 0)
             {
-                MessagingCenter.Send(this, "Message", filter);
+                MessagingCenter.Send(this, "filterTask", filterTask);
+                MessagingCenter.Send(this, "filterNations", filterNations);
+                MessagingCenter.Send(this, "filterRank", filterRank);
+                MessagingCenter.Send(this, "filterTypes", filterTypes);
+                MessagingCenter.Send(this, "filterOrder", filterOrder);
                 await Navigation.PopModalAsync();
             }
         }

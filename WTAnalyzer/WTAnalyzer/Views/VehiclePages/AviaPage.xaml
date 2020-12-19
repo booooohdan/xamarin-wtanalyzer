@@ -9,13 +9,14 @@
     <Grid Padding="0">
         <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto, *"/>
 
+        <!--Filter label-->
         <Grid Grid.Row="0" Grid.Column="0" Padding="5">
             <Grid ColumnDefinitions="*, *, *, *" RowDefinitions="Auto"/>
             
             <Label Grid.Column="0"
                 Text="&lt;"/>
             <Label Grid.Column="1"
-                   Text="{Binding Filter}"/>
+                   Text="{Binding FilterLabel}"/>
             <Label Grid.Column="3"
                    Text=">"/>
 
@@ -26,6 +27,7 @@
             </Grid.GestureRecognizers>
         </Grid>
 
+        <!--Charts-->
         <chart:SfChart Grid.Row="1" 
                        HorizontalOptions="FillAndExpand" 
                        VerticalOptions="FillAndExpand">
@@ -36,7 +38,7 @@
             </chart:SfChart.ChartBehaviors>
             <!--Horizontal axis (X)-->
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis PlotOffset="10" AxisLineOffset="10">
+                <chart:CategoryAxis PlotOffset="10" AxisLineOffset="10" ShowMajorGridLines="false">
                     <chart:CategoryAxis.MajorTickStyle>
                         <chart:ChartAxisTickStyle TickSize="10">
                         </chart:ChartAxisTickStyle>
@@ -45,7 +47,7 @@
             </chart:SfChart.PrimaryAxis>
             <!--Vertical axis (Y)-->
             <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis Maximum="100" Minimum="0" Interval="20">
+                <chart:NumericalAxis Maximum="20"  Minimum="0" Interval="5">
                     <chart:NumericalAxis.AxisLineStyle>
                         <chart:ChartLineStyle StrokeWidth="0">
                         </chart:ChartLineStyle>

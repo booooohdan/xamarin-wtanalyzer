@@ -3,20 +3,23 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
 			 x:Class="WTAnalyzer.Views.ServicePages.FilterPage">
-	<Grid Padding="0">
-		<Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto, *"/>
+        <StackLayout>
+    <ScrollView>
+        <StackLayout Padding="20">
 
-        <buttons:SfChipGroup 
-				ItemsSource="{Binding Employees, Mode=TwoWay}" 
+            <!--Task chips-->
+            <Label  
+               Text="Property" Style="{StaticResource LabelStyle}"/>
+            <buttons:SfChipGroup 
+				ItemsSource="{Binding Tasks, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
-	            ChipBackgroundColor="#eeeeee"
-				Type="Filter"
+				Type="Choice"
+				SelectedItem="{Binding SelectedTask, Mode=TwoWay}"
 			    SelectedChipBackgroundColor="Red"
-				SelectedItems="{Binding SelectedItems, Mode=TwoWay}"
-				SelectionIndicatorColor="White"            
-				DisplayMemberPath="Name">
-            <buttons:SfChipGroup.ChipLayout>
-                <FlexLayout 
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                <buttons:SfChipGroup.ChipLayout>
+                    <FlexLayout 
 						HorizontalOptions="Start" 
 						VerticalOptions="Center" 
 						Direction="Row" 
@@ -24,14 +27,116 @@
 						JustifyContent="Start"
 						AlignContent="Start" 
 						AlignItems="Start">
+                    </FlexLayout>
+                </buttons:SfChipGroup.ChipLayout>
+            </buttons:SfChipGroup>
 
-                </FlexLayout>
-            </buttons:SfChipGroup.ChipLayout>
-        </buttons:SfChipGroup>
+            <!--Nations chips-->
+                <Label
+               Text="Nations" Style="{StaticResource LabelStyle}"/>
+            <buttons:SfChipGroup
+				ItemsSource="{Binding Nations, Mode=TwoWay}" 
+				ChipPadding="8,8,0,0" 
+				Type="Filter"
+				DisplayMemberPath="Name"
+				SelectedItems="{Binding SelectedNations, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red"
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                <buttons:SfChipGroup.ChipLayout>
+                    <FlexLayout 
+						HorizontalOptions="Start" 
+						VerticalOptions="Center" 
+						Direction="Row" 
+						Wrap="Wrap"
+						JustifyContent="Start"
+						AlignContent="Start" 
+						AlignItems="Start">
+                    </FlexLayout>
+                </buttons:SfChipGroup.ChipLayout>
+            </buttons:SfChipGroup>
 
-        <Button Grid.Row="1" 
+            <!--Ranks chips-->
+            <Label 
+               Text="Ranks" Style="{StaticResource LabelStyle}"/>
+
+            <buttons:SfChipGroup
+				ItemsSource="{Binding Ranks, Mode=TwoWay}" 
+				ChipPadding="8,8,0,0" 
+				Type="Filter"
+				DisplayMemberPath="Name"
+				SelectedItems="{Binding SelectedRanks, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red"
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                <buttons:SfChipGroup.ChipLayout>
+                    <FlexLayout 
+						HorizontalOptions="Start" 
+						VerticalOptions="Center" 
+						Direction="Row" 
+						Wrap="Wrap"
+						JustifyContent="Start"
+						AlignContent="Start" 
+						AlignItems="Start">
+                    </FlexLayout>
+                </buttons:SfChipGroup.ChipLayout>
+            </buttons:SfChipGroup>
+
+            <!--Type chips-->
+            <Label 
+               Text="Types" Style="{StaticResource LabelStyle}"/>
+            <buttons:SfChipGroup  
+				ItemsSource="{Binding Types, Mode=TwoWay}" 
+				ChipPadding="8,8,0,0" 
+				Type="Filter"
+				DisplayMemberPath="Name"
+				SelectedItems="{Binding SelectedTypes, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red"
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                <buttons:SfChipGroup.ChipLayout>
+                    <FlexLayout 
+						HorizontalOptions="Start" 
+						VerticalOptions="Center" 
+						Direction="Row" 
+						Wrap="Wrap"
+						JustifyContent="Start"
+						AlignContent="Start" 
+						AlignItems="Start">
+                    </FlexLayout>
+                </buttons:SfChipGroup.ChipLayout>
+            </buttons:SfChipGroup>
+
+            <!--Sort chips-->
+            <Label 
+               Text="Order" Style="{StaticResource LabelStyle}"/>
+            <buttons:SfChipGroup
+				ItemsSource="{Binding Orders, Mode=TwoWay}" 
+				ChipPadding="8,8,0,0" 
+				Type="Choice"
+				SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red"
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                <buttons:SfChipGroup.ChipLayout>
+                    <FlexLayout
+						HorizontalOptions="Start" 
+						VerticalOptions="Center" 
+						Direction="Row" 
+						Wrap="Wrap"
+						JustifyContent="Start"
+						AlignContent="Start" 
+						AlignItems="Start">
+                    </FlexLayout>
+                </buttons:SfChipGroup.ChipLayout>
+            </buttons:SfChipGroup>
+        </StackLayout>
+    </ScrollView>
+
+        <!--Submit button-->
+        <Button 
 				Text="SUBMIT"
-				Command="{Binding SubmitCommand}"/>
-
-	</Grid>
+				Command="{Binding SubmitCommand}"
+            Style="{StaticResource ButtonStyle}"/>
+        </StackLayout>
 </ContentPage>
