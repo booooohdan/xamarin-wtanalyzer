@@ -14,8 +14,8 @@
 				ItemsSource="{Binding Tasks, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
 				Type="Choice"
-				SelectedItem="{Binding SelectedTask, Mode=TwoWay}"
-			    SelectedChipBackgroundColor="Red"
+				SelectedItem ="{Binding SelectedTask, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red" 
 	            ChipBackgroundColor="#eeeeee"
 				SelectionIndicatorColor="White">
                 <buttons:SfChipGroup.ChipLayout>

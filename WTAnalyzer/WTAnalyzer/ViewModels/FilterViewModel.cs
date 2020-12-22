@@ -36,15 +36,15 @@ namespace WTAnalyzer.ViewModels
 
             Nations = new ObservableCollection<ChipsItem>()
             {
-                new ChipsItem() { Name = "USA", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Germany", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "USSR", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Britain", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Japan", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Italy", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "France", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "China", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Sweden", ChipColor = Color.Gray }
+                new ChipsItem() { Name = "USA", CodeName = "USA" },
+                new ChipsItem() { Name = "Germany", CodeName = "Germany" },
+                new ChipsItem() { Name = "USSR", CodeName = "USSR" },
+                new ChipsItem() { Name = "Britain", CodeName = "Britain" },
+                new ChipsItem() { Name = "Japan", CodeName = "Japan" },
+                new ChipsItem() { Name = "Italy", CodeName = "Italy" },
+                new ChipsItem() { Name = "France", CodeName = "France" },
+                new ChipsItem() { Name = "China", CodeName = "China" },
+                new ChipsItem() { Name = "Sweden", CodeName = "Sweden" }
             };
 
             selectedNations = new ObservableCollection<ChipsItem>()
@@ -62,13 +62,13 @@ namespace WTAnalyzer.ViewModels
 
             Ranks = new ObservableCollection<ChipsItem>()
             {
-                new ChipsItem() { Name = "I", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "II", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "III", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "IV", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "V", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "VI", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "VII", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "I", CodeName = "I" },
+                new ChipsItem() { Name = "II", CodeName = "II" },
+                new ChipsItem() { Name = "III", CodeName = "III" },
+                new ChipsItem() { Name = "IV", CodeName = "IV" },
+                new ChipsItem() { Name = "V", CodeName = "V" },
+                new ChipsItem() { Name = "VI", CodeName = "VI" },
+                new ChipsItem() { Name = "VII", CodeName = "VII" },
             };
 
             selectedRanks = new ObservableCollection<ChipsItem>()
@@ -84,9 +84,9 @@ namespace WTAnalyzer.ViewModels
 
             Types = new ObservableCollection<ChipsItem>()
             {
-                new ChipsItem() { Name = "Fighter", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Attacker", ChipColor = Color.Gray },
-                new ChipsItem() { Name = "Bomber", ChipColor = Color.Gray },
+                new ChipsItem() { Name = "Fighter", CodeName = "Fighter" },
+                new ChipsItem() { Name = "Attacker", CodeName = "Attacker" },
+                new ChipsItem() { Name = "Bomber", CodeName = "Bomber" },
             };
 
             selectedTypes = new ObservableCollection<ChipsItem>()
@@ -121,7 +121,7 @@ namespace WTAnalyzer.ViewModels
                  "First fly Year",
             };
 
-            SelectedTask = "Count";
+            SelectedTask = "Repair Cost";
 
             Debug.WriteLine("FilterPageViewModel constructor");
         }
@@ -238,9 +238,9 @@ namespace WTAnalyzer.ViewModels
             Debug.WriteLine("SubmitHandler()");
 
             string filterTask = selectedTask;
-            string filterNations = string.Join("|", selectedNations.Select(x => x.Name.ToString()).ToArray());
-            string filterRank = string.Join("|", selectedRanks.Select(x => x.Name.ToString()).ToArray());
-            string filterTypes = string.Join("|", selectedTypes.Select(x => x.Name.ToString()).ToArray());
+            string filterNations = string.Join("|", selectedNations.Select(x => x.CodeName.ToString()).ToArray());
+            string filterRank = string.Join("|", selectedRanks.Select(x => x.CodeName.ToString()).ToArray());
+            string filterClass = string.Join("|", selectedTypes.Select(x => x.CodeName.ToString()).ToArray());
             string filterOrder = selectedOrder;
             string filterClose = "filterClose";
 
@@ -249,7 +249,7 @@ namespace WTAnalyzer.ViewModels
                 MessagingCenter.Send(this, "filterTask", filterTask);
                 MessagingCenter.Send(this, "filterNations", filterNations);
                 MessagingCenter.Send(this, "filterRank", filterRank);
-                MessagingCenter.Send(this, "filterTypes", filterTypes);
+                MessagingCenter.Send(this, "filterClass", filterClass);
                 MessagingCenter.Send(this, "filterOrder", filterOrder);
                 MessagingCenter.Send(this, "filterClose", filterClose);
                 await Navigation.PopModalAsync();
