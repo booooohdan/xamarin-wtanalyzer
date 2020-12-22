@@ -122,6 +122,8 @@ namespace WTAnalyzer.ViewModels
             };
 
             SelectedTask = "Count";
+
+            Debug.WriteLine("FilterPageViewModel constructor");
         }
 
         #endregion
@@ -233,11 +235,14 @@ namespace WTAnalyzer.ViewModels
 
         private async void SubmitHandler(object obj) //Close filter page
         {
+            Debug.WriteLine("SubmitHandler()");
+
             string filterTask = selectedTask;
             string filterNations = string.Join("|", selectedNations.Select(x => x.Name.ToString()).ToArray());
             string filterRank = string.Join("|", selectedRanks.Select(x => x.Name.ToString()).ToArray());
             string filterTypes = string.Join("|", selectedTypes.Select(x => x.Name.ToString()).ToArray());
             string filterOrder = selectedOrder;
+            string filterClose = "filterClose";
 
             if (Navigation.ModalStack.Count != 0)
             {
@@ -246,6 +251,7 @@ namespace WTAnalyzer.ViewModels
                 MessagingCenter.Send(this, "filterRank", filterRank);
                 MessagingCenter.Send(this, "filterTypes", filterTypes);
                 MessagingCenter.Send(this, "filterOrder", filterOrder);
+                MessagingCenter.Send(this, "filterClose", filterClose);
                 await Navigation.PopModalAsync();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Akavache;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -20,8 +21,12 @@ namespace WTAnalyzer.ViewModels
         public INavigation Navigation { get; set; }
         public ICommand OpenFilterModalPageCommand { get; }
         ArrayOfPlanes arrayOfPlanes;
-        IEnumerable<Plane> resultByNation;
-        string filterLabel;
+        string filterTask;
+        string filterNations;
+        string filterRank;
+        string filterTypes;
+        string filterOrder;
+        string filterClose;
 
         private ObservableCollection<DataPoint> lineUsa { get; set; }
         private ObservableCollection<DataPoint> lineGermany { get; set; }
@@ -49,31 +54,23 @@ namespace WTAnalyzer.ViewModels
 
             #endregion
 
-            #region Message ceter subscribe
-
-            MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterNations", (sender, arg) =>
-            {
-                GetPlaneWithFilter(arg);
-                FilterLabel = arg;
-            });
-
-            #endregion
+            Debug.WriteLine("AviaViewModel constructor");
         }
 
         #endregion
 
         #region Public propertys
 
-        public string FilterLabel
+        private string FilterClose
         {
-            get => filterLabel;
+            get => filterClose;
             set
             {
-                filterLabel = value;
+                filterClose = value;
                 OnPropertyChanged();
+                GetDataFromFilterPage();
             }
         }
-
         public ObservableCollection<DataPoint> LineUsa
         {
             get => lineUsa;
@@ -83,7 +80,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<DataPoint> LineGermany
         {
             get => lineGermany;
@@ -94,29 +90,91 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-        public ObservableCollection<DataPoint> LineUssr { get; set; }
-        public ObservableCollection<DataPoint> LineBritain { get; set; }
-        public ObservableCollection<DataPoint> LineJapan { get; set; }
-        public ObservableCollection<DataPoint> LineItaly { get; set; }
-        public ObservableCollection<DataPoint> LineFrance { get; set; }
-        public ObservableCollection<DataPoint> LineChina { get; set; }
-        public ObservableCollection<DataPoint> LineSweden { get; set; }
+        public ObservableCollection<DataPoint> LineUssr
+        {
+            get => lineUssr;
+            set
+            {
+                lineUssr = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineBritain
+        {
+            get => lineBritain;
+            set
+            {
+                lineBritain = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineJapan
+        {
+            get => lineJapan;
+            set
+            {
+                lineJapan = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineItaly
+        {
+            get => lineItaly;
+            set
+            {
+                lineItaly = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineFrance
+        {
+            get => lineFrance;
+            set
+            {
+                lineFrance = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineChina
+        {
+            get => lineChina;
+            set
+            {
+                lineChina = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<DataPoint> LineSweden
+        {
+            get => lineSweden;
+            set
+            {
+                lineSweden = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 
         public async Task FillListFromCacheAsync() //Loading data from cache
         {
+            Debug.WriteLine("FillListFromCacheAsync()");
+
             arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
         }
 
         public void GetPlaneWithFilter(string filter)
         {
+            Debug.WriteLine("GetPlaneWithFilter()");
+
             LineUsa = filter.Contains("USA") ? GetLineDataPoint("USA", "count") : null;
             LineGermany = filter.Contains("Germany") ? GetLineDataPoint("Germany", "count") : null;
         }
 
         public ObservableCollection<DataPoint> GetLineDataPoint(string nation, string task)
         {
+            Debug.WriteLine("GetLineDataPoint()");
+
             var planesAll = arrayOfPlanes.PlanesListApi.Where(x => x.Nation == nation).ToList();
             var datas = new ObservableCollection<DataPoint>();
 
@@ -144,10 +202,48 @@ namespace WTAnalyzer.ViewModels
 
         private async void OpenFilterModalPageHandler(object obj) //Open filter page
         {
+            Debug.WriteLine("OpenFilterModalPageHandler");
+
             if (Navigation.ModalStack.Count == 0)
             {
+
+                #region Message center subscribe
+
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTask",
+                     (sender, arg) => { filterTask = arg; });
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterNations",
+                     (sender, arg) => { filterNations = arg; });
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterRank",
+                     (sender, arg) => { filterRank = arg; });
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTypes",
+                     (sender, arg) => { filterTypes = arg; });
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterOrder",
+                     (sender, arg) => { filterOrder = arg; });
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
+                     (sender, arg) => { FilterClose = arg; });
+                #endregion
+
                 await Navigation.PushModalAsync(new FilterPage());
             }
+        }
+
+        private void GetDataFromFilterPage()
+        {
+            Debug.WriteLine("GetDataFromFilterPage()");
+
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterTask");
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterNations");
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterRank");
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterTypes");
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterOrder");
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
+
+            Debug.WriteLine(filterTask);
+            Debug.WriteLine(filterNations);
+            Debug.WriteLine(filterRank);
+            Debug.WriteLine(filterTypes);
+            Debug.WriteLine(filterOrder);
+            Debug.WriteLine(filterClose);
         }
     }
 }
