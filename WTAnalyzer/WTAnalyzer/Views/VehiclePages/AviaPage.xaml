@@ -59,7 +59,7 @@
             </chart:SfChart.SecondaryAxis>
             <!--Legend-->
             <chart:SfChart.Legend >
-                <chart:ChartLegend DockPosition="Bottom" ToggleSeriesVisibility="True" IconWidth="14" IconHeight="14">
+                <chart:ChartLegend DockPosition="Top" ToggleSeriesVisibility="True" IconWidth="14" IconHeight="14">
                 </chart:ChartLegend>
             </chart:SfChart.Legend>
             <!--Lines-->

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
@@ -31,6 +30,8 @@ namespace WTAnalyzer.ViewModels
 
         public FilterViewModel(INavigation navigation)
         {
+            Debug.WriteLine("FilterPageViewModel constructor");
+
             Navigation = navigation;
             SubmitCommand = new Command(SubmitHandler);
 
@@ -122,8 +123,6 @@ namespace WTAnalyzer.ViewModels
             };
 
             SelectedTask = "Repair Cost";
-
-            Debug.WriteLine("FilterPageViewModel constructor");
         }
 
         #endregion

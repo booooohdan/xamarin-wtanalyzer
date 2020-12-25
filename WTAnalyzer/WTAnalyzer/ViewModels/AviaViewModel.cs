@@ -219,7 +219,7 @@ namespace WTAnalyzer.ViewModels
             LineSweden = filterNations.Contains("Sweden") ? GetLineDataPoint("Sweden", filterTask) : null;
 
         }
-               
+
         private async void OpenFilterModalPageHandler(object obj) //Open filter page
         {
             Debug.WriteLine("OpenFilterModalPageHandler");

@@ -38,7 +38,7 @@ namespace WTAnalyzer.ViewModels
             }
             await CheckIfDBCached();
         }
-        
+
         //TODO: move to separate file
         #region refactor
         private async Task CheckIfDBCached()

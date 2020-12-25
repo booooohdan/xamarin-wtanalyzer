@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
-
-namespace WTAnalyzer.Models
+﻿namespace WTAnalyzer.Models
 {
     public class ChipsItem
     {

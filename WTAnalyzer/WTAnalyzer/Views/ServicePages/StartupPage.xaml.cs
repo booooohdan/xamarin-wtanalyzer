@@ -17,6 +17,6 @@ namespace WTAnalyzer.Views.ServicePages
         {
             base.OnDisappearing();
             Navigation.RemovePage(this);
-        }       
+        }
     }
 }
