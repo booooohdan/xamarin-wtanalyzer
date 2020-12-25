@@ -6,11 +6,10 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" 
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False">
-    <Grid Padding="0">
-        <Grid ColumnDefinitions="*" RowDefinitions="Auto, Auto, *"/>
+    <StackLayout Padding="0">
 
         <!--Filter label-->
-        <Grid Grid.Row="0" Grid.Column="0" Padding="5">
+        <Grid Padding="5">
             <Grid ColumnDefinitions="*, *, *, *" RowDefinitions="Auto"/>
             
             <Label Grid.Column="0"
@@ -28,9 +27,10 @@
         </Grid>
 
         <!--Charts-->
-        <chart:SfChart Grid.Row="1" 
-                       HorizontalOptions="FillAndExpand" 
-                       VerticalOptions="FillAndExpand">
+        <chart:SfChart
+            HeightRequest="25"
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand">
 
             <!--Trackball-->
             <chart:SfChart.ChartBehaviors>
@@ -131,5 +131,25 @@
             </chart:SfChart.Series>
         </chart:SfChart>
 
-    </Grid>
+        <!--ListView-->
+        <ListView 
+            HeightRequest="25"
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding ListViewPlaneProp}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="8">
+                                <Label Text="{Binding Flag}"
+                               FontAttributes="Bold" />
+                                <Label Text="{Binding Name}"
+                               FontAttributes="None" />
+                                <Label Text="{Binding Value}"
+                               FontAttributes="Bold" />
+                            </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

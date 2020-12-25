@@ -27,7 +27,7 @@ namespace WTAnalyzer.ViewModels
         string[] filterClass;
         string filterOrder;
         string filterClose;
-
+        private ObservableCollection<ListViewItem> listViewPlaneProp { get; set; }
         private ObservableCollection<DataPoint> lineUSA { get; set; }
         private ObservableCollection<DataPoint> lineGermany { get; set; }
         private ObservableCollection<DataPoint> lineUSSR { get; set; }
@@ -44,17 +44,10 @@ namespace WTAnalyzer.ViewModels
 
         public AviaViewModel(INavigation navigation)
         {
+            Debug.WriteLine("AviaViewModel constructor");
             Navigation = navigation;
             OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
             Task.Run(FillListFromCacheAsync).Wait(); //Load data from cache
-
-            #region Default data from constructor
-
-            //TODO: Implement default data
-
-            #endregion
-
-            Debug.WriteLine("AviaViewModel constructor");
         }
 
         #endregion
@@ -71,6 +64,17 @@ namespace WTAnalyzer.ViewModels
                 GetDataFromFilterPage();
             }
         }
+
+        public ObservableCollection<ListViewItem> ListViewPlaneProp
+        {
+            get => listViewPlaneProp;
+            set
+            {
+                listViewPlaneProp = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<DataPoint> LineUSA
         {
             get => lineUSA;
@@ -162,62 +166,93 @@ namespace WTAnalyzer.ViewModels
 
             arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
         }
-
-        public ObservableCollection<DataPoint> GetLineDataPoint(string nation, string task)
+     
+        public void SetDataToListViewProperties()
         {
-            Debug.WriteLine("GetLineDataPoint()");
+            Debug.WriteLine("SetDataToListViewProperties()");
 
-            var planeList = GetFilteredList(filterNations, filterRank, filterClass);
-            var datas = new ObservableCollection<DataPoint>();
+            var sortedDataForListView = new ObservableCollection<ListViewItem>();
+            var filteredPlaneList = GetFilteredList(filterNations, filterRank, filterClass);
+            var dataForListView = new ObservableCollection<ListViewItem>();
 
-            foreach (double number in BRArray.PlanesBR())
+            foreach (var item in filteredPlaneList)
             {
-                double? planesCount = null;
-                if (task == "Count") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Count(); }
-                if (task == "Repair Cost") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.RepairCost); }
-                if (task == "Max Speed") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt0); }
-                if (task == "Max Speed at 5000 m") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt5000); }
-                if (task == "Climb") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Climb); }
-                if (task == "Turn Time") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.TurnAt0); }
-                if (task == "Engine Power") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.EnginePower); }
-                if (task == "Weight") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Weight); }
-                if (task == "Flutter") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Flutter); }
-                if (task == "Optimal Alitude") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.OptimalAlitude); }
-                if (task == "Bomb Load") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.BombLoad); }
-                if (task == "Burst Mass") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.BurstMass); }
-                if (task == "First fly Year") { planesCount = planeList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.FirstFlyYear); }
-
-                datas.Add(new DataPoint(number, planesCount));
+                //if (filterTask == "Count") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.RepairCost)); }
+                if (filterTask == "Repair Cost") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.RepairCost)); }
+                if (filterTask == "Max Speed") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.MaxSpeedAt0)); }
+                if (filterTask == "Max Speed at 5000 m") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.MaxSpeedAt5000)); }
+                if (filterTask == "Climb") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.Climb)); }
+                if (filterTask == "Turn Time") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.TurnAt0)); }
+                if (filterTask == "Engine Power") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.EnginePower)); }
+                if (filterTask == "Weight") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.Weight)); }
+                if (filterTask == "Flutter") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.Flutter)); }
+                if (filterTask == "Optimal Alitude") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.OptimalAlitude)); }
+                if (filterTask == "Bomb Load") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.BombLoad)); }
+                if (filterTask == "Burst Mass") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.BurstMass)); }
+                if (filterTask == "First fly Year") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.FirstFlyYear)); }
             }
-            return datas;
+
+            sortedDataForListView = filterOrder == "Ascending"
+                ? dataForListView.OrderBy(x => x.Value).ToObservableCollection()
+                : dataForListView.OrderByDescending(x => x.Value).ToObservableCollection();
+           
+            ListViewPlaneProp = sortedDataForListView;
+        }
+
+        public void SetDataToChartsProperties()
+        {
+            Debug.WriteLine("SetCollectionOfVehicleToDataPoint()");
+
+            LineUSA = !filterNations.Contains("USA") ? null : GetFilteredDataForCharts("USA", filterTask);
+            LineGermany = !filterNations.Contains("Germany") ? null : GetFilteredDataForCharts("Germany", filterTask);
+            LineUSSR = !filterNations.Contains("USSR") ? null : GetFilteredDataForCharts("USSR", filterTask);
+            LineBritain = !filterNations.Contains("Britain") ? null : GetFilteredDataForCharts("Britain", filterTask);
+            LineJapan = !filterNations.Contains("Japan") ? null : GetFilteredDataForCharts("Japan", filterTask);
+            LineItaly = !filterNations.Contains("Italy") ? null : GetFilteredDataForCharts("Italy", filterTask);
+            LineFrance = !filterNations.Contains("France") ? null : GetFilteredDataForCharts("France", filterTask);
+            LineChina = !filterNations.Contains("China") ? null : GetFilteredDataForCharts("China", filterTask);
+            LineSweden = !filterNations.Contains("Sweden") ? null : GetFilteredDataForCharts("Sweden", filterTask);
+
         }
 
         public List<Plane> GetFilteredList(string[] filterNations, string[] filterRank, string[] filterClass)
         {
             Debug.WriteLine("GetFilteredList()");
 
-            var planesAll = arrayOfPlanes.PlanesListApi.ToList();
-            var planesByNation = planesAll.Where(x => filterNations.Contains(x.Nation)).ToList();
-            var planesByRank = planesByNation.Where(x => filterRank.Contains(x.Rank)).ToList();
-            var planesByType = planesByRank.Where(x => filterClass.Contains(x.Class)).ToList();
+            return arrayOfPlanes.PlanesListApi.ToList()
+                .Where(x => filterNations.Contains(x.Nation)).ToList()
+                .Where(x => filterRank.Contains(x.Rank)).ToList()
+                .Where(x => filterClass.Contains(x.Class)).ToList();
 
-            return planesByType;
         }
 
-        public void SetCollectionOfVehicleToDataPoint()
+        public ObservableCollection<DataPoint> GetFilteredDataForCharts(string nation, string task)
         {
-            Debug.WriteLine("SetCollectionOfVehicleToDataPoint()");
+            Debug.WriteLine("GetLineDataPoint()");
 
-            LineUSA = filterNations.Contains("USA") ? GetLineDataPoint("USA", filterTask) : null;
-            LineGermany = filterNations.Contains("Germany") ? GetLineDataPoint("Germany", filterTask) : null;
-            LineUSSR = filterNations.Contains("USSR") ? GetLineDataPoint("USSR", filterTask) : null;
-            LineBritain = filterNations.Contains("Britain") ? GetLineDataPoint("Britain", filterTask) : null;
-            LineJapan = filterNations.Contains("Japan") ? GetLineDataPoint("Japan", filterTask) : null;
-            LineItaly = filterNations.Contains("Italy") ? GetLineDataPoint("Italy", filterTask) : null;
-            LineFrance = filterNations.Contains("France") ? GetLineDataPoint("France", filterTask) : null;
-            LineChina = filterNations.Contains("China") ? GetLineDataPoint("China", filterTask) : null;
-            LineSweden = filterNations.Contains("Sweden") ? GetLineDataPoint("Sweden", filterTask) : null;
+            var filteredPlaneList = GetFilteredList(filterNations, filterRank, filterClass);
+            var dataForCharts = new ObservableCollection<DataPoint>();
 
+            foreach (double number in BRArray.PlanesBR())
+            {
+                double? planesCount = null;
+                if (task == "Count") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Count(); }
+                if (task == "Repair Cost") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.RepairCost); }
+                if (task == "Max Speed") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt0); }
+                if (task == "Max Speed at 5000 m") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt5000); }
+                if (task == "Climb") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Climb); }
+                if (task == "Turn Time") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.TurnAt0); }
+                if (task == "Engine Power") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.EnginePower); }
+                if (task == "Weight") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Weight); }
+                if (task == "Flutter") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.Flutter); }
+                if (task == "Optimal Alitude") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.OptimalAlitude); }
+                if (task == "Bomb Load") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.BombLoad); }
+                if (task == "Burst Mass") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.BurstMass); }
+                if (task == "First fly Year") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.FirstFlyYear); }
+
+                dataForCharts.Add(new DataPoint(number, planesCount));
+            }
+            return dataForCharts;
         }
 
         private async void OpenFilterModalPageHandler(object obj) //Open filter page
@@ -226,9 +261,6 @@ namespace WTAnalyzer.ViewModels
 
             if (Navigation.ModalStack.Count == 0)
             {
-
-                #region Message center subscribe
-
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTask",
                      (sender, arg) => { filterTask = arg; });
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterNations",
@@ -241,7 +273,6 @@ namespace WTAnalyzer.ViewModels
                      (sender, arg) => { filterOrder = arg; });
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
                      (sender, arg) => { FilterClose = arg; });
-                #endregion
 
                 await Navigation.PushModalAsync(new FilterPage());
             }
@@ -258,7 +289,8 @@ namespace WTAnalyzer.ViewModels
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterOrder");
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
 
-            SetCollectionOfVehicleToDataPoint();
+            SetDataToChartsProperties();
+            SetDataToListViewProperties();
 
             Debug.WriteLine(filterTask);
             Debug.WriteLine(filterNations);

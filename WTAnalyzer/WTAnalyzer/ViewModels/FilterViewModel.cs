@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
+using WTAnalyzer.Helpers;
 using WTAnalyzer.Models;
 using Xamarin.Forms;
 
@@ -35,19 +36,27 @@ namespace WTAnalyzer.ViewModels
             Navigation = navigation;
             SubmitCommand = new Command(SubmitHandler);
 
-            Nations = new ObservableCollection<ChipsItem>()
+            Tasks = TasksArray.PlaneTasks();
+            Nations = NationsArray.PlaneNations();
+            Ranks = RanksArray.PlaneRanks();
+            Types = TypesArray.PlaneTypes();
+            Orders = new ObservableCollection<string>()
             {
-                new ChipsItem() { Name = "USA", CodeName = "USA" },
-                new ChipsItem() { Name = "Germany", CodeName = "Germany" },
-                new ChipsItem() { Name = "USSR", CodeName = "USSR" },
-                new ChipsItem() { Name = "Britain", CodeName = "Britain" },
-                new ChipsItem() { Name = "Japan", CodeName = "Japan" },
-                new ChipsItem() { Name = "Italy", CodeName = "Italy" },
-                new ChipsItem() { Name = "France", CodeName = "France" },
-                new ChipsItem() { Name = "China", CodeName = "China" },
-                new ChipsItem() { Name = "Sweden", CodeName = "Sweden" }
+                 "Ascending",
+                 "Descending",
             };
 
+            SelectedTask = "Repair Cost";
+            selectedRanks = new ObservableCollection<ChipsItem>()
+            {
+                Ranks[0],
+                Ranks[1],
+                Ranks[2],
+                Ranks[3],
+                Ranks[4],
+                Ranks[5],
+                Ranks[6],
+            };
             selectedNations = new ObservableCollection<ChipsItem>()
             {
                 Nations[0],
@@ -60,69 +69,13 @@ namespace WTAnalyzer.ViewModels
                 Nations[7],
                 Nations[8],
             };
-
-            Ranks = new ObservableCollection<ChipsItem>()
-            {
-                new ChipsItem() { Name = "I", CodeName = "I" },
-                new ChipsItem() { Name = "II", CodeName = "II" },
-                new ChipsItem() { Name = "III", CodeName = "III" },
-                new ChipsItem() { Name = "IV", CodeName = "IV" },
-                new ChipsItem() { Name = "V", CodeName = "V" },
-                new ChipsItem() { Name = "VI", CodeName = "VI" },
-                new ChipsItem() { Name = "VII", CodeName = "VII" },
-            };
-
-            selectedRanks = new ObservableCollection<ChipsItem>()
-            {
-                Ranks[0],
-                Ranks[1],
-                Ranks[2],
-                Ranks[3],
-                Ranks[4],
-                Ranks[5],
-                Ranks[6],
-            };
-
-            Types = new ObservableCollection<ChipsItem>()
-            {
-                new ChipsItem() { Name = "Fighter", CodeName = "Fighter" },
-                new ChipsItem() { Name = "Attacker", CodeName = "Attacker" },
-                new ChipsItem() { Name = "Bomber", CodeName = "Bomber" },
-            };
-
             selectedTypes = new ObservableCollection<ChipsItem>()
             {
                 Types[0],
                 Types[1],
                 Types[2],
             };
-
-            Orders = new ObservableCollection<string>()
-            {
-                 "Ascending",
-                 "Descending",
-            };
-
-            SelectedOrder = "Ascending";
-
-            Tasks = new ObservableCollection<string>()
-            {
-                 "Count",
-                 "Repair Cost",
-                 "Max Speed",
-                 "Max Speed at 5000 m",
-                 "Climb",
-                 "Turn Time",
-                 "Engine Power",
-                 "Weight",
-                 "Flutter",
-                 "Optimal Alitude",
-                 "Bomb Load",
-                 "Burst Mass",
-                 "First fly Year",
-            };
-
-            SelectedTask = "Repair Cost";
+            SelectedOrder = "Descending";
         }
 
         #endregion
