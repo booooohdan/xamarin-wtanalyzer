@@ -8,14 +8,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#1f2428</Color>
-            <Color x:Key="MyWhite">#f6f6f6</Color>
+            <Color x:Key="MyWhite">#f1f1f1</Color>
             <Color x:Key="MyLight">#E0E0E0</Color>
             <Color x:Key="MyDark">#4d5962</Color>
             <Color x:Key="MyDarkest">#353c43</Color>
 
             <Style x:Key="MainBackground" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" 
-                        Value="{AppThemeBinding Dark={StaticResource MyDarkest}, Light={StaticResource MyLight}}"/>
+                        Value="{AppThemeBinding Dark={StaticResource MyDarkest}, Light={StaticResource MyWhite}}"/>
             </Style>
 
             <Style x:Key="ButtonStyle" TargetType="Button">

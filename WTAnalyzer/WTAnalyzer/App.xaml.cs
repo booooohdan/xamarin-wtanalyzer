@@ -9,7 +9,7 @@ namespace WTAnalyzer
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider
-                .RegisterLicense("MzY0MzEwQDMxMzgyZTMzMmUzMFVzSFExZ0F2ekZDKzU0N0EwUHhlTmVhUkFEVHBad2ZaVFZqVHlzY1VrYlU9");
+                .RegisterLicense("MzczNjk4QDMxMzgyZTM0MmUzMGVyLzFjZ3RvTjlsSkN0bGtIdThqdnU1TnZwZjJSM0FZSGw5dmd3bUVtbWM9");
             InitializeComponent();
             MainPage = new NavigationPage(new StartupPage());
         }

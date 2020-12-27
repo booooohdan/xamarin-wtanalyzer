@@ -204,6 +204,8 @@ namespace WTAnalyzer.ViewModels
                 MessagingCenter.Send(this, "filterClass", filterClass);
                 MessagingCenter.Send(this, "filterOrder", filterOrder);
                 MessagingCenter.Send(this, "filterClose", filterClose);
+
+
                 await Navigation.PopModalAsync();
             }
         }
