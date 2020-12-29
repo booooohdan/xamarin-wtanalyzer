@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="akavache" Version="7.1.1" />
-    <PackageReference Include="MarcTron.Admob" Version="1.6.0" />
     <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.31" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.31" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.4.0.31" />  

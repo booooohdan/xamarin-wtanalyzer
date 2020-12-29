@@ -1,6 +1,4 @@
 ﻿using Foundation;
-using GameKit;
-using Google.MobileAds;
 using Syncfusion.XForms.iOS.Buttons;
 using Syncfusion.SfChart.XForms.iOS.Renderers;
 using UIKit;
@@ -26,8 +24,6 @@ namespace WTAnalyzer.iOS
             global::Xamarin.Forms.Forms.Init();
             SfChartRenderer.Init();
             SfButtonRenderer.Init();
-            MobileAds.SharedInstance.Start(CompletionHandler);
-            void CompletionHandler(InitializationStatus status) { }
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

@@ -13,18 +13,33 @@
                         <viewControllerLayoutGuide type="bottom" id="9ZL-r4-8FZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.133658163128598" green="0.128480981974818" blue="0.162888600804645" alpha="1"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="Icon-60.png" translatesAutoresizingMaskIntoConstraints="NO" id="23">
-                                <rect key="frame" x="270" y="270" width="60" height="60"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="963" translatesAutoresizingMaskIntoConstraints="NO" image="SplashScreen.png">
+                                <rect key="frame" x="104.5" y="306.5" width="166" height="99"/>
+                                <constraints>
+                                    <constraint id="1127" firstAttribute="width" constant="166"/>
+                                    <constraint id="1128" firstAttribute="height" constant="99"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SKILL METER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="964" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="104.5" y="448.5" width="166" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="1149" firstAttribute="height" constant="52"/>
+                                    <constraint id="1150" firstAttribute="width" constant="166"/>
+                                </constraints>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
-                            <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
+                            <constraint id="1059" firstAttribute="centerX" secondItem="964" secondAttribute="centerX"/>
+                            <constraint id="1139" firstItem="963" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX"/>
+                            <constraint id="1140" firstAttribute="centerY" secondItem="963" secondAttribute="centerY" constant="50"/>
+                            <constraint id="1151" firstItem="964" firstAttribute="top" secondItem="963" secondAttribute="bottom" constant="43"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,6 +49,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60.png" width="180" height="180"/>
+        <image name="SplashScreen.png" width="1603" height="1039"/>
     </resources>
 </document>

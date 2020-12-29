@@ -189,18 +189,18 @@ namespace WTAnalyzer.ViewModels
             foreach (var item in filteredPlaneList)
             {
                 //if (filterTask == "Count") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.RepairCost)); }
-                if (filterTask == "Repair Cost") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, item.BR)); }
-                if (filterTask == "Max Speed") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, item.BR)); }
-                if (filterTask == "Max Speed at 5000 m") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, item.BR)); }
-                if (filterTask == "Climb") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, item.BR)); }
-                if (filterTask == "Turn Time") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, item.BR)); }
-                if (filterTask == "Engine Power") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, item.BR)); }
-                if (filterTask == "Weight") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, item.BR)); }
-                if (filterTask == "Flutter") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, item.BR)); }
-                if (filterTask == "Optimal Alitude") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, item.BR)); }
-                if (filterTask == "Bomb Load") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, item.BR)); }
-                if (filterTask == "Burst Mass") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, item.BR)); }
-                if (filterTask == "First fly Year") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, item.BR)); }
+                if (filterTask == "Repair Cost") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, "s.l", item.BR)); }
+                if (filterTask == "Max Speed") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, "km/h", item.BR)); }
+                if (filterTask == "Max Speed at 5000 m") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, "km/h", item.BR)); }
+                if (filterTask == "Climb") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, "s", item.BR)); }
+                if (filterTask == "Turn Time") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, "s", item.BR)); }
+                if (filterTask == "Engine Power") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, "", item.BR)); }
+                if (filterTask == "Weight") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, "kg", item.BR)); }
+                if (filterTask == "Flutter") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, "km/h", item.BR)); }
+                if (filterTask == "Optimal Alitude") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, "m", item.BR)); }
+                if (filterTask == "Bomb Load") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, "kg", item.BR)); }
+                if (filterTask == "Burst Mass") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, "kg/s", item.BR)); }
+                if (filterTask == "First fly Year") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, "y", item.BR)); }
             }
 
             sortedDataForListView = filterOrder == "Ascending"

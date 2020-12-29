@@ -6,13 +6,14 @@ namespace WTAnalyzer.Models
 {
     public class ListViewItem
     {
-        public ListViewItem(string flag, string role, string vtype, string name, object value, object br)
+        public ListViewItem(string flag, string role, string vtype, string name, object value, string valueDescription, object br)
         {
             Flag = flag;
             Role = role;
             Vtype = vtype;
             Name = name;
             Value = value;
+            ValueDescription = valueDescription;
             Br = br;
         }
 
@@ -21,6 +22,7 @@ namespace WTAnalyzer.Models
         public string Vtype { get; set; }
         public string Name { get; set; }
         public object Value { get; set; }
+        public string ValueDescription { get; set; }
         public object Br { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace WTAnalyzer.Helpers
         public static ObservableCollection<string> PlaneTasks() =>
             new ObservableCollection<string>()
             {
-                 "Count",
                  "Repair Cost",
                  "Max Speed",
                  "Max Speed at 5000 m",
