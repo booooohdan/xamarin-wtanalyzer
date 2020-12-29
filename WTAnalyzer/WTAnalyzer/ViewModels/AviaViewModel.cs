@@ -21,6 +21,7 @@ namespace WTAnalyzer.ViewModels
         public INavigation Navigation { get; set; }
         public ICommand OpenFilterModalPageCommand { get; }
         ArrayOfPlanes arrayOfPlanes;
+        string filterLabelDesc;
         string filterTask;
         string[] filterNations;
         string[] filterRank;
@@ -61,6 +62,16 @@ namespace WTAnalyzer.ViewModels
             set
             {
                 filterTask = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FilterLabelDesc
+        {
+            get => filterLabelDesc;
+            set
+            {
+                filterLabelDesc = value;
                 OnPropertyChanged();
             }
         }
@@ -177,7 +188,14 @@ namespace WTAnalyzer.ViewModels
 
             arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
         }
-     
+
+        private void SetDataToFilterLabel()
+        {
+            Debug.WriteLine("SetDataToFilterLabel()");
+
+            string nations = filterNations.Count() == 9 ? "All" : "Custom";
+        }
+
         public void SetDataToListViewProperties()
         {
             Debug.WriteLine("SetDataToListViewProperties()");
@@ -302,6 +320,7 @@ namespace WTAnalyzer.ViewModels
 
             SetDataToChartsProperties();
             SetDataToListViewProperties();
+            SetDataToFilterLabel();
 
             Debug.WriteLine(filterTask);
             Debug.WriteLine(filterNations);

@@ -136,7 +136,7 @@
     </ScrollView>
 
         <!--Submit button-->
-        <Button 
+        <Button Margin="20,0,20,20"
 				Text="SUBMIT"
 				Command="{Binding SubmitCommand}"
             Style="{StaticResource ButtonStyle}"/>

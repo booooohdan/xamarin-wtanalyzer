@@ -153,7 +153,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame CornerRadius="10" HasShadow="False" Padding="0" Margin="2" BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
+                        <Frame CornerRadius="10"
+                               HasShadow="False"
+                               Padding="0"
+                               Margin="2"
+                               BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
                             <StackLayout Orientation="Horizontal">
                                 <Image Aspect="AspectFit"
                                        Margin="12, 12, 0, 12"
@@ -170,14 +174,14 @@
                                        Text="{Binding Br, StringFormat='[{0:0.0}]'}" 
                                        FontSize="15"
                                        FontAttributes="None" />
-                                <Label HorizontalOptions="StartAndExpand"
+                                <Label HorizontalOptions="StartAndExpand"   
                                        VerticalOptions="Center"
                                        Text="{Binding Name}" 
-                                       FontFamily="SymbolFont" 
+                                       FontFamily="SymbolFont"
                                        FontSize="15" />
                                 <Label VerticalOptions="Center"
                                        HorizontalOptions="End"
-                                       Text="{Binding Value}" 
+                                       Text="{Binding Value, StringFormat='{0:#,000}'}" 
                                        FontSize="15"
                                        FontAttributes="Bold" />
                                 <Label VerticalOptions="Center"
