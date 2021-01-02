@@ -1,6 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using Akavache;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WTAnalyzer.Helpers;
 using WTAnalyzer.Models;
@@ -46,7 +51,8 @@ namespace WTAnalyzer.ViewModels
                  "Descending",
             };
 
-            SelectedTask = "Repair Cost";
+            Task.Run(CheckIfSelectedItemsExistInCache).Wait();
+
             selectedRanks = new ObservableCollection<ChipsItem>()
             {
                 Ranks[0],
@@ -76,6 +82,21 @@ namespace WTAnalyzer.ViewModels
                 Types[2],
             };
             SelectedOrder = "Descending";
+        }
+
+        private async Task CheckIfSelectedItemsExistInCache()
+        {
+            try
+            {
+                //SelectedTask = "Repair Cost"; <-- This is working
+
+                SelectedTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask"); //<-- This is not working
+            }
+            catch (KeyNotFoundException)
+            {
+                SelectedTask = "Repair Cost";
+                await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
+            }
         }
 
         #endregion
@@ -189,7 +210,6 @@ namespace WTAnalyzer.ViewModels
         {
             Debug.WriteLine("SubmitHandler()");
 
-            string filterTask = selectedTask;
             string filterNations = string.Join("|", selectedNations.Select(x => x.CodeName.ToString()).ToArray());
             string filterRank = string.Join("|", selectedRanks.Select(x => x.CodeName.ToString()).ToArray());
             string filterClass = string.Join("|", selectedTypes.Select(x => x.CodeName.ToString()).ToArray());
@@ -198,7 +218,10 @@ namespace WTAnalyzer.ViewModels
 
             if (Navigation.ModalStack.Count != 0)
             {
-                MessagingCenter.Send(this, "filterTask", filterTask);
+                await InsertFilterDataToCache();
+
+
+                // MessagingCenter.Send(this, "filterTask", filterTask);
                 MessagingCenter.Send(this, "filterNations", filterNations);
                 MessagingCenter.Send(this, "filterRank", filterRank);
                 MessagingCenter.Send(this, "filterClass", filterClass);
@@ -208,6 +231,11 @@ namespace WTAnalyzer.ViewModels
 
                 await Navigation.PopModalAsync();
             }
+        }
+
+        private async Task InsertFilterDataToCache()
+        {
+            await BlobCache.UserAccount.InsertObject("cachedSelectedTask", selectedTask, TimeSpan.FromDays(7));
         }
     }
 }

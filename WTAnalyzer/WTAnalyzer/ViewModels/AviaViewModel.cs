@@ -83,7 +83,7 @@ namespace WTAnalyzer.ViewModels
             {
                 filterClose = value;
                 OnPropertyChanged();
-                GetDataFromFilterPage();
+                GetDataFromFilterPageAsync();
             }
         }
 
@@ -290,8 +290,7 @@ namespace WTAnalyzer.ViewModels
 
             if (Navigation.ModalStack.Count == 0)
             {
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTask",
-                     (sender, arg) => { FilterTask = arg; });
+                //MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTask",(sender, arg) => { FilterTask = arg; });
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterNations",
                      (sender, arg) => { filterNations = arg.Split('|'); });
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterRank",
@@ -307,11 +306,12 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-        private void GetDataFromFilterPage()
+        private async Task GetDataFromFilterPageAsync()
         {
             Debug.WriteLine("GetDataFromFilterPage()");
 
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterTask");
+            FilterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+            //MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterTask");
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterNations");
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterRank");
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClass");

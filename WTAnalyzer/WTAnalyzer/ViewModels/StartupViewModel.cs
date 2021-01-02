@@ -45,12 +45,11 @@ namespace WTAnalyzer.ViewModels
         {
             try
             {
-                Registrations.Start("WTIAkavacheCache");
-                var arrayOfPlanesCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
+                Registrations.Start("WTAAkavacheCache");
+                var arrayOfPlansCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
                 var arrayOfTanksCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfTanks");
                 var arrayOfHelisCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfHelis");
                 var arrayOfShipsCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfShips");
-                await Navigation.PushAsync(new TabMenuPage());
             }
             catch (KeyNotFoundException)
             {
@@ -58,6 +57,9 @@ namespace WTAnalyzer.ViewModels
                 await GetTanksListFromApiAsync();
                 await GetHelisListFromApiAsync();
                 await GetShipsListFromApiAsync();
+            }
+            finally
+            {
                 await Navigation.PushAsync(new TabMenuPage());
             }
         }
