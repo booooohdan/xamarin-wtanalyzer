@@ -7,8 +7,9 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using WTAnalyzer.Helpers;
+using WTAnalyzer.DataCollections;
 using WTAnalyzer.Models;
+using WTAnalyzer.ViewModels.BaseViewModels;
 using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels
@@ -41,10 +42,10 @@ namespace WTAnalyzer.ViewModels
             Navigation = navigation;
             SubmitCommand = new Command(SubmitHandler);
 
-            Tasks = TasksArray.PlaneTasks();
-            Nations = NationsArray.PlaneNations();
-            Ranks = RanksArray.PlaneRanks();
-            Types = TypesArray.PlaneTypes();
+            Tasks = TasksCollection.PlaneTasks();
+            Nations = NationsCollection.PlaneNations();
+            Ranks = RanksCollection.PlaneRanks();
+            Types = TypesCollection.PlaneTypes();
             Orders = new ObservableCollection<string>()
             {
                  "Ascending",
@@ -61,7 +62,6 @@ namespace WTAnalyzer.ViewModels
                 Ranks[3],
                 Ranks[4],
                 Ranks[5],
-                Ranks[6],
             };
             selectedNations = new ObservableCollection<ChipsItem>()
             {
@@ -235,7 +235,7 @@ namespace WTAnalyzer.ViewModels
 
         private async Task InsertFilterDataToCache()
         {
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTask", selectedTask, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace WTAnalyzer.Helpers
+namespace WTAnalyzer.DataCollections
 {
     public static class BRArray
     {

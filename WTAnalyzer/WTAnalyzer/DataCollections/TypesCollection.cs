@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using WTAnalyzer.Models;
 
-namespace WTAnalyzer.Helpers
+namespace WTAnalyzer.DataCollections
 {
-    public static class TypesArray
+    public static class TypesCollection
     {
         public static ObservableCollection<ChipsItem> PlaneTypes() =>
             new ObservableCollection<ChipsItem>()

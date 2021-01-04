@@ -6,8 +6,10 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WTAnalyzer.DataCollections;
 using WTAnalyzer.Helpers;
 using WTAnalyzer.Models;
+using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.Views.ServicePages;
 using WTAnalyzer.XmlHandler;
 using Xamarin.Forms;
@@ -30,15 +32,15 @@ namespace WTAnalyzer.ViewModels
         string filterClose;
 
         private ObservableCollection<ListViewItem> listViewPlaneProp { get; set; }
-        private ObservableCollection<DataPoint> lineUSA { get; set; }
-        private ObservableCollection<DataPoint> lineGermany { get; set; }
-        private ObservableCollection<DataPoint> lineUSSR { get; set; }
-        private ObservableCollection<DataPoint> lineBritain { get; set; }
-        private ObservableCollection<DataPoint> lineJapan { get; set; }
-        private ObservableCollection<DataPoint> lineItaly { get; set; }
-        private ObservableCollection<DataPoint> lineFrance { get; set; }
-        private ObservableCollection<DataPoint> lineChina { get; set; }
-        private ObservableCollection<DataPoint> lineSweden { get; set; }
+        private ObservableCollection<ChartsItem> lineUSA { get; set; }
+        private ObservableCollection<ChartsItem> lineGermany { get; set; }
+        private ObservableCollection<ChartsItem> lineUSSR { get; set; }
+        private ObservableCollection<ChartsItem> lineBritain { get; set; }
+        private ObservableCollection<ChartsItem> lineJapan { get; set; }
+        private ObservableCollection<ChartsItem> lineItaly { get; set; }
+        private ObservableCollection<ChartsItem> lineFrance { get; set; }
+        private ObservableCollection<ChartsItem> lineChina { get; set; }
+        private ObservableCollection<ChartsItem> lineSweden { get; set; }
 
         #endregion
 
@@ -97,7 +99,7 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-        public ObservableCollection<DataPoint> LineUSA
+        public ObservableCollection<ChartsItem> LineUSA
         {
             get => lineUSA;
             set
@@ -106,7 +108,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineGermany
+        public ObservableCollection<ChartsItem> LineGermany
         {
             get => lineGermany;
             set
@@ -116,7 +118,7 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-        public ObservableCollection<DataPoint> LineUSSR
+        public ObservableCollection<ChartsItem> LineUSSR
         {
             get => lineUSSR;
             set
@@ -125,7 +127,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineBritain
+        public ObservableCollection<ChartsItem> LineBritain
         {
             get => lineBritain;
             set
@@ -134,7 +136,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineJapan
+        public ObservableCollection<ChartsItem> LineJapan
         {
             get => lineJapan;
             set
@@ -143,7 +145,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineItaly
+        public ObservableCollection<ChartsItem> LineItaly
         {
             get => lineItaly;
             set
@@ -152,7 +154,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineFrance
+        public ObservableCollection<ChartsItem> LineFrance
         {
             get => lineFrance;
             set
@@ -161,7 +163,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineChina
+        public ObservableCollection<ChartsItem> LineChina
         {
             get => lineChina;
             set
@@ -170,7 +172,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<DataPoint> LineSweden
+        public ObservableCollection<ChartsItem> LineSweden
         {
             get => lineSweden;
             set
@@ -255,12 +257,12 @@ namespace WTAnalyzer.ViewModels
 
         }
 
-        public ObservableCollection<DataPoint> GetFilteredDataForCharts(string nation, string task)
+        public ObservableCollection<ChartsItem> GetFilteredDataForCharts(string nation, string task)
         {
             Debug.WriteLine("GetLineDataPoint()");
 
             var filteredPlaneList = GetFilteredList(filterNations, filterRank, filterClass);
-            var dataForCharts = new ObservableCollection<DataPoint>();
+            var dataForCharts = new ObservableCollection<ChartsItem>();
 
             foreach (double number in BRArray.PlanesBR())
             {
@@ -279,7 +281,7 @@ namespace WTAnalyzer.ViewModels
                 if (task == "Burst Mass") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.BurstMass); }
                 if (task == "First fly Year") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.FirstFlyYear); }
 
-                dataForCharts.Add(new DataPoint(number, planesCount));
+                dataForCharts.Add(new ChartsItem(number, planesCount));
             }
             return dataForCharts;
         }

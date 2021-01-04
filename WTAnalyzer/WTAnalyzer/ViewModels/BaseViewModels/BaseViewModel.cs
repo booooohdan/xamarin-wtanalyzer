@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.BaseViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

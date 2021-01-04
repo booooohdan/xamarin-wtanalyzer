@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using WTAnalyzer.Models;
 
-namespace WTAnalyzer.Helpers
+namespace WTAnalyzer.DataCollections
 {
-    public static class RanksArray
+    public static class RanksCollection
     {
         public static ObservableCollection<ChipsItem> PlaneRanks() =>
            new ObservableCollection<ChipsItem>()
@@ -15,7 +15,6 @@ namespace WTAnalyzer.Helpers
                 new ChipsItem() { Name = "IV", CodeName = "IV" },
                 new ChipsItem() { Name = "V", CodeName = "V" },
                 new ChipsItem() { Name = "VI", CodeName = "VI" },
-                new ChipsItem() { Name = "VII", CodeName = "VII" },
            };
     }
 }

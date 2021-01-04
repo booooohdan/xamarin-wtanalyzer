@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using WTAnalyzer.Models;
 
-namespace WTAnalyzer.Helpers
+namespace WTAnalyzer.DataCollections
 {
-    public class NationsArray
+    public class NationsCollection
     {
         public static ObservableCollection<ChipsItem> PlaneNations() => 
             new ObservableCollection<ChipsItem>()
