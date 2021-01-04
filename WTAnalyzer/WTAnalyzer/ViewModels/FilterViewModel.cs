@@ -88,9 +88,8 @@ namespace WTAnalyzer.ViewModels
         {
             try
             {
-                //SelectedTask = "Repair Cost"; <-- This is working
-
-                SelectedTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask"); //<-- This is not working
+                var selectedCacheValue = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+                SelectedTask = Tasks[Tasks.IndexOf(selectedCacheValue)];
             }
             catch (KeyNotFoundException)
             {
