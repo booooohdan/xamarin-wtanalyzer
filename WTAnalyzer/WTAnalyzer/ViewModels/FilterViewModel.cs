@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WTAnalyzer.Cache;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Models;
 using WTAnalyzer.ViewModels.BaseViewModels;
@@ -21,14 +22,15 @@ namespace WTAnalyzer.ViewModels
         public INavigation Navigation { get; set; }
         public ICommand SubmitCommand { get; }
         private ObservableCollection<ChipsItem> nations;
-        private ObservableCollection<ChipsItem> selectedNations;
         private ObservableCollection<ChipsItem> ranks;
-        private ObservableCollection<ChipsItem> selectedRanks;
         private ObservableCollection<ChipsItem> types;
-        private ObservableCollection<ChipsItem> selectedTypes;
         private ObservableCollection<string> orders;
-        private string selectedOrder;
         private ObservableCollection<string> tasks;
+
+        private ObservableCollection<ChipsItem> selectedNations;
+        private ObservableCollection<ChipsItem> selectedRanks;
+        private ObservableCollection<ChipsItem> selectedTypes;
+        private string selectedOrder;
         private string selectedTask;
 
         #endregion
@@ -54,97 +56,50 @@ namespace WTAnalyzer.ViewModels
 
             Task.Run(CheckIfSelectedItemsExistInCache).Wait();
 
-
-
-
         }
 
         private async Task CheckIfSelectedItemsExistInCache()
         {
-            try
+            var cacheTasks = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+            SelectedTask = Tasks[Tasks.IndexOf(cacheTasks)];
+
+            var cacheRanks = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
+            selectedRanks = new ObservableCollection<ChipsItem>();
+
+            foreach (var rank in from cacheRank in cacheRanks
+                                 from rank in Ranks
+                                 where rank.CodeName == cacheRank.CodeName
+                                 select rank)
             {
-                var cacheTasks = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
-                SelectedTask = Tasks[Tasks.IndexOf(cacheTasks)];
-
-                var cacheRanks = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
-                selectedRanks = new ObservableCollection<ChipsItem>();
-
-                foreach (var rank in from cacheRank in cacheRanks
-                                     from rank in Ranks
-                                     where rank.CodeName == cacheRank.CodeName
-                                     select rank)
-                {
-                    selectedRanks.Add(Ranks[Ranks.IndexOf(rank)]);
-                }
-
-                var cacheNations = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
-                selectedNations = new ObservableCollection<ChipsItem>();
-
-                foreach (var nation in from cacheNation in cacheNations
-                                     from nation in Nations
-                                     where nation.CodeName == cacheNation.CodeName
-                                     select nation)
-                {
-                    selectedNations.Add(Nations[Nations.IndexOf(nation)]);
-                }
-
-                var cacheTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
-                selectedTypes = new ObservableCollection<ChipsItem>();
-
-                foreach (var type in from cacheType in cacheTypes
-                                     from type in Types
-                                     where type.CodeName == cacheType.CodeName
-                                     select type)
-                {
-                    selectedTypes.Add(Types[Types.IndexOf(type)]);
-                }
-
-                var cacheOrders = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
-                SelectedOrder = Orders[Orders.IndexOf(cacheOrders)];
-
+                selectedRanks.Add(Ranks[Ranks.IndexOf(rank)]);
             }
-            catch (KeyNotFoundException)
+
+            var cacheNations = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
+            selectedNations = new ObservableCollection<ChipsItem>();
+
+            foreach (var nation in from cacheNation in cacheNations
+                                   from nation in Nations
+                                   where nation.CodeName == cacheNation.CodeName
+                                   select nation)
             {
-                SelectedTask = "Repair Cost";
-                await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
-
-                selectedRanks = new ObservableCollection<ChipsItem>()
-                {
-                    Ranks[0],
-                    Ranks[1],
-                    Ranks[2],
-                    Ranks[3],
-                    Ranks[4],
-                    Ranks[5],
-                };
-                await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
-
-                selectedNations = new ObservableCollection<ChipsItem>()
-                {
-                    Nations[0],
-                    Nations[1],
-                    Nations[2],
-                    Nations[3],
-                    Nations[4],
-                    Nations[5],
-                    Nations[6],
-                    Nations[7],
-                    Nations[8],
-                };
-                await BlobCache.UserAccount.InsertObject("cachedSelectedNations", selectedNations, TimeSpan.FromDays(7));
-
-                selectedTypes = new ObservableCollection<ChipsItem>()
-                {
-                    Types[0],
-                    Types[1],
-                    Types[2],
-                };
-                await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", selectedTypes, TimeSpan.FromDays(7));
-
-                SelectedOrder = "Descending";
-                await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", SelectedOrder, TimeSpan.FromDays(7));
-
+                selectedNations.Add(Nations[Nations.IndexOf(nation)]);
             }
+
+            var cacheTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
+            selectedTypes = new ObservableCollection<ChipsItem>();
+
+            foreach (var type in from cacheType in cacheTypes
+                                 from type in Types
+                                 where type.CodeName == cacheType.CodeName
+                                 select type)
+            {
+                selectedTypes.Add(Types[Types.IndexOf(type)]);
+            }
+
+            var cacheOrders = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
+            SelectedOrder = Orders[Orders.IndexOf(cacheOrders)];
+
+
         }
 
         #endregion

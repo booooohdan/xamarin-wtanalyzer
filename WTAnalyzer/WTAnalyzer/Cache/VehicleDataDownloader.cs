@@ -14,7 +14,6 @@ namespace WTAnalyzer.Cache
 {
     public class VehicleDataDownloader
     {
-        public INavigation Navigation { get; set; }
         ArrayOfPlanes arrayOfPlanes;
         ArrayOfTanks arrayOfTanks;
         ArrayOfHelis arrayOfHelis;
