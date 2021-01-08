@@ -17,6 +17,7 @@
     <PackageReference Include="akavache" Version="7.1.1" />
     <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.31" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.31" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.4.0.31" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.4.0.31" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />  
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
