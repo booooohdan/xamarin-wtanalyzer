@@ -1,15 +1,8 @@
-﻿using Akavache;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reactive.Linq;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 using WTAnalyzer.Cache;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.Views.ServicePages;
-using WTAnalyzer.XmlHandler;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -43,7 +36,7 @@ namespace WTAnalyzer.ViewModels
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     alertResult = await App.Current.MainPage.DisplayAlert("No internet", "Please make sure the Internet is available and restart the app", "Try again", "Quit");
-                
+
                     if (alertResult)
                     {
                         CheckIfInternetConnected();

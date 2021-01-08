@@ -1,9 +1,7 @@
 ﻿using Akavache;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Models;
@@ -24,6 +22,7 @@ namespace WTAnalyzer.Cache
         public async Task InitAsync()
         {
             selectedTask = "Repair Cost";
+            await BlobCache.UserAccount.Invalidate("cachedSelectedTask");
             await BlobCache.UserAccount.InsertObject("cachedSelectedTask", selectedTask, TimeSpan.FromDays(7));
 
             Nations = NationsCollection.PlaneNations();
@@ -39,6 +38,7 @@ namespace WTAnalyzer.Cache
                     Nations[7],
                     Nations[8],
                 };
+            await BlobCache.UserAccount.Invalidate("cachedSelectedNations");
             await BlobCache.UserAccount.InsertObject("cachedSelectedNations", selectedNations, TimeSpan.FromDays(7));
 
             Ranks = RanksCollection.PlaneRanks();
@@ -51,6 +51,7 @@ namespace WTAnalyzer.Cache
                     Ranks[4],
                     Ranks[5],
                 };
+            await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
 
             Types = TypesCollection.PlaneTypes();
@@ -60,9 +61,11 @@ namespace WTAnalyzer.Cache
                     Types[1],
                     Types[2],
                 };
+            await BlobCache.UserAccount.Invalidate("cachedSelectedTypes");
             await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", selectedTypes, TimeSpan.FromDays(7));
 
             selectedOrder = "Descending";
+            await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
             await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", selectedOrder, TimeSpan.FromDays(7));
         }
     }

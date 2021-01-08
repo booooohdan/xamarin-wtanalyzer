@@ -226,7 +226,7 @@ namespace WTAnalyzer.ViewModels
             sortedDataForListView = filterOrder == "Ascending"
                 ? dataForListView.OrderBy(x => x.Value).ToObservableCollection()
                 : dataForListView.OrderByDescending(x => x.Value).ToObservableCollection();
-           
+
             ListViewPlaneProp = sortedDataForListView;
         }
 

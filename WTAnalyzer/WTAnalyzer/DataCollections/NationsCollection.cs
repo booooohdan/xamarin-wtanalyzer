@@ -5,7 +5,7 @@ namespace WTAnalyzer.DataCollections
 {
     public class NationsCollection
     {
-        public static ObservableCollection<ChipsItem> PlaneNations() => 
+        public static ObservableCollection<ChipsItem> PlaneNations() =>
             new ObservableCollection<ChipsItem>()
             {
                 new ChipsItem() { Name = "USA", CodeName = "USA" },
@@ -19,6 +19,6 @@ namespace WTAnalyzer.DataCollections
                 new ChipsItem() { Name = "Sweden", CodeName = "Sweden" }
             };
 
-       
+
     }
 }

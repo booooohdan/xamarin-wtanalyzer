@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace WTAnalyzer.Helpers
@@ -15,10 +13,13 @@ namespace WTAnalyzer.Helpers
             switch (colorStr)
             {
                 case "Premium":
-                    color = Color.FromHex("#ffecb4");
+                    color = Color.FromHex("#fcf1d2");
                     break;
                 case "Promotional":
-                    color = Color.FromHex("#ffecb4");
+                    color = Color.FromHex("#fbdede");
+                    break;
+                case "Squadron":
+                    color = Color.FromHex("#e2fadf");
                     break;
             }
             return color;

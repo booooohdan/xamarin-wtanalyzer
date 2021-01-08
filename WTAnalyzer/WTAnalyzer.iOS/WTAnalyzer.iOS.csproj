@@ -184,4 +184,7 @@
       <Name>WTAnalyzer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconTransparent.png" />
+  </ItemGroup>
 </Project>

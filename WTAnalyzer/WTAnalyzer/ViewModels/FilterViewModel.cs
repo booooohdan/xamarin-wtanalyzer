@@ -1,13 +1,11 @@
 ﻿using Akavache;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using WTAnalyzer.Cache;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Models;
 using WTAnalyzer.ViewModels.BaseViewModels;
@@ -238,15 +236,19 @@ namespace WTAnalyzer.ViewModels
 
         private async Task InsertFilterDataToCache()
         {
+            await BlobCache.UserAccount.Invalidate("cachedSelectedTask");
             await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedNations");
             await BlobCache.UserAccount.InsertObject("cachedSelectedNations", selectedNations, TimeSpan.FromDays(7));
+
             await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
+
             await BlobCache.UserAccount.Invalidate("cachedSelectedTypes");
             await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", selectedTypes, TimeSpan.FromDays(7));
 
+            await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
             await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", selectedOrder, TimeSpan.FromDays(7));
         }
     }

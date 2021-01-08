@@ -2,13 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-using WTAnalyzer.Views.ServicePages;
 using WTAnalyzer.XmlHandler;
-using Xamarin.Forms;
 
 namespace WTAnalyzer.Cache
 {

@@ -1,8 +1,8 @@
 ﻿using Foundation;
-using Syncfusion.XForms.iOS.Buttons;
-using Syncfusion.SfChart.XForms.iOS.Renderers;
-using UIKit;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
+using Syncfusion.SfChart.XForms.iOS.Renderers;
+using Syncfusion.XForms.iOS.Buttons;
+using UIKit;
 
 namespace WTAnalyzer.iOS
 {
