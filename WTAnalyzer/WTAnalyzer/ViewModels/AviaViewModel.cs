@@ -28,7 +28,9 @@ namespace WTAnalyzer.ViewModels
         string[] filterRanks { get; set; }
         string[] filterClass { get; set; }
         string filterOrder { get; set; }
+        #endregion
 
+        #region View Properties
         private ObservableCollection<ListViewItem> listViewPlaneProp { get; set; }
         private ObservableCollection<ChartsItem> lineUSA { get; set; }
         private ObservableCollection<ChartsItem> lineGermany { get; set; }
@@ -39,10 +41,6 @@ namespace WTAnalyzer.ViewModels
         private ObservableCollection<ChartsItem> lineFrance { get; set; }
         private ObservableCollection<ChartsItem> lineChina { get; set; }
         private ObservableCollection<ChartsItem> lineSweden { get; set; }
-
-        #endregion
-
-        #region Public propertys
 
         public ObservableCollection<ListViewItem> ListViewPlaneProp
         {
@@ -141,68 +139,53 @@ namespace WTAnalyzer.ViewModels
         {
             Navigation = navigation;
             OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
-            Task.Run(FillListFromCacheAsync).Wait(); //Load data from cache
+            Task.Run(GetVehicleDataFromCacheAsync).Wait();
             Task.Run(GetDataFromFilterPageAsync).Wait();
-            SetDataToChartsProperties();
-            SetDataToListViewProperties();
-            SetDataToFilterLabel();
+            SetDataToFilterLabelView();
+            SetDataToChartsView();
+            SetDataToListView();
         }
 
-        public async Task FillListFromCacheAsync() //Loading data from cache
+        private async void OpenFilterModalPageHandler(object obj)
+        {
+            if (Navigation.ModalStack.Count == 0)
+            {
+                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
+                     async (sender, arg) => {
+                         await GetDataFromFilterPageAsync();
+                         SetDataToChartsView();
+                         SetDataToListView();
+                         SetDataToFilterLabelView();
+                     });
+
+                await Navigation.PushModalAsync(new FilterPage());
+            }
+        }
+
+        public async Task GetVehicleDataFromCacheAsync()
         {
             arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
         }
 
-        private void SetDataToFilterLabel()
+        private async Task GetDataFromFilterPageAsync()
         {
-            string nations = filterNations.Count() == 9 ? "All" : "Custom";
+            filterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+
+            var cachedNation = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
+            filterNations = string.Join("|", cachedNation.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            var cachedRank = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
+            filterRanks = string.Join("|", cachedRank.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            var cachedType = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
+            filterClass = string.Join("|", cachedType.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            filterOrder = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
+
+            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
         }
 
-        public void SetDataToListViewProperties()
-        {
-            var sortedDataForListView = new ObservableCollection<ListViewItem>();
-            var filteredPlaneList = GetFilteredList(filterNations, filterRanks, filterClass);
-            var dataForListView = new ObservableCollection<ListViewItem>();
-
-            foreach (var item in filteredPlaneList)
-            {
-                //if (filterTask == "Count") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.RepairCost)); }
-                if (filterTask == "Repair Cost") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, "s.l", item.BR)); }
-                if (filterTask == "Max Speed") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, "km/h", item.BR)); }
-                if (filterTask == "Max Speed at 5000 m") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, "km/h", item.BR)); }
-                if (filterTask == "Climb") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, "s", item.BR)); }
-                if (filterTask == "Turn Time") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, "s", item.BR)); }
-                if (filterTask == "Engine Power") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, "", item.BR)); }
-                if (filterTask == "Weight") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, "kg", item.BR)); }
-                if (filterTask == "Flutter") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, "km/h", item.BR)); }
-                if (filterTask == "Optimal Alitude") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, "m", item.BR)); }
-                if (filterTask == "Bomb Load") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, "kg", item.BR)); }
-                if (filterTask == "Burst Mass") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, "kg/s", item.BR)); }
-                if (filterTask == "First fly Year") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, "y", item.BR)); }
-            }
-
-            sortedDataForListView = filterOrder == "Ascending"
-                ? dataForListView.OrderBy(x => x.Value).ToObservableCollection()
-                : dataForListView.OrderByDescending(x => x.Value).ToObservableCollection();
-
-            ListViewPlaneProp = sortedDataForListView;
-        }
-
-        public void SetDataToChartsProperties()
-        {
-            LineUSA = !filterNations.Contains("USA") ? null : GetFilteredDataForCharts("USA", filterTask);
-            LineGermany = !filterNations.Contains("Germany") ? null : GetFilteredDataForCharts("Germany", filterTask);
-            LineUSSR = !filterNations.Contains("USSR") ? null : GetFilteredDataForCharts("USSR", filterTask);
-            LineBritain = !filterNations.Contains("Britain") ? null : GetFilteredDataForCharts("Britain", filterTask);
-            LineJapan = !filterNations.Contains("Japan") ? null : GetFilteredDataForCharts("Japan", filterTask);
-            LineItaly = !filterNations.Contains("Italy") ? null : GetFilteredDataForCharts("Italy", filterTask);
-            LineFrance = !filterNations.Contains("France") ? null : GetFilteredDataForCharts("France", filterTask);
-            LineChina = !filterNations.Contains("China") ? null : GetFilteredDataForCharts("China", filterTask);
-            LineSweden = !filterNations.Contains("Sweden") ? null : GetFilteredDataForCharts("Sweden", filterTask);
-
-        }
-
-        public List<Plane> GetFilteredList(string[] filterNations, string[] filterRank, string[] filterClass)
+        public List<Plane> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterClass)
         {
             return arrayOfPlanes.PlanesListApi.ToList()
                 .Where(x => filterNations.Contains(x.Nation)).ToList()
@@ -212,7 +195,7 @@ namespace WTAnalyzer.ViewModels
 
         public ObservableCollection<ChartsItem> GetFilteredDataForCharts(string nation, string task)
         {
-            var filteredPlaneList = GetFilteredList(filterNations, filterRanks, filterClass);
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterClass);
             var dataForCharts = new ObservableCollection<ChartsItem>();
 
             foreach (double number in BRArray.PlanesBR())
@@ -237,38 +220,53 @@ namespace WTAnalyzer.ViewModels
             return dataForCharts;
         }
 
-        private async void OpenFilterModalPageHandler(object obj) //Open filter page
+        private void SetDataToFilterLabelView()
         {
-            if (Navigation.ModalStack.Count == 0)
-            {
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
-                     async (sender, arg) => { 
-                         await GetDataFromFilterPageAsync();
-                         SetDataToChartsProperties();
-                         SetDataToListViewProperties();
-                         SetDataToFilterLabel();
-                     });
-
-                await Navigation.PushModalAsync(new FilterPage());
-            }
+            string nations = filterNations.Count() == 9 ? "All" : "Custom";
         }
 
-        private async Task GetDataFromFilterPageAsync()
+        public void SetDataToChartsView()
         {
-            filterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+            LineUSA = !filterNations.Contains("USA") ? null : GetFilteredDataForCharts("USA", filterTask);
+            LineGermany = !filterNations.Contains("Germany") ? null : GetFilteredDataForCharts("Germany", filterTask);
+            LineUSSR = !filterNations.Contains("USSR") ? null : GetFilteredDataForCharts("USSR", filterTask);
+            LineBritain = !filterNations.Contains("Britain") ? null : GetFilteredDataForCharts("Britain", filterTask);
+            LineJapan = !filterNations.Contains("Japan") ? null : GetFilteredDataForCharts("Japan", filterTask);
+            LineItaly = !filterNations.Contains("Italy") ? null : GetFilteredDataForCharts("Italy", filterTask);
+            LineFrance = !filterNations.Contains("France") ? null : GetFilteredDataForCharts("France", filterTask);
+            LineChina = !filterNations.Contains("China") ? null : GetFilteredDataForCharts("China", filterTask);
+            LineSweden = !filterNations.Contains("Sweden") ? null : GetFilteredDataForCharts("Sweden", filterTask);
 
-            var cachedNation = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
-            filterNations = string.Join("|", cachedNation.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+        }
 
-            var cachedRank = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
-            filterRanks = string.Join("|", cachedRank.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+        public void SetDataToListView()
+        {
+            var sortedDataForListView = new ObservableCollection<ListViewItem>();
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterClass);
+            var dataForListView = new ObservableCollection<ListViewItem>();
 
-            var cachedType = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
-            filterClass = string.Join("|", cachedType.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+            foreach (var item in filteredPlaneList)
+            {
+                //if (filterTask == "Count") { dataForListView.Add(new ListViewItem(item.Nation, item.Name, item.RepairCost)); }
+                if (filterTask == "Repair Cost") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, "s.l", item.BR)); }
+                if (filterTask == "Max Speed") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, "km/h", item.BR)); }
+                if (filterTask == "Max Speed at 5000 m") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, "km/h", item.BR)); }
+                if (filterTask == "Climb") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, "s", item.BR)); }
+                if (filterTask == "Turn Time") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, "s", item.BR)); }
+                if (filterTask == "Engine Power") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, "", item.BR)); }
+                if (filterTask == "Weight") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, "kg", item.BR)); }
+                if (filterTask == "Flutter") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, "km/h", item.BR)); }
+                if (filterTask == "Optimal Alitude") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, "m", item.BR)); }
+                if (filterTask == "Bomb Load") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, "kg", item.BR)); }
+                if (filterTask == "Burst Mass") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, "kg/s", item.BR)); }
+                if (filterTask == "First fly Year") { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, "y", item.BR)); }
+            }
 
-            filterOrder = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
+            sortedDataForListView = filterOrder == "Ascending"
+                ? dataForListView.OrderBy(x => x.Value).ToObservableCollection()
+                : dataForListView.OrderByDescending(x => x.Value).ToObservableCollection();
 
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
+            ListViewPlaneProp = sortedDataForListView;
         }
     }
 }

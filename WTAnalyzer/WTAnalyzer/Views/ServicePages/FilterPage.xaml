@@ -136,9 +136,17 @@
     </ScrollView>
 
         <!--Submit button-->
-        <Button Margin="20,0,20,20"
+        <StackLayout Orientation="Horizontal">
+            <Button Margin="20,0,20,20"
+				Text="RESET"
+				Command="{Binding ResetCommand}"
+			    Style="{StaticResource ButtonStyle}"/>
+            <Button Margin="20,0,20,20"
 				Text="SUBMIT"
+                BackgroundColor="Red"
+                TextColor="White"
 				Command="{Binding SubmitCommand}"
-            Style="{StaticResource ButtonStyle}"/>
+				Style="{StaticResource ButtonStyle}"/>
         </StackLayout>
+    </StackLayout>
 </ContentPage>
