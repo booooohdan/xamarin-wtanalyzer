@@ -22,14 +22,12 @@ namespace WTAnalyzer.ViewModels
 
         public INavigation Navigation { get; set; }
         public ICommand OpenFilterModalPageCommand { get; }
-        ArrayOfPlanes arrayOfPlanes;
-        string filterLabelDesc;
-        string filterTask;
-        string[] filterNations;
-        string[] filterRank;
-        string[] filterClass;
-        string filterOrder;
-        string filterClose;
+        ArrayOfPlanes arrayOfPlanes { get; set; }
+        string filterTask { get; set; }
+        string[] filterNations { get; set; }
+        string[] filterRanks { get; set; }
+        string[] filterClass { get; set; }
+        string filterOrder { get; set; }
 
         private ObservableCollection<ListViewItem> listViewPlaneProp { get; set; }
         private ObservableCollection<ChartsItem> lineUSA { get; set; }
@@ -44,50 +42,7 @@ namespace WTAnalyzer.ViewModels
 
         #endregion
 
-        #region Ctor
-
-        public AviaViewModel(INavigation navigation)
-        {
-            Debug.WriteLine("AviaViewModel constructor");
-            Navigation = navigation;
-            OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
-            Task.Run(FillListFromCacheAsync).Wait(); //Load data from cache
-        }
-
-        #endregion
-
         #region Public propertys
-
-        public string FilterTask
-        {
-            get => filterTask;
-            set
-            {
-                filterTask = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string FilterLabelDesc
-        {
-            get => filterLabelDesc;
-            set
-            {
-                filterLabelDesc = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string FilterClose
-        {
-            get => filterClose;
-            set
-            {
-                filterClose = value;
-                OnPropertyChanged();
-                GetDataFromFilterPageAsync();
-            }
-        }
 
         public ObservableCollection<ListViewItem> ListViewPlaneProp
         {
@@ -98,7 +53,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChartsItem> LineUSA
         {
             get => lineUSA;
@@ -117,7 +71,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChartsItem> LineUSSR
         {
             get => lineUSSR;
@@ -184,26 +137,31 @@ namespace WTAnalyzer.ViewModels
 
         #endregion
 
+        public AviaViewModel(INavigation navigation)
+        {
+            Navigation = navigation;
+            OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
+            Task.Run(FillListFromCacheAsync).Wait(); //Load data from cache
+            Task.Run(GetDataFromFilterPageAsync).Wait();
+            SetDataToChartsProperties();
+            SetDataToListViewProperties();
+            SetDataToFilterLabel();
+        }
+
         public async Task FillListFromCacheAsync() //Loading data from cache
         {
-            Debug.WriteLine("FillListFromCacheAsync()");
-
             arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
         }
 
         private void SetDataToFilterLabel()
         {
-            Debug.WriteLine("SetDataToFilterLabel()");
-
             string nations = filterNations.Count() == 9 ? "All" : "Custom";
         }
 
         public void SetDataToListViewProperties()
         {
-            Debug.WriteLine("SetDataToListViewProperties()");
-
             var sortedDataForListView = new ObservableCollection<ListViewItem>();
-            var filteredPlaneList = GetFilteredList(filterNations, filterRank, filterClass);
+            var filteredPlaneList = GetFilteredList(filterNations, filterRanks, filterClass);
             var dataForListView = new ObservableCollection<ListViewItem>();
 
             foreach (var item in filteredPlaneList)
@@ -232,8 +190,6 @@ namespace WTAnalyzer.ViewModels
 
         public void SetDataToChartsProperties()
         {
-            Debug.WriteLine("SetCollectionOfVehicleToDataPoint()");
-
             LineUSA = !filterNations.Contains("USA") ? null : GetFilteredDataForCharts("USA", filterTask);
             LineGermany = !filterNations.Contains("Germany") ? null : GetFilteredDataForCharts("Germany", filterTask);
             LineUSSR = !filterNations.Contains("USSR") ? null : GetFilteredDataForCharts("USSR", filterTask);
@@ -248,20 +204,15 @@ namespace WTAnalyzer.ViewModels
 
         public List<Plane> GetFilteredList(string[] filterNations, string[] filterRank, string[] filterClass)
         {
-            Debug.WriteLine("GetFilteredList()");
-
             return arrayOfPlanes.PlanesListApi.ToList()
                 .Where(x => filterNations.Contains(x.Nation)).ToList()
                 .Where(x => filterRank.Contains(x.Rank)).ToList()
                 .Where(x => filterClass.Contains(x.Class)).ToList();
-
         }
 
         public ObservableCollection<ChartsItem> GetFilteredDataForCharts(string nation, string task)
         {
-            Debug.WriteLine("GetLineDataPoint()");
-
-            var filteredPlaneList = GetFilteredList(filterNations, filterRank, filterClass);
+            var filteredPlaneList = GetFilteredList(filterNations, filterRanks, filterClass);
             var dataForCharts = new ObservableCollection<ChartsItem>();
 
             foreach (double number in BRArray.PlanesBR())
@@ -288,21 +239,15 @@ namespace WTAnalyzer.ViewModels
 
         private async void OpenFilterModalPageHandler(object obj) //Open filter page
         {
-            Debug.WriteLine("OpenFilterModalPageHandler");
-
             if (Navigation.ModalStack.Count == 0)
             {
-                //MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterTask",(sender, arg) => { FilterTask = arg; });
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterNations",
-                     (sender, arg) => { filterNations = arg.Split('|'); });
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterRank",
-                     (sender, arg) => { filterRank = arg.Split('|'); });
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClass",
-                     (sender, arg) => { filterClass = arg.Split('|'); });
-                MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterOrder",
-                     (sender, arg) => { filterOrder = arg; });
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
-                     (sender, arg) => { FilterClose = arg; });
+                     async (sender, arg) => { 
+                         await GetDataFromFilterPageAsync();
+                         SetDataToChartsProperties();
+                         SetDataToListViewProperties();
+                         SetDataToFilterLabel();
+                     });
 
                 await Navigation.PushModalAsync(new FilterPage());
             }
@@ -310,26 +255,20 @@ namespace WTAnalyzer.ViewModels
 
         private async Task GetDataFromFilterPageAsync()
         {
-            Debug.WriteLine("GetDataFromFilterPage()");
+            filterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
 
-            FilterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
-            //MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterTask");
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterNations");
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterRank");
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClass");
-            MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterOrder");
+            var cachedNation = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
+            filterNations = string.Join("|", cachedNation.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            var cachedRank = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
+            filterRanks = string.Join("|", cachedRank.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            var cachedType = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
+            filterClass = string.Join("|", cachedType.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
+            filterOrder = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
+
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
-
-            SetDataToChartsProperties();
-            SetDataToListViewProperties();
-            SetDataToFilterLabel();
-
-            Debug.WriteLine(filterTask);
-            Debug.WriteLine(filterNations);
-            Debug.WriteLine(filterRank);
-            Debug.WriteLine(filterClass);
-            Debug.WriteLine(filterOrder);
-            Debug.WriteLine(filterClose);
         }
     }
 }

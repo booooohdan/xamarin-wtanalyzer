@@ -37,8 +37,6 @@ namespace WTAnalyzer.ViewModels
 
         public FilterViewModel(INavigation navigation)
         {
-            Debug.WriteLine("FilterPageViewModel constructor");
-
             Navigation = navigation;
             SubmitCommand = new Command(SubmitHandler);
 
@@ -53,7 +51,6 @@ namespace WTAnalyzer.ViewModels
             };
 
             Task.Run(CheckIfSelectedItemsExistInCache).Wait();
-
         }
 
         private async Task CheckIfSelectedItemsExistInCache()
@@ -113,7 +110,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChipsItem> SelectedNations
         {
             get => selectedNations;
@@ -123,7 +119,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChipsItem> Ranks
         {
             get => ranks;
@@ -133,7 +128,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChipsItem> SelectedRanks
         {
             get => selectedRanks;
@@ -143,7 +137,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChipsItem> Types
         {
             get => types;
@@ -153,7 +146,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<ChipsItem> SelectedTypes
         {
             get => selectedTypes;
@@ -163,7 +155,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<string> Orders
         {
             get => orders;
@@ -173,7 +164,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public string SelectedOrder
         {
             get => selectedOrder;
@@ -183,7 +173,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ObservableCollection<string> Tasks
         {
             get => tasks;
@@ -193,7 +182,6 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public string SelectedTask
         {
             get => selectedTask;
@@ -204,32 +192,14 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-
         #endregion
 
         private async void SubmitHandler(object obj) //Close filter page
         {
-            Debug.WriteLine("SubmitHandler()");
-
-            string filterNations = string.Join("|", selectedNations.Select(x => x.CodeName.ToString()).ToArray());
-            string filterRank = string.Join("|", selectedRanks.Select(x => x.CodeName.ToString()).ToArray());
-            string filterClass = string.Join("|", selectedTypes.Select(x => x.CodeName.ToString()).ToArray());
-            string filterOrder = selectedOrder;
-            string filterClose = "filterClose";
-
             if (Navigation.ModalStack.Count != 0)
             {
                 await InsertFilterDataToCache();
-
-
-                // MessagingCenter.Send(this, "filterTask", filterTask);
-                MessagingCenter.Send(this, "filterNations", filterNations);
-                MessagingCenter.Send(this, "filterRank", filterRank);
-                MessagingCenter.Send(this, "filterClass", filterClass);
-                MessagingCenter.Send(this, "filterOrder", filterOrder);
-                MessagingCenter.Send(this, "filterClose", filterClose);
-
-
+                MessagingCenter.Send(this, "filterClose", "");
                 await Navigation.PopModalAsync();
             }
         }
@@ -240,16 +210,16 @@ namespace WTAnalyzer.ViewModels
             await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedNations");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedNations", selectedNations, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.InsertObject("cachedSelectedNations", SelectedNations, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", SelectedRanks, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedTypes");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", selectedTypes, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", SelectedTypes, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", selectedOrder, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", SelectedOrder, TimeSpan.FromDays(7));
         }
     }
 }
