@@ -61,6 +61,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ±1.0 BR.
+        /// </summary>
+        internal static string _10BR {
+            get {
+                return ResourceManager.GetString("_10BR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ascending.
         /// </summary>
         internal static string Ascending {
@@ -151,6 +160,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Explore.
+        /// </summary>
+        internal static string Explorer {
+            get {
+                return ResourceManager.GetString("Explorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Feedback.
+        /// </summary>
+        internal static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Fighter.
         /// </summary>
         internal static string Fighter {
@@ -214,6 +241,42 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на kg.
+        /// </summary>
+        internal static string Kg {
+            get {
+                return ResourceManager.GetString("Kg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на kg/s.
+        /// </summary>
+        internal static string KgS {
+            get {
+                return ResourceManager.GetString("KgS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на km/h.
+        /// </summary>
+        internal static string KmH {
+            get {
+                return ResourceManager.GetString("KmH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на m.
+        /// </summary>
+        internal static string M {
+            get {
+                return ResourceManager.GetString("M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Max Speed at 0 m.
         /// </summary>
         internal static string MaxSpeed {
@@ -255,6 +318,15 @@ namespace WTAnalyzer.Resx {
         internal static string Order {
             get {
                 return ResourceManager.GetString("Order", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Overall.
+        /// </summary>
+        internal static string Overall {
+            get {
+                return ResourceManager.GetString("Overall", resourceCulture);
             }
         }
         
@@ -318,6 +390,24 @@ namespace WTAnalyzer.Resx {
         internal static string Roles {
             get {
                 return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на s.
+        /// </summary>
+        internal static string S {
+            get {
+                return ResourceManager.GetString("S", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на s.l.
+        /// </summary>
+        internal static string SL {
+            get {
+                return ResourceManager.GetString("SL", resourceCulture);
             }
         }
         
@@ -399,6 +489,15 @@ namespace WTAnalyzer.Resx {
         internal static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на y.
+        /// </summary>
+        internal static string Y {
+            get {
+                return ResourceManager.GetString("Y", resourceCulture);
             }
         }
     }

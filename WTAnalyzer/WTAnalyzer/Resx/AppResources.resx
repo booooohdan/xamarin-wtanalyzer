@@ -211,4 +211,37 @@
   <data name="Descending" xml:space="preserve">
     <value>Descending</value>
   </data>
+  <data name="Explorer" xml:space="preserve">
+    <value>Explore</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="_10BR" xml:space="preserve">
+    <value>±1.0 BR</value>
+  </data>
+  <data name="Overall" xml:space="preserve">
+    <value>Overall</value>
+  </data>
+  <data name="SL" xml:space="preserve">
+    <value>s.l</value>
+  </data>
+  <data name="KmH" xml:space="preserve">
+    <value>km/h</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="Kg" xml:space="preserve">
+    <value>kg</value>
+  </data>
+  <data name="M" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="KgS" xml:space="preserve">
+    <value>kg/s</value>
+  </data>
+  <data name="Y" xml:space="preserve">
+    <value>y</value>
+  </data>
 </root>

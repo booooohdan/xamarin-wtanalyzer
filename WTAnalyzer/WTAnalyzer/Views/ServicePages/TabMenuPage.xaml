@@ -6,6 +6,7 @@
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
             xmlns:pages="clr-namespace:WTAnalyzer.Views.MenuPages"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:properties="clr-namespace:WTAnalyzer.Resx"
             NavigationPage.HasNavigationBar="False"
             BarBackgroundColor="#2a2a2a"
             SelectedTabColor="White"
@@ -13,19 +14,25 @@
 
     <TabbedPage.Children>
 
-        <NavigationPage Title="Explorer" IconImageSource="menu_explorer">
+        <NavigationPage Title="{x:Static properties:AppResources.Explorer}" IconImageSource="menu_explorer">
             <x:Arguments>
                 <pages:ExplorerPage/>
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="±1.0 BR" IconImageSource="menu_onepointbr">
+        <NavigationPage Title="{x:Static properties:AppResources._10BR}" IconImageSource="menu_onepointbr">
             <x:Arguments>
                 <pages:OnePointBrPage/>
             </x:Arguments>
         </NavigationPage>
 
-        <NavigationPage Title="Feedback" IconImageSource="menu_feedback">
+        <NavigationPage Title="{x:Static properties:AppResources.Overall}" IconImageSource="menu_overall">
+            <x:Arguments>
+                <pages:OverallPage/>
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="{x:Static properties:AppResources.Feedback}" IconImageSource="menu_feedback">
             <x:Arguments>
                 <pages:FeedbackPage/>
             </x:Arguments>
