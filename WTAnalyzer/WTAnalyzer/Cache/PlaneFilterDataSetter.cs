@@ -5,6 +5,7 @@ using System.Reactive.Linq;
 using System.Threading.Tasks;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Models;
+using WTAnalyzer.Resx;
 
 namespace WTAnalyzer.Cache
 {
@@ -23,7 +24,7 @@ namespace WTAnalyzer.Cache
 
         public async Task InitAsync()
         {
-            selectedTask = "Repair Cost";
+            selectedTask = AppResources.RepairCost;
             await BlobCache.UserAccount.Invalidate("cachedSelectedTask");
             await BlobCache.UserAccount.InsertObject("cachedSelectedTask", selectedTask, TimeSpan.FromDays(7));
 
@@ -77,7 +78,7 @@ namespace WTAnalyzer.Cache
             await BlobCache.UserAccount.Invalidate("cachedSelectedGameTypes");
             await BlobCache.UserAccount.InsertObject("cachedSelectedGameTypes", selectedGameTypes, TimeSpan.FromDays(7));
 
-            selectedOrder = "Descending";
+            selectedOrder = AppResources.Descending;
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
             await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", selectedOrder, TimeSpan.FromDays(7));
         }

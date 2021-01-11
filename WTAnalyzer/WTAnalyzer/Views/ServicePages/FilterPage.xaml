@@ -3,6 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 			 xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
 			 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx"
 		     ios:Page.UseSafeArea="true"
 			 x:Class="WTAnalyzer.Views.ServicePages.FilterPage">
         <StackLayout>
@@ -11,7 +12,7 @@
 
             <!--Task chips-->
             <Label  
-               Text="Property" Style="{StaticResource LabelStyle}"/>
+                Text="{x:Static properties:AppResources.Property}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup 
 				ItemsSource="{Binding Tasks, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -35,7 +36,7 @@
 
             <!--Nations chips-->
                 <Label
-               Text="Nations" Style="{StaticResource LabelStyle}"/>
+               Text="{x:Static properties:AppResources.Nations}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup
 				ItemsSource="{Binding Nations, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -60,8 +61,7 @@
 
             <!--Ranks chips-->
             <Label 
-               Text="Ranks" Style="{StaticResource LabelStyle}"/>
-
+               Text="{x:Static properties:AppResources.Ranks}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup
 				ItemsSource="{Binding Ranks, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -86,7 +86,7 @@
 
             <!--Role chips-->
             <Label 
-               Text="Roles" Style="{StaticResource LabelStyle}"/>
+               Text="{x:Static properties:AppResources.Roles}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup  
 				ItemsSource="{Binding Roles, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -111,7 +111,7 @@
 
             <!--GameType chips-->
             <Label 
-               Text="Type" Style="{StaticResource LabelStyle}"/>
+               Text="{x:Static properties:AppResources.Type}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup  
 				ItemsSource="{Binding GameTypes, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -136,7 +136,7 @@
 
                 <!--Sort chips-->
             <Label 
-               Text="Order" Style="{StaticResource LabelStyle}"/>
+               Text="{x:Static properties:AppResources.Order}" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup
 				ItemsSource="{Binding Orders, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -164,14 +164,14 @@
         <StackLayout Orientation="Horizontal">
             <Button
                 Margin="30, 0, 0, 20"
-				Text="RESET"
+				Text="{x:Static properties:AppResources.RESET}"
                 BorderColor="{StaticResource MyDarkest}"
                 TextColor="{StaticResource MyDarkest}"
 				Command="{Binding ResetCommand}"
 			    Style="{StaticResource ButtonStyle}"/>
             <Button 
                 Margin="0, 0, 30, 20"
-				Text="SUBMIT"
+				Text="{x:Static properties:AppResources.SUBMIT}"
                 BorderColor="Red"
                 TextColor="Red"
 				Command="{Binding SubmitCommand}"

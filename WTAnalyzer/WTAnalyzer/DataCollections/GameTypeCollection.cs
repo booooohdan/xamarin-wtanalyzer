@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using WTAnalyzer.Models;
+using WTAnalyzer.Resx;
 
 namespace WTAnalyzer.DataCollections
 {
@@ -8,10 +9,10 @@ namespace WTAnalyzer.DataCollections
         public static ObservableCollection<ChipsItem> GameTypes() =>
             new ObservableCollection<ChipsItem>()
             {
-                new ChipsItem() { Name = "Usual", CodeName = "Usual" },
-                new ChipsItem() { Name = "Premium", CodeName = "Premium" },
-                new ChipsItem() { Name = "Promotional", CodeName = "Promotional" },
-                new ChipsItem() { Name = "Squadron", CodeName = "Squadron" },
+                new ChipsItem() { Name = AppResources.Usual, CodeName = "Usual" },
+                new ChipsItem() { Name = AppResources.Premium, CodeName = "Premium" },
+                new ChipsItem() { Name = AppResources.Promotional, CodeName = "Promotional" },
+                new ChipsItem() { Name = AppResources.Squadron, CodeName = "Squadron" },
             };
     }
 }

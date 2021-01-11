@@ -1,6 +1,5 @@
-﻿
-
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using WTAnalyzer.Resx;
 
 namespace WTAnalyzer.DataCollections
 {
@@ -9,18 +8,18 @@ namespace WTAnalyzer.DataCollections
         public static ObservableCollection<string> PlaneTasks() =>
             new ObservableCollection<string>()
             {
-                 "Repair Cost",
-                 "Max Speed",
-                 "Max Speed at 5000 m",
-                 "Climb",
-                 "Turn Time",
-                 "Engine Power",
-                 "Weight",
-                 "Flutter",
-                 "Optimal Alitude",
-                 "Bomb Load",
-                 "Burst Mass",
-                 "First fly Year",
+                 AppResources.RepairCost,
+                 AppResources.MaxSpeed,
+                 AppResources.MaxSpeedAt5000M,
+                 AppResources.Climb,
+                 AppResources.TurnTime,
+                 AppResources.EnginePower,
+                 AppResources.Weight,
+                 AppResources.Flutter,
+                 AppResources.OptimalAlitude,
+                 AppResources.BombLoad,
+                 AppResources.BurstMass,
+                 AppResources.FirstFlyYear,
             };
     }
 }

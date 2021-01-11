@@ -121,6 +121,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public string SelectedOrder
         {
             get => selectedOrder;
@@ -167,11 +168,7 @@ namespace WTAnalyzer.ViewModels
             Ranks = RanksCollection.PlaneRanks();
             Roles = RolesCollection.PlaneRoles();
             GameTypes = GameTypeCollection.GameTypes();
-            Orders = new ObservableCollection<string>()
-            {
-                 "Ascending",
-                 "Descending",
-            };
+            Orders = OrderCollection.Order();
         }
 
         private async void ResetHandler(object obj)
