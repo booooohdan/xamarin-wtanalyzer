@@ -3,9 +3,9 @@ using WTAnalyzer.Models;
 
 namespace WTAnalyzer.DataCollections
 {
-    public static class TypesCollection
+    public static class RolesCollection
     {
-        public static ObservableCollection<ChipsItem> PlaneTypes() =>
+        public static ObservableCollection<ChipsItem> PlaneRoles() =>
             new ObservableCollection<ChipsItem>()
             {
                 new ChipsItem() { Name = "Fighter", CodeName = "Fighter" },

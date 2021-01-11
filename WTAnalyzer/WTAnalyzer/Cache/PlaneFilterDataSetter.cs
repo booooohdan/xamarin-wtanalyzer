@@ -12,12 +12,12 @@ namespace WTAnalyzer.Cache
     {
         private ObservableCollection<ChipsItem> selectedNations;
         private ObservableCollection<ChipsItem> selectedRanks;
-        private ObservableCollection<ChipsItem> selectedTypes;
+        private ObservableCollection<ChipsItem> selectedRoles;
         private string selectedOrder;
         private string selectedTask;
         public ObservableCollection<ChipsItem> Ranks { get; set; }
         public ObservableCollection<ChipsItem> Nations { get; set; }
-        public ObservableCollection<ChipsItem> Types { get; set; }
+        public ObservableCollection<ChipsItem> Roles { get; set; }
 
         public async Task InitAsync()
         {
@@ -54,15 +54,15 @@ namespace WTAnalyzer.Cache
             await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
 
-            Types = TypesCollection.PlaneTypes();
-            selectedTypes = new ObservableCollection<ChipsItem>()
+            Roles = RolesCollection.PlaneRoles();
+            selectedRoles = new ObservableCollection<ChipsItem>()
                 {
-                    Types[0],
-                    Types[1],
-                    Types[2],
+                    Roles[0],
+                    Roles[1],
+                    Roles[2],
                 };
-            await BlobCache.UserAccount.Invalidate("cachedSelectedTypes");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", selectedTypes, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
+            await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", selectedRoles, TimeSpan.FromDays(7));
 
             selectedOrder = "Descending";
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");

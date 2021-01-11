@@ -26,7 +26,7 @@ namespace WTAnalyzer.ViewModels
         string filterTask { get; set; }
         string[] filterNations { get; set; }
         string[] filterRanks { get; set; }
-        string[] filterClass { get; set; }
+        string[] filterRoles { get; set; }
         string filterOrder { get; set; }
         #endregion
 
@@ -185,25 +185,25 @@ namespace WTAnalyzer.ViewModels
             var cachedRank = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
             filterRanks = string.Join("|", cachedRank.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
 
-            var cachedType = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
-            filterClass = string.Join("|", cachedType.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+            var cachedRole = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRoles");
+            filterRoles = string.Join("|", cachedRole.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
 
             filterOrder = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
 
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
         }
 
-        public List<Plane> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterClass)
+        public List<Plane> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterRole)
         {
             return arrayOfPlanes.PlanesListApi.ToList()
                 .Where(x => filterNations.Contains(x.Nation)).ToList()
                 .Where(x => filterRank.Contains(x.Rank)).ToList()
-                .Where(x => filterClass.Contains(x.Class)).ToList();
+                .Where(x => filterRole.Contains(x.Class)).ToList();
         }
 
         public ObservableCollection<ChartsItem> GetFilteredDataForCharts(string nation, string task)
         {
-            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterClass);
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles);
             var dataForCharts = new ObservableCollection<ChartsItem>();
 
             foreach (double number in BRArray.PlanesBR())
@@ -245,7 +245,7 @@ namespace WTAnalyzer.ViewModels
         public void SetDataToListView()
         {
             var sortedDataForListView = new ObservableCollection<ListViewItem>();
-            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterClass);
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles);
             var dataForListView = new ObservableCollection<ListViewItem>();
 
             foreach (var item in filteredPlaneList)

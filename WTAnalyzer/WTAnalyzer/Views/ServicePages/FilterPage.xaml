@@ -88,11 +88,11 @@
             <Label 
                Text="Types" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup  
-				ItemsSource="{Binding Types, Mode=TwoWay}" 
+				ItemsSource="{Binding Roles, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
 				Type="Filter"
 				DisplayMemberPath="Name"
-				SelectedItems="{Binding SelectedTypes, Mode=TwoWay}"
+				SelectedItems="{Binding SelectedRoles, Mode=TwoWay}"
 			    SelectedChipBackgroundColor="Red"
 	            ChipBackgroundColor="#eeeeee"
 				SelectionIndicatorColor="White">

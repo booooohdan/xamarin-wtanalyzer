@@ -23,13 +23,13 @@ namespace WTAnalyzer.ViewModels
         public ICommand ResetCommand { get; }
         private ObservableCollection<ChipsItem> nations;
         private ObservableCollection<ChipsItem> ranks;
-        private ObservableCollection<ChipsItem> types;
+        private ObservableCollection<ChipsItem> roles;
         private ObservableCollection<string> orders;
         private ObservableCollection<string> tasks;
 
         private ObservableCollection<ChipsItem> selectedNations;
         private ObservableCollection<ChipsItem> selectedRanks;
-        private ObservableCollection<ChipsItem> selectedTypes;
+        private ObservableCollection<ChipsItem> selectedRoles;
         private string selectedOrder;
         private string selectedTask;
 
@@ -73,21 +73,21 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<ChipsItem> Types
+        public ObservableCollection<ChipsItem> Roles
         {
-            get => types;
+            get => roles;
             set
             {
-                types = value;
+                roles = value;
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<ChipsItem> SelectedTypes
+        public ObservableCollection<ChipsItem> SelectedRoles
         {
-            get => selectedTypes;
+            get => selectedRoles;
             set
             {
-                selectedTypes = value;
+                selectedRoles = value;
                 OnPropertyChanged();
             }
         }
@@ -144,7 +144,7 @@ namespace WTAnalyzer.ViewModels
             Tasks = TasksCollection.PlaneTasks();
             Nations = NationsCollection.PlaneNations();
             Ranks = RanksCollection.PlaneRanks();
-            Types = TypesCollection.PlaneTypes();
+            Roles = RolesCollection.PlaneRoles();
             Orders = new ObservableCollection<string>()
             {
                  "Ascending",
@@ -196,15 +196,15 @@ namespace WTAnalyzer.ViewModels
                 selectedNations.Add(Nations[Nations.IndexOf(nation)]);
             }
 
-            var cacheTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedTypes");
-            SelectedTypes = new ObservableCollection<ChipsItem>();
+            var cacheRoles = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRoles");
+            SelectedRoles = new ObservableCollection<ChipsItem>();
 
-            foreach (var type in from cacheType in cacheTypes
-                                 from type in Types
-                                 where type.CodeName == cacheType.CodeName
-                                 select type)
+            foreach (var role in from cacheRole in cacheRoles
+                                 from role in Roles
+                                 where role.CodeName == cacheRole.CodeName
+                                 select role)
             {
-                selectedTypes.Add(Types[Types.IndexOf(type)]);
+                selectedRoles.Add(Roles[Roles.IndexOf(role)]);
             }
 
             var cacheOrders = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
@@ -222,8 +222,8 @@ namespace WTAnalyzer.ViewModels
             await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", SelectedRanks, TimeSpan.FromDays(7));
 
-            await BlobCache.UserAccount.Invalidate("cachedSelectedTypes");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTypes", SelectedTypes, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
+            await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", SelectedRoles, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
             await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", SelectedOrder, TimeSpan.FromDays(7));
