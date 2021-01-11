@@ -24,12 +24,14 @@ namespace WTAnalyzer.ViewModels
         private ObservableCollection<ChipsItem> nations;
         private ObservableCollection<ChipsItem> ranks;
         private ObservableCollection<ChipsItem> roles;
+        private ObservableCollection<ChipsItem> gameTypes;
         private ObservableCollection<string> orders;
         private ObservableCollection<string> tasks;
 
         private ObservableCollection<ChipsItem> selectedNations;
         private ObservableCollection<ChipsItem> selectedRanks;
         private ObservableCollection<ChipsItem> selectedRoles;
+        private ObservableCollection<ChipsItem> selectedGameTypes;
         private string selectedOrder;
         private string selectedTask;
 
@@ -91,6 +93,25 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
+        public ObservableCollection<ChipsItem> GameTypes
+        {
+            get => gameTypes;
+            set
+            {
+                gameTypes = value;
+                OnPropertyChanged();
+            }
+        }
+        public ObservableCollection<ChipsItem> SelectedGameTypes
+        {
+            get => selectedGameTypes;
+            set
+            {
+                selectedGameTypes = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<string> Orders
         {
             get => orders;
@@ -145,6 +166,7 @@ namespace WTAnalyzer.ViewModels
             Nations = NationsCollection.PlaneNations();
             Ranks = RanksCollection.PlaneRanks();
             Roles = RolesCollection.PlaneRoles();
+            GameTypes = GameTypeCollection.GameTypes();
             Orders = new ObservableCollection<string>()
             {
                  "Ascending",
@@ -207,6 +229,17 @@ namespace WTAnalyzer.ViewModels
                 selectedRoles.Add(Roles[Roles.IndexOf(role)]);
             }
 
+            var cacheGameTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedGameTypes");
+            SelectedGameTypes = new ObservableCollection<ChipsItem>();
+
+            foreach (var gameType in from cacheGameType in cacheGameTypes
+                                 from gameType in GameTypes
+                                 where gameType.CodeName == cacheGameType.CodeName
+                                 select gameType)
+            {
+                selectedGameTypes.Add(GameTypes[GameTypes.IndexOf(gameType)]);
+            }
+
             var cacheOrders = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
             SelectedOrder = Orders[Orders.IndexOf(cacheOrders)];
         }
@@ -224,6 +257,9 @@ namespace WTAnalyzer.ViewModels
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", SelectedRoles, TimeSpan.FromDays(7));
+            
+            await BlobCache.UserAccount.Invalidate("cachedSelectedGameTypes");
+            await BlobCache.UserAccount.InsertObject("cachedSelectedGameTypes", SelectedGameTypes, TimeSpan.FromDays(7));
 
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
             await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", SelectedOrder, TimeSpan.FromDays(7));

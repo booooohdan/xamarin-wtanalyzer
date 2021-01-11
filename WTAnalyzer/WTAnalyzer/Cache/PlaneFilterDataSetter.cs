@@ -13,11 +13,13 @@ namespace WTAnalyzer.Cache
         private ObservableCollection<ChipsItem> selectedNations;
         private ObservableCollection<ChipsItem> selectedRanks;
         private ObservableCollection<ChipsItem> selectedRoles;
+        private ObservableCollection<ChipsItem> selectedGameTypes;
         private string selectedOrder;
         private string selectedTask;
         public ObservableCollection<ChipsItem> Ranks { get; set; }
         public ObservableCollection<ChipsItem> Nations { get; set; }
         public ObservableCollection<ChipsItem> Roles { get; set; }
+        public ObservableCollection<ChipsItem> GameTypes { get; set; }
 
         public async Task InitAsync()
         {
@@ -63,6 +65,17 @@ namespace WTAnalyzer.Cache
                 };
             await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
             await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", selectedRoles, TimeSpan.FromDays(7));
+
+            GameTypes = GameTypeCollection.GameTypes();
+            selectedGameTypes = new ObservableCollection<ChipsItem>()
+                {
+                    GameTypes[0],
+                    GameTypes[1],
+                    GameTypes[2],
+                    GameTypes[3],
+                };
+            await BlobCache.UserAccount.Invalidate("cachedSelectedGameTypes");
+            await BlobCache.UserAccount.InsertObject("cachedSelectedGameTypes", selectedGameTypes, TimeSpan.FromDays(7));
 
             selectedOrder = "Descending";
             await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");

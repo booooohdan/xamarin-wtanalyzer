@@ -27,6 +27,7 @@ namespace WTAnalyzer.ViewModels
         string[] filterNations { get; set; }
         string[] filterRanks { get; set; }
         string[] filterRoles { get; set; }
+        string[] filterGameTypes { get; set; }
         string filterOrder { get; set; }
         #endregion
 
@@ -188,28 +189,32 @@ namespace WTAnalyzer.ViewModels
             var cachedRole = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRoles");
             filterRoles = string.Join("|", cachedRole.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
 
+            var cachedGameType = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedGameTypes");
+            filterGameTypes = string.Join("|", cachedGameType.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
+
             filterOrder = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
 
             MessagingCenter.Unsubscribe<FilterViewModel, string>(this, "filterClose");
         }
 
-        public List<Plane> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterRole)
+        public List<Plane> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterRole, string[] filterGameType)
         {
             return arrayOfPlanes.PlanesListApi.ToList()
                 .Where(x => filterNations.Contains(x.Nation)).ToList()
                 .Where(x => filterRank.Contains(x.Rank)).ToList()
-                .Where(x => filterRole.Contains(x.Class)).ToList();
+                .Where(x => filterRole.Contains(x.Class)).ToList()
+                .Where(x => filterGameType.Contains(x.Type)).ToList();
         }
 
         public ObservableCollection<ChartsItem> GetFilteredDataForCharts(string nation, string task)
         {
-            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles);
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles, filterGameTypes);
             var dataForCharts = new ObservableCollection<ChartsItem>();
 
             foreach (double number in BRArray.PlanesBR())
             {
                 double? planesCount = null;
-                if (task == "Count") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Count(); }
+                //if (task == "Count") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Count(); }
                 if (task == "Repair Cost") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.RepairCost); }
                 if (task == "Max Speed") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt0); }
                 if (task == "Max Speed at 5000 m") { planesCount = filteredPlaneList.Where(x => x.Nation == nation & x.BR == number).Max(x => x.MaxSpeedAt5000); }
@@ -245,7 +250,7 @@ namespace WTAnalyzer.ViewModels
         public void SetDataToListView()
         {
             var sortedDataForListView = new ObservableCollection<ListViewItem>();
-            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles);
+            var filteredPlaneList = FilterVehicleDataDependingFilterPage(filterNations, filterRanks, filterRoles, filterGameTypes);
             var dataForListView = new ObservableCollection<ListViewItem>();
 
             foreach (var item in filteredPlaneList)

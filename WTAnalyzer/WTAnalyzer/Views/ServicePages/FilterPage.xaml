@@ -84,9 +84,9 @@
                 </buttons:SfChipGroup.ChipLayout>
             </buttons:SfChipGroup>
 
-            <!--Type chips-->
+            <!--Role chips-->
             <Label 
-               Text="Types" Style="{StaticResource LabelStyle}"/>
+               Text="Roles" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup  
 				ItemsSource="{Binding Roles, Mode=TwoWay}" 
 				ChipPadding="8,8,0,0" 
@@ -109,7 +109,32 @@
                 </buttons:SfChipGroup.ChipLayout>
             </buttons:SfChipGroup>
 
-            <!--Sort chips-->
+            <!--GameType chips-->
+            <Label 
+               Text="Type" Style="{StaticResource LabelStyle}"/>
+            <buttons:SfChipGroup  
+				ItemsSource="{Binding GameTypes, Mode=TwoWay}" 
+				ChipPadding="8,8,0,0" 
+				Type="Filter"
+				DisplayMemberPath="Name"
+				SelectedItems="{Binding SelectedGameTypes, Mode=TwoWay}"
+			    SelectedChipBackgroundColor="Red"
+	            ChipBackgroundColor="#eeeeee"
+				SelectionIndicatorColor="White">
+                    <buttons:SfChipGroup.ChipLayout>
+                        <FlexLayout 
+						HorizontalOptions="Start" 
+						VerticalOptions="Center" 
+						Direction="Row" 
+						Wrap="Wrap"
+						JustifyContent="Start"
+						AlignContent="Start" 
+						AlignItems="Start">
+                        </FlexLayout>
+                    </buttons:SfChipGroup.ChipLayout>
+                </buttons:SfChipGroup>
+
+                <!--Sort chips-->
             <Label 
                Text="Order" Style="{StaticResource LabelStyle}"/>
             <buttons:SfChipGroup
