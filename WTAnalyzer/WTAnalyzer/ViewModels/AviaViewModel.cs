@@ -42,6 +42,15 @@ namespace WTAnalyzer.ViewModels
         private ObservableCollection<ChartsItem> lineChina { get; set; }
         private ObservableCollection<ChartsItem> lineSweden { get; set; }
 
+        public string FilterTask
+        {
+            get => filterTask;
+            set
+            {
+                filterTask = value;
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<ListViewItem> ListViewPlaneProp
         {
             get => listViewPlaneProp;
@@ -141,7 +150,6 @@ namespace WTAnalyzer.ViewModels
             OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
             Task.Run(GetVehicleDataFromCacheAsync).Wait();
             Task.Run(GetDataFromFilterPageAsync).Wait();
-            SetDataToFilterLabelView();
             SetDataToChartsView();
             SetDataToListView();
         }
@@ -155,7 +163,6 @@ namespace WTAnalyzer.ViewModels
                          await GetDataFromFilterPageAsync();
                          SetDataToChartsView();
                          SetDataToListView();
-                         SetDataToFilterLabelView();
                      });
 
                 await Navigation.PushModalAsync(new FilterPage());
@@ -170,6 +177,7 @@ namespace WTAnalyzer.ViewModels
         private async Task GetDataFromFilterPageAsync()
         {
             filterTask = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+            FilterTask = filterTask;
 
             var cachedNation = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
             filterNations = string.Join("|", cachedNation.Select(x => x.CodeName.ToString()).ToArray()).Split('|');
@@ -218,11 +226,6 @@ namespace WTAnalyzer.ViewModels
                 dataForCharts.Add(new ChartsItem(number, planesCount));
             }
             return dataForCharts;
-        }
-
-        private void SetDataToFilterLabelView()
-        {
-            string nations = filterNations.Count() == 9 ? "All" : "Custom";
         }
 
         public void SetDataToChartsView()

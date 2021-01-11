@@ -137,14 +137,18 @@
 
         <!--Submit button-->
         <StackLayout Orientation="Horizontal">
-            <Button Margin="20,0,20,20"
+            <Button
+                Margin="30, 0, 0, 20"
 				Text="RESET"
+                BorderColor="{StaticResource MyDarkest}"
+                TextColor="{StaticResource MyDarkest}"
 				Command="{Binding ResetCommand}"
 			    Style="{StaticResource ButtonStyle}"/>
-            <Button Margin="20,0,20,20"
+            <Button 
+                Margin="0, 0, 30, 20"
 				Text="SUBMIT"
-                BackgroundColor="Red"
-                TextColor="White"
+                BorderColor="Red"
+                TextColor="Red"
 				Command="{Binding SubmitCommand}"
 				Style="{StaticResource ButtonStyle}"/>
         </StackLayout>
