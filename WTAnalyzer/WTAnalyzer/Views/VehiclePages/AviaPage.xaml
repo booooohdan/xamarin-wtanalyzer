@@ -187,7 +187,7 @@
                                 <Label 
                                        Style="{StaticResource LabelListViewItemStyle}"
                                        HorizontalOptions="End"
-                                       Text="{Binding Value, StringFormat='{0:#,000}'}"  />
+                                       Text="{Binding Value, StringFormat='{0:#,###}'}"  />
                                 <Label                                       
                                        Style="{StaticResource LabelListViewItemStyle}"
                                        HorizontalOptions="End"

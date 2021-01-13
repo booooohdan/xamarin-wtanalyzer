@@ -190,4 +190,43 @@
   <ItemGroup>
     <BundleResource Include="Resources\menu_overall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AttackHeli.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Barge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Battleship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Boat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Cruiser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Destroyer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\HeavyTank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LightTank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MiddleTank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SPAA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SubChaser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TankDestroyer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UtilHeli.png" />
+  </ItemGroup>
 </Project>

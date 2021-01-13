@@ -16,7 +16,6 @@ namespace WTAnalyzer.DataCollections
                  AppResources.EnginePower,
                  AppResources.Weight,
                  AppResources.Flutter,
-                 AppResources.OptimalAlitude,
                  AppResources.BombLoad,
                  AppResources.BurstMass,
                  AppResources.FirstFlyYear,
