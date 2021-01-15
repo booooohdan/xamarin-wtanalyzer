@@ -25,8 +25,8 @@ namespace WTAnalyzer.Cache
         public async Task InitAsync()
         {
             selectedTask = AppResources.RepairCost;
-            await BlobCache.UserAccount.Invalidate("cachedSelectedTask");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTask", selectedTask, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaTask");
+            await BlobCache.UserAccount.InsertObject("cachedAviaTask", selectedTask, TimeSpan.FromDays(7));
 
             Nations = NationsCollection.PlaneNations();
             selectedNations = new ObservableCollection<ChipsItem>()
@@ -41,8 +41,8 @@ namespace WTAnalyzer.Cache
                     Nations[7],
                     Nations[8],
                 };
-            await BlobCache.UserAccount.Invalidate("cachedSelectedNations");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedNations", selectedNations, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaNations");
+            await BlobCache.UserAccount.InsertObject("cachedAviaNations", selectedNations, TimeSpan.FromDays(7));
 
             Ranks = RanksCollection.PlaneRanks();
             selectedRanks = new ObservableCollection<ChipsItem>()
@@ -54,8 +54,8 @@ namespace WTAnalyzer.Cache
                     Ranks[4],
                     Ranks[5],
                 };
-            await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", selectedRanks, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaRanks");
+            await BlobCache.UserAccount.InsertObject("cachedAviaRanks", selectedRanks, TimeSpan.FromDays(7));
 
             Roles = RolesCollection.PlaneRoles();
             selectedRoles = new ObservableCollection<ChipsItem>()
@@ -64,8 +64,8 @@ namespace WTAnalyzer.Cache
                     Roles[1],
                     Roles[2],
                 };
-            await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", selectedRoles, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaRoles");
+            await BlobCache.UserAccount.InsertObject("cachedAviaRoles", selectedRoles, TimeSpan.FromDays(7));
 
             GameTypes = GameTypeCollection.GameTypes();
             selectedGameTypes = new ObservableCollection<ChipsItem>()
@@ -75,12 +75,12 @@ namespace WTAnalyzer.Cache
                     GameTypes[2],
                     GameTypes[3],
                 };
-            await BlobCache.UserAccount.Invalidate("cachedSelectedGameTypes");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedGameTypes", selectedGameTypes, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaGameTypes");
+            await BlobCache.UserAccount.InsertObject("cachedAviaGameTypes", selectedGameTypes, TimeSpan.FromDays(7));
 
             selectedOrder = AppResources.Descending;
-            await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", selectedOrder, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate("cachedAviaOrder");
+            await BlobCache.UserAccount.InsertObject("cachedAviaOrder", selectedOrder, TimeSpan.FromDays(7));
         }
     }
 }

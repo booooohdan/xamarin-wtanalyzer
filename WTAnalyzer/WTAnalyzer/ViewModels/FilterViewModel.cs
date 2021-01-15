@@ -35,6 +35,14 @@ namespace WTAnalyzer.ViewModels
         private string selectedOrder;
         private string selectedTask;
 
+        private string vmType;
+        private string cachedTask;
+        private string cachedNation;
+        private string cachedRank;
+        private string cachedRole;
+        private string cachedGameType;
+        private string cachedOrder;
+
         #endregion
 
         #region View propertys
@@ -152,29 +160,51 @@ namespace WTAnalyzer.ViewModels
 
         #endregion
 
-        public FilterViewModel(INavigation navigation)
+        public FilterViewModel(INavigation navigation, string vmType)
         {
             Navigation = navigation;
             ResetCommand = new Command(ResetHandler);
             SubmitCommand = new Command(SubmitHandler);
+            this.vmType = vmType;
+            SetParametersDependingCallingViewModel();
+
             SetDefaultDataToChips();
             Task.Run(SetDataToChipsFromCache).Wait();
         }
 
+        private void SetParametersDependingCallingViewModel()
+        {
+            if (vmType == "Avia")
+            {
+                cachedTask = "cachedAviaTask";
+                cachedNation = "cachedAviaNations";
+                cachedRank = "cachedAviaRanks";
+                cachedRole = "cachedAviaRoles";
+                cachedGameType = "cachedAviaGameTypes";
+                cachedOrder = "cachedAviaOrder";
+            }
+
+        }
+
         private void SetDefaultDataToChips()
         {
-            Tasks = TasksCollection.PlaneTasks();
-            Nations = NationsCollection.PlaneNations();
-            Ranks = RanksCollection.PlaneRanks();
-            Roles = RolesCollection.PlaneRoles();
-            GameTypes = GameTypeCollection.GameTypes();
-            Orders = OrderCollection.Order();
+            if (vmType == "Avia")
+            {
+                Tasks = TasksCollection.PlaneTasks();
+                Nations = NationsCollection.PlaneNations();
+                Ranks = RanksCollection.PlaneRanks();
+                Roles = RolesCollection.PlaneRoles();
+                GameTypes = GameTypeCollection.GameTypes();
+                Orders = OrderCollection.Order();
+            }
         }
 
         private async void ResetHandler(object obj)
         {
-            var planeFilterDataSetter = new PlaneFilterDataSetter();
-            await planeFilterDataSetter.InitAsync();
+            if (vmType == "Avia")
+            {
+                await new PlaneFilterDataSetter().InitAsync();
+            }
             await SetDataToChipsFromCache();
         }
 
@@ -190,21 +220,10 @@ namespace WTAnalyzer.ViewModels
 
         private async Task SetDataToChipsFromCache()
         {
-            var cacheTasks = await BlobCache.UserAccount.GetObject<string>("cachedSelectedTask");
+            var cacheTasks = await BlobCache.UserAccount.GetObject<string>(cachedTask);
             SelectedTask = Tasks[Tasks.IndexOf(cacheTasks)];
 
-            var cacheRanks = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRanks");
-            SelectedRanks = new ObservableCollection<ChipsItem>();
-
-            foreach (var rank in from cacheRank in cacheRanks
-                                 from rank in Ranks
-                                 where rank.CodeName == cacheRank.CodeName
-                                 select rank)
-            {
-                selectedRanks.Add(Ranks[Ranks.IndexOf(rank)]);
-            }
-
-            var cacheNations = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedNations");
+            var cacheNations = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>(cachedNation);
             SelectedNations = new ObservableCollection<ChipsItem>();
 
             foreach (var nation in from cacheNation in cacheNations
@@ -215,7 +234,18 @@ namespace WTAnalyzer.ViewModels
                 selectedNations.Add(Nations[Nations.IndexOf(nation)]);
             }
 
-            var cacheRoles = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedRoles");
+            var cacheRanks = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>(cachedRank);
+            SelectedRanks = new ObservableCollection<ChipsItem>();
+
+            foreach (var rank in from cacheRank in cacheRanks
+                                 from rank in Ranks
+                                 where rank.CodeName == cacheRank.CodeName
+                                 select rank)
+            {
+                selectedRanks.Add(Ranks[Ranks.IndexOf(rank)]);
+            }
+
+            var cacheRoles = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>(cachedRole);
             SelectedRoles = new ObservableCollection<ChipsItem>();
 
             foreach (var role in from cacheRole in cacheRoles
@@ -226,7 +256,7 @@ namespace WTAnalyzer.ViewModels
                 selectedRoles.Add(Roles[Roles.IndexOf(role)]);
             }
 
-            var cacheGameTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>("cachedSelectedGameTypes");
+            var cacheGameTypes = await BlobCache.UserAccount.GetObject<ObservableCollection<ChipsItem>>(cachedGameType);
             SelectedGameTypes = new ObservableCollection<ChipsItem>();
 
             foreach (var gameType in from cacheGameType in cacheGameTypes
@@ -237,29 +267,29 @@ namespace WTAnalyzer.ViewModels
                 selectedGameTypes.Add(GameTypes[GameTypes.IndexOf(gameType)]);
             }
 
-            var cacheOrders = await BlobCache.UserAccount.GetObject<string>("cachedSelectedOrder");
+            var cacheOrders = await BlobCache.UserAccount.GetObject<string>(cachedOrder);
             SelectedOrder = Orders[Orders.IndexOf(cacheOrders)];
         }
 
         private async Task WriteFilterDataToCache()
         {
-            await BlobCache.UserAccount.Invalidate("cachedSelectedTask");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedTask", SelectedTask, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedTask);
+            await BlobCache.UserAccount.InsertObject(cachedTask, SelectedTask, TimeSpan.FromDays(7));
 
-            await BlobCache.UserAccount.Invalidate("cachedSelectedNations");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedNations", SelectedNations, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedNation);
+            await BlobCache.UserAccount.InsertObject(cachedNation, SelectedNations, TimeSpan.FromDays(7));
 
-            await BlobCache.UserAccount.Invalidate("cachedSelectedRanks");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedRanks", SelectedRanks, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedRank);
+            await BlobCache.UserAccount.InsertObject(cachedRank, SelectedRanks, TimeSpan.FromDays(7));
 
-            await BlobCache.UserAccount.Invalidate("cachedSelectedRoles");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedRoles", SelectedRoles, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedRole);
+            await BlobCache.UserAccount.InsertObject(cachedRole, SelectedRoles, TimeSpan.FromDays(7));
             
-            await BlobCache.UserAccount.Invalidate("cachedSelectedGameTypes");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedGameTypes", SelectedGameTypes, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedGameType);
+            await BlobCache.UserAccount.InsertObject(cachedGameType, SelectedGameTypes, TimeSpan.FromDays(7));
 
-            await BlobCache.UserAccount.Invalidate("cachedSelectedOrder");
-            await BlobCache.UserAccount.InsertObject("cachedSelectedOrder", SelectedOrder, TimeSpan.FromDays(7));
+            await BlobCache.UserAccount.Invalidate(cachedOrder);
+            await BlobCache.UserAccount.InsertObject(cachedOrder, SelectedOrder, TimeSpan.FromDays(7));
         }
     }
 }

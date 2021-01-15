@@ -7,10 +7,10 @@ namespace WTAnalyzer.Views.ServicePages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FilterPage : ContentPage
     {
-        public FilterPage()
+        public FilterPage(string vmType)
         {
             InitializeComponent();
-            BindingContext = new FilterViewModel(Navigation);
+            BindingContext = new FilterViewModel(Navigation, vmType);
         }
     }
 }
