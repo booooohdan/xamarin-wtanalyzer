@@ -154,7 +154,7 @@
         <ListView
             CachingStrategy="RecycleElementAndDataTemplate"
             SeparatorVisibility="None"
-            ItemsSource="{Binding ListViewPlaneProp}" 
+            ItemsSource="{Binding ListViewVehicleProp}" 
             BackgroundColor="Transparent"
             android:ListView.IsFastScrollEnabled="True">
             <ListView.ItemTemplate>

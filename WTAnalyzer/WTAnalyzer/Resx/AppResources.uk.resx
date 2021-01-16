@@ -167,7 +167,7 @@
     <value>Вага сек. залпу</value>
   </data>
   <data name="Climb" xml:space="preserve">
-    <value>Клімб</value>
+    <value>Клімб (0-5000 м)</value>
   </data>
   <data name="EnginePower" xml:space="preserve">
     <value>Потуж. двигуна</value>
@@ -243,5 +243,122 @@
   </data>
   <data name="_10BR" xml:space="preserve">
     <value>±1.0 БР</value>
+  </data>
+  <data name="ATGMCount" xml:space="preserve">
+    <value>Кількість ПТУР</value>
+  </data>
+  <data name="ATGMRange" xml:space="preserve">
+    <value>Дальність ПТУР</value>
+  </data>
+  <data name="AttackHelicopter" xml:space="preserve">
+    <value>Штурмовий гелікоптер</value>
+  </data>
+  <data name="Battleship" xml:space="preserve">
+    <value>Лінкор</value>
+  </data>
+  <data name="CirculationTime" xml:space="preserve">
+    <value>Час циркуляції</value>
+  </data>
+  <data name="ClimbTime01000M" xml:space="preserve">
+    <value>Клімб (0-1000 м)</value>
+  </data>
+  <data name="CrewCount" xml:space="preserve">
+    <value>Кількість екіпажу</value>
+  </data>
+  <data name="Cruiser" xml:space="preserve">
+    <value>Крейсер</value>
+  </data>
+  <data name="Destroyer" xml:space="preserve">
+    <value>САУ</value>
+  </data>
+  <data name="Displacement" xml:space="preserve">
+    <value>Водотоннажність</value>
+  </data>
+  <data name="FirstRideYear" xml:space="preserve">
+    <value>Перший виїзд</value>
+  </data>
+  <data name="HeavyTank" xml:space="preserve">
+    <value>Важкий танк</value>
+  </data>
+  <data name="HP" xml:space="preserve">
+    <value>к.с</value>
+  </data>
+  <data name="HullArmor" xml:space="preserve">
+    <value>Броня цитаделі</value>
+  </data>
+  <data name="LaunchedYear" xml:space="preserve">
+    <value>Рік спуску на воду</value>
+  </data>
+  <data name="LightTank" xml:space="preserve">
+    <value>Легкий танк</value>
+  </data>
+  <data name="LowerArmorPlate" xml:space="preserve">
+    <value>Броня НЛД</value>
+  </data>
+  <data name="UpperArmorPlate" xml:space="preserve">
+    <value>Броня ВЛД</value>
+  </data>
+  <data name="UtilityHelicopter" xml:space="preserve">
+    <value>Універсальний гелікоптер</value>
+  </data>
+  <data name="UnguidedMissile" xml:space="preserve">
+    <value>Некеровані ракети</value>
+  </data>
+  <data name="TurretArmor" xml:space="preserve">
+    <value>Броня башні</value>
+  </data>
+  <data name="MainCaliberReload" xml:space="preserve">
+    <value>Час перезарядки ГК</value>
+  </data>
+  <data name="MainCaliberSize" xml:space="preserve">
+    <value>Розмір ГК</value>
+  </data>
+  <data name="MaxSpeedShip" xml:space="preserve">
+    <value>Максимальна швидкість</value>
+  </data>
+  <data name="MediumTank" xml:space="preserve">
+    <value>Середній танк</value>
+  </data>
+  <data name="Mm" xml:space="preserve">
+    <value>мм</value>
+  </data>
+  <data name="Penetration" xml:space="preserve">
+    <value>Бронепробиття</value>
+  </data>
+  <data name="ReloadTime" xml:space="preserve">
+    <value>Час перезарядки</value>
+  </data>
+  <data name="ReverseSpeed" xml:space="preserve">
+    <value>Задній хід</value>
+  </data>
+  <data name="ShipDestroyer" xml:space="preserve">
+    <value>Есмінець</value>
+  </data>
+  <data name="SPAA" xml:space="preserve">
+    <value>ЗСУ</value>
+  </data>
+  <data name="SpeedAtRoad" xml:space="preserve">
+    <value>Макс. швидкість на дорозі</value>
+  </data>
+  <data name="SpeedAtSeaLevel" xml:space="preserve">
+    <value>Макс. швидкість на 0 м</value>
+  </data>
+  <data name="SpeedAtTerrain" xml:space="preserve">
+    <value>Макс. швидкість в полі</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>т</value>
+  </data>
+  <data name="TorpedoCount" xml:space="preserve">
+    <value>Кількість торпед</value>
+  </data>
+  <data name="TorpedoSpeed" xml:space="preserve">
+    <value>Швидкість торпед</value>
+  </data>
+  <data name="TorpedoTNT" xml:space="preserve">
+    <value>TNT торпед</value>
+  </data>
+  <data name="TowerArmor" xml:space="preserve">
+    <value>Броня башні</value>
   </data>
 </root>

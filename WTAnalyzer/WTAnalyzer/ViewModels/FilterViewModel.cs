@@ -184,6 +184,16 @@ namespace WTAnalyzer.ViewModels
                 cachedOrder = "cachedAviaOrder";
             }
 
+            if (vmType == "Tank")
+            {
+                cachedTask = "cachedTankTask";
+                cachedNation = "cachedTankNations";
+                cachedRank = "cachedTankRanks";
+                cachedRole = "cachedTankRoles";
+                cachedGameType = "cachedTankGameTypes";
+                cachedOrder = "cachedTankOrder";
+            }
+
         }
 
         private void SetDefaultDataToChips()
@@ -194,9 +204,18 @@ namespace WTAnalyzer.ViewModels
                 Nations = NationsCollection.PlaneNations();
                 Ranks = RanksCollection.PlaneRanks();
                 Roles = RolesCollection.PlaneRoles();
-                GameTypes = GameTypeCollection.GameTypes();
-                Orders = OrderCollection.Order();
             }
+
+            if (vmType == "Tank")
+            {
+                Tasks = TasksCollection.TankTasks();
+                Nations = NationsCollection.TankNations();
+                Ranks = RanksCollection.TankRanks();
+                Roles = RolesCollection.TankRoles();
+            }
+
+            GameTypes = GameTypeCollection.GameTypes();
+            Orders = OrderCollection.Order();
         }
 
         private async void ResetHandler(object obj)
@@ -204,6 +223,11 @@ namespace WTAnalyzer.ViewModels
             if (vmType == "Avia")
             {
                 await new PlaneFilterDataSetter().InitAsync();
+            }
+
+            if (vmType == "Tank")
+            {
+                await new TankFilterDataSetter().InitAsync();
             }
             await SetDataToChipsFromCache();
         }

@@ -1,12 +1,204 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WTAnalyzer.Views.VehiclePages.TankPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="WTAnalyzer.Views.VehiclePages.TankPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" xmlns:local="clr-namespace:WTAnalyzer.Helpers"
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToColorConverter x:Key="stringToColor" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="8, 8, 8, 0" Style="{StaticResource MainBackground}">
+
+        <!--Filter label-->
+        <Frame Style="{StaticResource FrameFilterSectionStyle}">
+            <Grid Padding="10, 0, 10, 0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0"
+                       Style="{StaticResource TextFilterSectionStyle}"
+                       Text="{Binding FilterTask}"/>
+                <Image Grid.Column="1"
+                       Margin="8"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       Aspect="AspectFit"
+                       Source="filter"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                    Command="{Binding OpenFilterModalPageCommand}"
+                    NumberOfTapsRequired="1"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+        </Frame>
+        <!--Charts-->
+        <Frame Style="{StaticResource FrameFilterSectionStyle}">
+            <chart:SfChart
+            HeightRequest="200">
+
+                <!--Trackball-->
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" ActivationMode="TouchMove"/>
+                </chart:SfChart.ChartBehaviors>
+                <!--Horizontal axis (X)-->
+                <chart:SfChart.PrimaryAxis>
+                    <chart:CategoryAxis PlotOffset="10" AxisLineOffset="10" ShowMajorGridLines="false">
+                        <chart:CategoryAxis.MajorTickStyle>
+                            <chart:ChartAxisTickStyle TickSize="10">
+                            </chart:ChartAxisTickStyle>
+                        </chart:CategoryAxis.MajorTickStyle>
+                    </chart:CategoryAxis>
+                </chart:SfChart.PrimaryAxis>
+                <!--Vertical axis (Y)-->
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.AxisLineStyle>
+                            <chart:ChartLineStyle StrokeWidth="0">
+                            </chart:ChartLineStyle>
+                        </chart:NumericalAxis.AxisLineStyle>
+                        <chart:NumericalAxis.MajorTickStyle>
+                            <chart:ChartAxisTickStyle TickSize="0" />
+                        </chart:NumericalAxis.MajorTickStyle>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <!--Legend-->
+                <chart:SfChart.Legend >
+                    <chart:ChartLegend DockPosition="Top" ToggleSeriesVisibility="True" IconWidth="14" IconHeight="14">
+                    </chart:ChartLegend>
+                </chart:SfChart.Legend>
+                <!--Lines-->
+                <chart:SfChart.Series>
+                    <!--Line 1-->
+                    <chart:LineSeries  StrokeWidth="2" ItemsSource="{Binding LineUSA}" XBindingPath="XValue" YBindingPath="YValue" Color="#64b5f6" LegendIcon="Circle" Label="{x:Static properties:AppResources.USA}" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#64b5f6" MarkerBorderWidth="2" MarkerColor="#64b5f6">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 2-->
+                    <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding LineGermany}" XBindingPath="XValue" YBindingPath="YValue" Color="#455a64" Label="{x:Static properties:AppResources.Germany}" LegendIcon="Circle" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#455a64" MarkerBorderWidth="2" MarkerColor="#455a64">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 3-->
+                    <chart:LineSeries  StrokeWidth="2" ItemsSource="{Binding LineUSSR}" XBindingPath="XValue" YBindingPath="YValue" Color="#d50000" LegendIcon="Circle" Label="{x:Static properties:AppResources.USSR}" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#d50000" MarkerBorderWidth="2" MarkerColor="#d50000">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 4-->
+                    <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding LineBritain}" XBindingPath="XValue" YBindingPath="YValue" Color="#8e24aa" Label="{x:Static properties:AppResources.Britain}" LegendIcon="Circle" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#8e24aa" MarkerBorderWidth="2" MarkerColor="#8e24aa">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 5-->
+                    <chart:LineSeries  StrokeWidth="2" ItemsSource="{Binding LineJapan}" XBindingPath="XValue" YBindingPath="YValue" Color="#f06292" LegendIcon="Circle" Label="{x:Static properties:AppResources.Japan}" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#f06292" MarkerBorderWidth="2" MarkerColor="#f06292">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 6-->
+                    <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding LineItaly}" XBindingPath="XValue" YBindingPath="YValue" Color="#7cb342" Label="{x:Static properties:AppResources.Italy}" LegendIcon="Circle" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#7cb342" MarkerBorderWidth="2" MarkerColor="#7cb342">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 7-->
+                    <chart:LineSeries  StrokeWidth="2" ItemsSource="{Binding LineFrance}" XBindingPath="XValue" YBindingPath="YValue" Color="#3f51b5" LegendIcon="Circle" Label="{x:Static properties:AppResources.France}" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#3f51b5" MarkerBorderWidth="2" MarkerColor="#3f51b5">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 8-->
+                    <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding LineChina}" XBindingPath="XValue" YBindingPath="YValue" Color="#f57c00" Label="{x:Static properties:AppResources.China}" LegendIcon="Circle" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#f57c00" MarkerBorderWidth="2" MarkerColor="#f57c00">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+                    <!--Line 9-->
+                    <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding LineSweden}" XBindingPath="XValue" YBindingPath="YValue" Color="#ffeb3b" Label="{x:Static properties:AppResources.Sweden}" LegendIcon="Circle" EnableTooltip="true" EnableAnimation="false">
+                        <chart:LineSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerWidth="3" MarkerHeight="3" ShowLabel="false" ShowMarker="true" MarkerBorderColor="#ffeb3b" MarkerBorderWidth="2" MarkerColor="#ffeb3b">
+                            </chart:ChartDataMarker>
+                        </chart:LineSeries.DataMarker>
+                    </chart:LineSeries>
+
+                </chart:SfChart.Series>
+            </chart:SfChart>
+        </Frame>
+
+        <!--ListView-->
+        <ListView
+            CachingStrategy="RecycleElementAndDataTemplate"
+            SeparatorVisibility="None"
+            ItemsSource="{Binding ListViewVehicleProp}" 
+            BackgroundColor="Transparent"
+            android:ListView.IsFastScrollEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource FrameFilterSectionStyle}"
+                               BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Aspect="AspectFit"
+                                       Margin="12, 12, 0, 12"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Source="{Binding Flag}" />
+                                <Image Aspect="AspectFit"
+                                       Margin="0, 11, 0, 11"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Source="{Binding Role}" />
+                                <Label 
+                                       Style="{StaticResource LabelListViewItemStyle}"
+                                       HorizontalOptions="Start"
+                                       FontAttributes="None" 
+                                       Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
+                                <Label 
+                                       Style="{StaticResource LabelListViewItemStyle}"
+                                       HorizontalOptions="StartAndExpand"   
+                                       FontFamily="SymbolFont"
+                                       FontAttributes="None"
+                                       Text="{Binding Name}"/>
+                                <Label 
+                                       Style="{StaticResource LabelListViewItemStyle}"
+                                       HorizontalOptions="End"
+                                       Text="{Binding Value, StringFormat='{0:#,0.##}'}"  />
+                                <Label                                       
+                                       Style="{StaticResource LabelListViewItemStyle}"
+                                       HorizontalOptions="End"
+                                       Padding="0,2, 10, 0"
+                                       FontSize="10"
+                                       Text="{Binding ValueDescription}" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

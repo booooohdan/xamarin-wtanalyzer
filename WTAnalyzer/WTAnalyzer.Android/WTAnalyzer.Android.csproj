@@ -195,43 +195,46 @@
     <AndroidResource Include="Resources\drawable\menu_overall.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\AttackHeli.png" />
+    <AndroidResource Include="Resources\drawable\AttackHelicopter.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Barge.png" />
+    <AndroidResource Include="Resources\drawable\ShipBarge.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Battleship.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Boat.png" />
+    <AndroidResource Include="Resources\drawable\ShipBoat.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Cruiser.png" />
+    <AndroidResource Include="Resources\drawable\ShipCruiser.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Destroyer.png" />
+    <AndroidResource Include="Resources\drawable\ShipDestroyer.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\HeavyTank.png" />
+    <AndroidResource Include="Resources\drawable\TankHeavy.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\LightTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\MiddleTank.png" />
+    <AndroidResource Include="Resources\drawable\MediumTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\SPAA.png" />
+    <AndroidResource Include="Resources\drawable\TankSPAA.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\SubChaser.png" />
+    <AndroidResource Include="Resources\drawable\ShipSubChaser.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\TankDestroyer.png" />
+    <AndroidResource Include="Resources\drawable\DestroyerTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\UtilHeli.png" />
+    <AndroidResource Include="Resources\drawable\UtilityHelicopter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\AntiTankMissileCarrierTank.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

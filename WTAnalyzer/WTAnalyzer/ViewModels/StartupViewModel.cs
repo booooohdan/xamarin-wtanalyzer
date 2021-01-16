@@ -12,13 +12,15 @@ namespace WTAnalyzer.ViewModels
     {
         public INavigation Navigation { get; set; }
         VehicleDataDownloader dataDownloader;
-        PlaneFilterDataSetter filterDataSetter;
+        PlaneFilterDataSetter filterPlaneDataSetter;
+        TankFilterDataSetter filterTankDataSetter;
         bool alertResult;
         public StartupViewModel(INavigation navigation)
         {
             Navigation = navigation;
             dataDownloader = new VehicleDataDownloader();
-            filterDataSetter = new PlaneFilterDataSetter();
+            filterPlaneDataSetter = new PlaneFilterDataSetter();
+            filterTankDataSetter = new TankFilterDataSetter();
 
             CheckIfInternetConnected();
         }
@@ -28,7 +30,8 @@ namespace WTAnalyzer.ViewModels
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 await Task.Run(dataDownloader.CheckIfDBCached);
-                await Task.Run(filterDataSetter.InitAsync);
+                await Task.Run(filterPlaneDataSetter.InitAsync);
+                await Task.Run(filterTankDataSetter.InitAsync);
                 await Navigation.PushAsync(new TabMenuPage());
             }
             else

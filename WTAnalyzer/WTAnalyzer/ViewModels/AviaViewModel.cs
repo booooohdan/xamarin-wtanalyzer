@@ -1,10 +1,7 @@
-﻿using Akavache;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Helpers;
@@ -12,7 +9,6 @@ using WTAnalyzer.Models;
 using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.Views.ServicePages;
-using WTAnalyzer.XmlHandler;
 using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels
@@ -123,7 +119,7 @@ namespace WTAnalyzer.ViewModels
                 ? dataForListView.OrderBy(x => x.Value).ToObservableCollection()
                 : dataForListView.OrderByDescending(x => x.Value).ToObservableCollection();
 
-            ListViewPlaneProp = sortedDataForListView;
+            ListViewVehicleProp = sortedDataForListView;
         }
     }
 }

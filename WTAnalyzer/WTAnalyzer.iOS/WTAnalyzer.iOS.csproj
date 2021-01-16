@@ -191,42 +191,45 @@
     <BundleResource Include="Resources\menu_overall.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\AttackHeli.png" />
+    <BundleResource Include="Resources\AttackHelicopter.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Barge.png" />
+    <BundleResource Include="Resources\ShipBarge.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Battleship.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Boat.png" />
+    <BundleResource Include="Resources\ShipBoat.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Cruiser.png" />
+    <BundleResource Include="Resources\ShipCruiser.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Destroyer.png" />
+    <BundleResource Include="Resources\ShipDestroyer.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\HeavyTank.png" />
+    <BundleResource Include="Resources\TankHeavy.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\LightTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\MiddleTank.png" />
+    <BundleResource Include="Resources\MediumTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SPAA.png" />
+    <BundleResource Include="Resources\TankSPAA.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\SubChaser.png" />
+    <BundleResource Include="Resources\ShipSubChaser.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TankDestroyer.png" />
+    <BundleResource Include="Resources\DestroyerTank.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\UtilHeli.png" />
+    <BundleResource Include="Resources\UtilityHelicopter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AntiTankMissileCarrierTank.png" />
   </ItemGroup>
 </Project>

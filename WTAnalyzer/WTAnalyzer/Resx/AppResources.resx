@@ -164,13 +164,13 @@
     <value>Repair Cost</value>
   </data>
   <data name="MaxSpeed" xml:space="preserve">
-    <value>Max Speed at 0 m</value>
+    <value>Speed at 0 m</value>
   </data>
   <data name="MaxSpeedAt5000M" xml:space="preserve">
-    <value>Max Speed at 5000 m</value>
+    <value>Speed at 5000 m</value>
   </data>
   <data name="Climb" xml:space="preserve">
-    <value>Climb</value>
+    <value>Climb time (0-5000 m)</value>
   </data>
   <data name="TurnTime" xml:space="preserve">
     <value>Turn Time</value>
@@ -243,5 +243,123 @@
   </data>
   <data name="Y" xml:space="preserve">
     <value>y</value>
+  </data>
+  <data name="LightTank" xml:space="preserve">
+    <value>Light Tank</value>
+  </data>
+  <data name="MediumTank" xml:space="preserve">
+    <value>Medium Tank</value>
+  </data>
+  <data name="HeavyTank" xml:space="preserve">
+    <value>Heavy Tank</value>
+  </data>
+  <data name="Destroyer" xml:space="preserve">
+    <value>Destroyer</value>
+  </data>
+  <data name="SPAA" xml:space="preserve">
+    <value>SPAA</value>
+  </data>
+  <data name="AttackHelicopter" xml:space="preserve">
+    <value>Attack Helicopter</value>
+  </data>
+  <data name="UtilityHelicopter" xml:space="preserve">
+    <value>Utility Helicopter</value>
+  </data>
+  <data name="ShipDestroyer" xml:space="preserve">
+    <value>Destroyer</value>
+    <comment>Ship</comment>
+  </data>
+  <data name="Cruiser" xml:space="preserve">
+    <value>Cruiser</value>
+  </data>
+  <data name="Battleship" xml:space="preserve">
+    <value>Battleship</value>
+  </data>
+  <data name="SpeedAtTerrain" xml:space="preserve">
+    <value>Speed at terrain</value>
+  </data>
+  <data name="SpeedAtRoad" xml:space="preserve">
+    <value>Speed at road</value>
+  </data>
+  <data name="ReverseSpeed" xml:space="preserve">
+    <value>Reverse speed</value>
+  </data>
+  <data name="Penetration" xml:space="preserve">
+    <value>Penetration</value>
+  </data>
+  <data name="ReloadTime" xml:space="preserve">
+    <value>Reload time</value>
+  </data>
+  <data name="TurretArmor" xml:space="preserve">
+    <value>Turret armor</value>
+  </data>
+  <data name="UpperArmorPlate" xml:space="preserve">
+    <value>Upper armor plate</value>
+  </data>
+  <data name="LowerArmorPlate" xml:space="preserve">
+    <value>Lower armor plate</value>
+  </data>
+  <data name="FirstRideYear" xml:space="preserve">
+    <value>First ride year</value>
+  </data>
+  <data name="UnguidedMissile" xml:space="preserve">
+    <value>Unguided missile</value>
+  </data>
+  <data name="ATGMRange" xml:space="preserve">
+    <value>ATGM Range</value>
+  </data>
+  <data name="ATGMCount" xml:space="preserve">
+    <value>ATGM Count</value>
+  </data>
+  <data name="SpeedAtSeaLevel" xml:space="preserve">
+    <value>Speed at sea level</value>
+  </data>
+  <data name="ClimbTime01000M" xml:space="preserve">
+    <value>Climb time (0-1000 m)</value>
+  </data>
+  <data name="MainCaliberSize" xml:space="preserve">
+    <value>Main caliber size</value>
+  </data>
+  <data name="MainCaliberReload" xml:space="preserve">
+    <value>Main caliber reload</value>
+  </data>
+  <data name="TorpedoCount" xml:space="preserve">
+    <value>Torpedo count</value>
+  </data>
+  <data name="TorpedoSpeed" xml:space="preserve">
+    <value>Torpedo speed</value>
+  </data>
+  <data name="TorpedoTNT" xml:space="preserve">
+    <value>Torpedo TNT</value>
+  </data>
+  <data name="MaxSpeedShip" xml:space="preserve">
+    <value>Max speed</value>
+  </data>
+  <data name="CirculationTime" xml:space="preserve">
+    <value>Circulation time</value>
+  </data>
+  <data name="TowerArmor" xml:space="preserve">
+    <value>Tower armor</value>
+  </data>
+  <data name="HullArmor" xml:space="preserve">
+    <value>Hull armor</value>
+  </data>
+  <data name="CrewCount" xml:space="preserve">
+    <value>Crew count</value>
+  </data>
+  <data name="Displacement" xml:space="preserve">
+    <value>Displacement</value>
+  </data>
+  <data name="LaunchedYear" xml:space="preserve">
+    <value>Launched year</value>
+  </data>
+  <data name="HP" xml:space="preserve">
+    <value>h.p</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>t</value>
+  </data>
+  <data name="Mm" xml:space="preserve">
+    <value>mm</value>
   </data>
 </root>

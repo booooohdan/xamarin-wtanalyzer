@@ -79,11 +79,47 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ATGM Count.
+        /// </summary>
+        internal static string ATGMCount {
+            get {
+                return ResourceManager.GetString("ATGMCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ATGM Range.
+        /// </summary>
+        internal static string ATGMRange {
+            get {
+                return ResourceManager.GetString("ATGMRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Attacker.
         /// </summary>
         internal static string Attacker {
             get {
                 return ResourceManager.GetString("Attacker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Attack Helicopter.
+        /// </summary>
+        internal static string AttackHelicopter {
+            get {
+                return ResourceManager.GetString("AttackHelicopter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Battleship.
+        /// </summary>
+        internal static string Battleship {
+            get {
+                return ResourceManager.GetString("Battleship", resourceCulture);
             }
         }
         
@@ -133,11 +169,47 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Climb.
+        ///   Ищет локализованную строку, похожую на Circulation time.
+        /// </summary>
+        internal static string CirculationTime {
+            get {
+                return ResourceManager.GetString("CirculationTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Climb time (0-5000 m).
         /// </summary>
         internal static string Climb {
             get {
                 return ResourceManager.GetString("Climb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Climb time (0-1000 m).
+        /// </summary>
+        internal static string ClimbTime01000M {
+            get {
+                return ResourceManager.GetString("ClimbTime01000M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Crew count.
+        /// </summary>
+        internal static string CrewCount {
+            get {
+                return ResourceManager.GetString("CrewCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cruiser.
+        /// </summary>
+        internal static string Cruiser {
+            get {
+                return ResourceManager.GetString("Cruiser", resourceCulture);
             }
         }
         
@@ -147,6 +219,24 @@ namespace WTAnalyzer.Resx {
         internal static string Descending {
             get {
                 return ResourceManager.GetString("Descending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Destroyer.
+        /// </summary>
+        internal static string Destroyer {
+            get {
+                return ResourceManager.GetString("Destroyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Displacement.
+        /// </summary>
+        internal static string Displacement {
+            get {
+                return ResourceManager.GetString("Displacement", resourceCulture);
             }
         }
         
@@ -196,6 +286,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на First ride year.
+        /// </summary>
+        internal static string FirstRideYear {
+            get {
+                return ResourceManager.GetString("FirstRideYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Flutter.
         /// </summary>
         internal static string Flutter {
@@ -219,6 +318,33 @@ namespace WTAnalyzer.Resx {
         internal static string Germany {
             get {
                 return ResourceManager.GetString("Germany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Heavy Tank.
+        /// </summary>
+        internal static string HeavyTank {
+            get {
+                return ResourceManager.GetString("HeavyTank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на h.p.
+        /// </summary>
+        internal static string HP {
+            get {
+                return ResourceManager.GetString("HP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hull armor.
+        /// </summary>
+        internal static string HullArmor {
+            get {
+                return ResourceManager.GetString("HullArmor", resourceCulture);
             }
         }
         
@@ -268,6 +394,33 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Launched year.
+        /// </summary>
+        internal static string LaunchedYear {
+            get {
+                return ResourceManager.GetString("LaunchedYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Light Tank.
+        /// </summary>
+        internal static string LightTank {
+            get {
+                return ResourceManager.GetString("LightTank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Lower armor plate.
+        /// </summary>
+        internal static string LowerArmorPlate {
+            get {
+                return ResourceManager.GetString("LowerArmorPlate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на m.
         /// </summary>
         internal static string M {
@@ -277,7 +430,25 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Max Speed at 0 m.
+        ///   Ищет локализованную строку, похожую на Main caliber reload.
+        /// </summary>
+        internal static string MainCaliberReload {
+            get {
+                return ResourceManager.GetString("MainCaliberReload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Main caliber size.
+        /// </summary>
+        internal static string MainCaliberSize {
+            get {
+                return ResourceManager.GetString("MainCaliberSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Speed at 0 m.
         /// </summary>
         internal static string MaxSpeed {
             get {
@@ -286,11 +457,38 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Max Speed at 5000 m.
+        ///   Ищет локализованную строку, похожую на Speed at 5000 m.
         /// </summary>
         internal static string MaxSpeedAt5000M {
             get {
                 return ResourceManager.GetString("MaxSpeedAt5000M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Max speed.
+        /// </summary>
+        internal static string MaxSpeedShip {
+            get {
+                return ResourceManager.GetString("MaxSpeedShip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Medium Tank.
+        /// </summary>
+        internal static string MediumTank {
+            get {
+                return ResourceManager.GetString("MediumTank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на mm.
+        /// </summary>
+        internal static string Mm {
+            get {
+                return ResourceManager.GetString("Mm", resourceCulture);
             }
         }
         
@@ -331,6 +529,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Penetration.
+        /// </summary>
+        internal static string Penetration {
+            get {
+                return ResourceManager.GetString("Penetration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Premium.
         /// </summary>
         internal static string Premium {
@@ -367,6 +574,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Reload time.
+        /// </summary>
+        internal static string ReloadTime {
+            get {
+                return ResourceManager.GetString("ReloadTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Repair Cost.
         /// </summary>
         internal static string RepairCost {
@@ -381,6 +597,15 @@ namespace WTAnalyzer.Resx {
         internal static string RESET {
             get {
                 return ResourceManager.GetString("RESET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reverse speed.
+        /// </summary>
+        internal static string ReverseSpeed {
+            get {
+                return ResourceManager.GetString("ReverseSpeed", resourceCulture);
             }
         }
         
@@ -403,11 +628,56 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Destroyer.
+        /// </summary>
+        internal static string ShipDestroyer {
+            get {
+                return ResourceManager.GetString("ShipDestroyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на s.l.
         /// </summary>
         internal static string SL {
             get {
                 return ResourceManager.GetString("SL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SPAA.
+        /// </summary>
+        internal static string SPAA {
+            get {
+                return ResourceManager.GetString("SPAA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Speed at road.
+        /// </summary>
+        internal static string SpeedAtRoad {
+            get {
+                return ResourceManager.GetString("SpeedAtRoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Speed at sea level.
+        /// </summary>
+        internal static string SpeedAtSeaLevel {
+            get {
+                return ResourceManager.GetString("SpeedAtSeaLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Speed at terrain.
+        /// </summary>
+        internal static string SpeedAtTerrain {
+            get {
+                return ResourceManager.GetString("SpeedAtTerrain", resourceCulture);
             }
         }
         
@@ -439,6 +709,51 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на t.
+        /// </summary>
+        internal static string T {
+            get {
+                return ResourceManager.GetString("T", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Torpedo count.
+        /// </summary>
+        internal static string TorpedoCount {
+            get {
+                return ResourceManager.GetString("TorpedoCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Torpedo speed.
+        /// </summary>
+        internal static string TorpedoSpeed {
+            get {
+                return ResourceManager.GetString("TorpedoSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Torpedo TNT.
+        /// </summary>
+        internal static string TorpedoTNT {
+            get {
+                return ResourceManager.GetString("TorpedoTNT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Tower armor.
+        /// </summary>
+        internal static string TowerArmor {
+            get {
+                return ResourceManager.GetString("TowerArmor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Turn Time.
         /// </summary>
         internal static string TurnTime {
@@ -448,11 +763,38 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Turret armor.
+        /// </summary>
+        internal static string TurretArmor {
+            get {
+                return ResourceManager.GetString("TurretArmor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Type.
         /// </summary>
         internal static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unguided missile.
+        /// </summary>
+        internal static string UnguidedMissile {
+            get {
+                return ResourceManager.GetString("UnguidedMissile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Upper armor plate.
+        /// </summary>
+        internal static string UpperArmorPlate {
+            get {
+                return ResourceManager.GetString("UpperArmorPlate", resourceCulture);
             }
         }
         
@@ -480,6 +822,15 @@ namespace WTAnalyzer.Resx {
         internal static string Usual {
             get {
                 return ResourceManager.GetString("Usual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Utility Helicopter.
+        /// </summary>
+        internal static string UtilityHelicopter {
+            get {
+                return ResourceManager.GetString("UtilityHelicopter", resourceCulture);
             }
         }
         

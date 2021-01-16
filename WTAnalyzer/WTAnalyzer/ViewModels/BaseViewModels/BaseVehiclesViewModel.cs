@@ -36,7 +36,7 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
         #endregion
 
         #region View Properties
-        private ObservableCollection<ListViewItem> listViewPlaneProp { get; set; }
+        private ObservableCollection<ListViewItem> listViewVehicleProp { get; set; }
         private ObservableCollection<ChartsItem> lineUSA { get; set; }
         private ObservableCollection<ChartsItem> lineGermany { get; set; }
         private ObservableCollection<ChartsItem> lineUSSR { get; set; }
@@ -56,12 +56,12 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<ListViewItem> ListViewPlaneProp
+        public ObservableCollection<ListViewItem> ListViewVehicleProp
         {
-            get => listViewPlaneProp;
+            get => listViewVehicleProp;
             set
             {
-                listViewPlaneProp = value;
+                listViewVehicleProp = value;
                 OnPropertyChanged();
             }
         }
@@ -168,6 +168,15 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
                 cachedOrder = "cachedAviaOrder";
             }
 
+            if (vmType == "Tank")
+            {
+                cachedTask = "cachedTankTask";
+                cachedNation = "cachedTankNations";
+                cachedRank = "cachedTankRanks";
+                cachedRole = "cachedTankRoles";
+                cachedGameType = "cachedTankGameTypes";
+                cachedOrder = "cachedTankOrder";
+            }
         }
 
         public async Task GetVehicleDataFromCacheAsync()
