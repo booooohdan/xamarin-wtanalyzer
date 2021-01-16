@@ -14,6 +14,8 @@ namespace WTAnalyzer.ViewModels
         VehicleDataDownloader dataDownloader;
         PlaneFilterDataSetter filterPlaneDataSetter;
         TankFilterDataSetter filterTankDataSetter;
+        HeliFilterDataSetter filterHeliDataSetter;
+        ShipFilterDataSetter filterShipDataSetter;
         bool alertResult;
         public StartupViewModel(INavigation navigation)
         {
@@ -21,6 +23,8 @@ namespace WTAnalyzer.ViewModels
             dataDownloader = new VehicleDataDownloader();
             filterPlaneDataSetter = new PlaneFilterDataSetter();
             filterTankDataSetter = new TankFilterDataSetter();
+            filterHeliDataSetter = new HeliFilterDataSetter();
+            filterShipDataSetter = new ShipFilterDataSetter();
 
             CheckIfInternetConnected();
         }
@@ -32,6 +36,8 @@ namespace WTAnalyzer.ViewModels
                 await Task.Run(dataDownloader.CheckIfDBCached);
                 await Task.Run(filterPlaneDataSetter.InitAsync);
                 await Task.Run(filterTankDataSetter.InitAsync);
+                await Task.Run(filterHeliDataSetter.InitAsync);
+                await Task.Run(filterShipDataSetter.InitAsync);
                 await Navigation.PushAsync(new TabMenuPage());
             }
             else

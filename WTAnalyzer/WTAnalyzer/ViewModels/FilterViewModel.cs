@@ -194,6 +194,26 @@ namespace WTAnalyzer.ViewModels
                 cachedOrder = "cachedTankOrder";
             }
 
+            if (vmType == "Heli")
+            {
+                cachedTask = "cachedHeliTask";
+                cachedNation = "cachedHeliNations";
+                cachedRank = "cachedHeliRanks";
+                cachedRole = "cachedHeliRoles";
+                cachedGameType = "cachedHeliGameTypes";
+                cachedOrder = "cachedHeliOrder";
+            }
+
+            if (vmType == "Ship")
+            {
+                cachedTask = "cachedShipTask";
+                cachedNation = "cachedShipNations";
+                cachedRank = "cachedShipRanks";
+                cachedRole = "cachedShipRoles";
+                cachedGameType = "cachedShipGameTypes";
+                cachedOrder = "cachedShipOrder";
+            }
+
         }
 
         private void SetDefaultDataToChips()
@@ -214,6 +234,22 @@ namespace WTAnalyzer.ViewModels
                 Roles = RolesCollection.TankRoles();
             }
 
+            if (vmType == "Heli")
+            {
+                Tasks = TasksCollection.HeliTasks();
+                Nations = NationsCollection.HeliNations();
+                Ranks = RanksCollection.HeliRanks();
+                Roles = RolesCollection.HeliRoles();
+            }
+
+            if (vmType == "Ship")
+            {
+                Tasks = TasksCollection.ShipTasks();
+                Nations = NationsCollection.ShipNations();
+                Ranks = RanksCollection.ShipRanks();
+                Roles = RolesCollection.ShipRoles();
+            }
+
             GameTypes = GameTypeCollection.GameTypes();
             Orders = OrderCollection.Order();
         }
@@ -229,6 +265,17 @@ namespace WTAnalyzer.ViewModels
             {
                 await new TankFilterDataSetter().InitAsync();
             }
+
+            if (vmType == "Heli")
+            {
+                await new HeliFilterDataSetter().InitAsync();
+            }
+
+            if (vmType == "Ship")
+            {
+                await new ShipFilterDataSetter().InitAsync();
+            }
+
             await SetDataToChipsFromCache();
         }
 

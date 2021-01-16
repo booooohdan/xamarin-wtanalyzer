@@ -361,4 +361,7 @@
   <data name="TowerArmor" xml:space="preserve">
     <value>Броня башні</value>
   </data>
+  <data name="Item" xml:space="preserve">
+    <value>шт</value>
+  </data>
 </root>

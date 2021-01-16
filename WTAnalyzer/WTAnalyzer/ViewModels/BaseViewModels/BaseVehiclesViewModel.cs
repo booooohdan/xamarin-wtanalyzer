@@ -177,6 +177,26 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
                 cachedGameType = "cachedTankGameTypes";
                 cachedOrder = "cachedTankOrder";
             }
+
+            if (vmType == "Heli")
+            {
+                cachedTask = "cachedHeliTask";
+                cachedNation = "cachedHeliNations";
+                cachedRank = "cachedHeliRanks";
+                cachedRole = "cachedHeliRoles";
+                cachedGameType = "cachedHeliGameTypes";
+                cachedOrder = "cachedHeliOrder";
+            }
+
+            if (vmType == "Ship")
+            {
+                cachedTask = "cachedShipTask";
+                cachedNation = "cachedShipNations";
+                cachedRank = "cachedShipRanks";
+                cachedRole = "cachedShipRoles";
+                cachedGameType = "cachedShipGameTypes";
+                cachedOrder = "cachedShipOrder";
+            }
         }
 
         public async Task GetVehicleDataFromCacheAsync()
