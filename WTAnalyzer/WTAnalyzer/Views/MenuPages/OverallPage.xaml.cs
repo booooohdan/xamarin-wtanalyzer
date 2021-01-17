@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using WTAnalyzer.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WTAnalyzer.Views.MenuPages
@@ -9,6 +10,7 @@ namespace WTAnalyzer.Views.MenuPages
         public OverallPage()
         {
             InitializeComponent();
+            BindingContext = new OverallViewModel(Navigation);
         }
     }
 }

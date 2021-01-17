@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              x:Class="WTAnalyzer.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -9,6 +9,18 @@
         <ResourceDictionary>
             <Color x:Key="MyWhite">#f1f1f1</Color>
             <Color x:Key="MyDarkest">#5d6368</Color>
+
+            <chart:ChartColorCollection x:Key="DoughnutColors">
+                <Color>#64b5f6</Color>
+                <Color>#455a64</Color>
+                <Color>#d50000</Color>
+                <Color>#8e24aa</Color>
+                <Color>#f06292</Color>
+                <Color>#7cb342</Color>
+                <Color>#3f51b5</Color>
+                <Color>#f57c00</Color>
+                <Color>#ffeb3b</Color>
+            </chart:ChartColorCollection>
 
             <Style x:Key="MainBackground" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="{StaticResource MyWhite}"/>

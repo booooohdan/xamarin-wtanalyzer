@@ -365,4 +365,7 @@
   <data name="Item" xml:space="preserve">
     <value>item</value>
   </data>
+  <data name="VehiclesPerNations" xml:space="preserve">
+    <value>Vehicles per Nations</value>
+  </data>
 </root>

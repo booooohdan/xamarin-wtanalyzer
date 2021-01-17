@@ -50,9 +50,10 @@
             <chart:SfChart
             HeightRequest="200">
 
-                <!--Trackball-->
+                <!--Trackball & Zoom-->
                 <chart:SfChart.ChartBehaviors>
-                    <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" ActivationMode="TouchMove"/>
+                    <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" ActivationMode="LongPress"/>
+                    <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
                 </chart:SfChart.ChartBehaviors>
                 <!--Horizontal axis (X)-->
                 <chart:SfChart.PrimaryAxis>

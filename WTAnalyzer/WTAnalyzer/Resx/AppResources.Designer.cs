@@ -844,6 +844,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Vehicles per Nations.
+        /// </summary>
+        internal static string VehiclesPerNations {
+            get {
+                return ResourceManager.GetString("VehiclesPerNations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Weight.
         /// </summary>
         internal static string Weight {
