@@ -367,4 +367,25 @@
   <data name="VehiclesPerNations" xml:space="preserve">
     <value>Техніка за країнами</value>
   </data>
+  <data name="RoleOfVehiclesPerClass" xml:space="preserve">
+    <value>Ролі техніки за класами</value>
+  </data>
+  <data name="TypeOfVehiclesPerNations" xml:space="preserve">
+    <value>Типи техніки за націями</value>
+  </data>
+  <data name="YearOfVehiclePerNation" xml:space="preserve">
+    <value>Роки за націями</value>
+  </data>
+  <data name="Aviation" xml:space="preserve">
+    <value>Авіація</value>
+  </data>
+  <data name="Helicopters" xml:space="preserve">
+    <value>Вертольоти</value>
+  </data>
+  <data name="Ships" xml:space="preserve">
+    <value>Флот</value>
+  </data>
+  <data name="Tanks" xml:space="preserve">
+    <value>Танки</value>
+  </data>
 </root>

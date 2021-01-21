@@ -115,6 +115,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Aviation.
+        /// </summary>
+        internal static string Aviation {
+            get {
+                return ResourceManager.GetString("Aviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Battleship.
         /// </summary>
         internal static string Battleship {
@@ -327,6 +336,15 @@ namespace WTAnalyzer.Resx {
         internal static string HeavyTank {
             get {
                 return ResourceManager.GetString("HeavyTank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Helicopters.
+        /// </summary>
+        internal static string Helicopters {
+            get {
+                return ResourceManager.GetString("Helicopters", resourceCulture);
             }
         }
         
@@ -619,6 +637,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Role of vehicles per class.
+        /// </summary>
+        internal static string RoleOfVehiclesPerClass {
+            get {
+                return ResourceManager.GetString("RoleOfVehiclesPerClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Roles.
         /// </summary>
         internal static string Roles {
@@ -642,6 +669,15 @@ namespace WTAnalyzer.Resx {
         internal static string ShipDestroyer {
             get {
                 return ResourceManager.GetString("ShipDestroyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fleet.
+        /// </summary>
+        internal static string Ships {
+            get {
+                return ResourceManager.GetString("Ships", resourceCulture);
             }
         }
         
@@ -727,6 +763,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Tanks.
+        /// </summary>
+        internal static string Tanks {
+            get {
+                return ResourceManager.GetString("Tanks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Torpedo count.
         /// </summary>
         internal static string TorpedoCount {
@@ -786,6 +831,15 @@ namespace WTAnalyzer.Resx {
         internal static string Type {
             get {
                 return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Type of vehicles per nations.
+        /// </summary>
+        internal static string TypeOfVehiclesPerNations {
+            get {
+                return ResourceManager.GetString("TypeOfVehiclesPerNations", resourceCulture);
             }
         }
         
@@ -867,6 +921,15 @@ namespace WTAnalyzer.Resx {
         internal static string Y {
             get {
                 return ResourceManager.GetString("Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Year of Vehicle per Nation.
+        /// </summary>
+        internal static string YearOfVehiclePerNation {
+            get {
+                return ResourceManager.GetString("YearOfVehiclePerNation", resourceCulture);
             }
         }
     }

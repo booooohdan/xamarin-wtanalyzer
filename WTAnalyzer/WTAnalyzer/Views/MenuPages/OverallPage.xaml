@@ -7,39 +7,357 @@
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Padding="20, 20, 0, 0"
-                Text="{x:Static properties:AppResources.VehiclesPerNations}" Style="{StaticResource LabelStyle}"/>
-            <!--Favorite game modes charts-->
-            <chart:SfChart BackgroundColor="Transparent">
-                <chart:SfChart.Legend>
-                    <chart:ChartLegend IconHeight="14" IconWidth="14" OverflowMode="Wrap" DockPosition="Bottom" />
-                </chart:SfChart.Legend>
-                <chart:SfChart.Series>
-                    <chart:DoughnutSeries  ExplodeIndex="{Binding SelectedIndex}" 
-                                       ItemsSource="{Binding DoughnutSeriesData}" 
-                                       XBindingPath="XValue" 
-                                       StartAngle="-90"
-                                       EndAngle="270"
-                                       YBindingPath="YValue" 
-                                       LegendIcon="Circle" 
-                                       CircularCoefficient="0.7"
-                                       EnableAnimation="true" 
-                                       ExplodeOnTouch="true" 
-                                       SelectedDataPointColor="OrangeRed"
-                                       DataMarkerPosition="OutsideExtended"
-                                       EnableSmartLabels="true"
-                                       ConnectorLineType="Bezier"
-                                       EnableDataPointSelection="true">
-                        <chart:DoughnutSeries.DataMarker>
-                            <chart:ChartDataMarker ShowLabel="True"/>
-                        </chart:DoughnutSeries.DataMarker>
-                        <chart:DoughnutSeries.ColorModel>
-                            <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutColors}"/>
-                        </chart:DoughnutSeries.ColorModel>
-                    </chart:DoughnutSeries>
-                </chart:SfChart.Series>
-            </chart:SfChart>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout 
+                Padding="8" 
+                Style="{StaticResource MainBackground}">
+
+                <!--Vehicle Count per Nation-->
+                <Label 
+                    Text="{x:Static properties:AppResources.VehiclesPerNations}" 
+                    Style="{StaticResource LabelStyle}"/>
+                <Frame 
+                    Style="{StaticResource FrameFilterSectionStyle}">
+                    <chart:SfChart BackgroundColor="Transparent">
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend 
+                                IconHeight="14" 
+                                IconWidth="14" 
+                                OverflowMode="Scroll" 
+                                DockPosition="Top" />
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Series>
+                            <chart:DoughnutSeries  
+                                ExplodeIndex="{Binding SelectedIndex}" 
+                                ItemsSource="{Binding DoughnutCountPerNationData}" 
+                                XBindingPath="XValue" 
+                                StartAngle="-90"
+                                EndAngle="270"
+                                YBindingPath="YValue" 
+                                LegendIcon="Circle" 
+                                CircularCoefficient="0.7"
+                                EnableAnimation="true" 
+                                ExplodeOnTouch="true" 
+                                SelectedDataPointColor="OrangeRed"
+                                DataMarkerPosition="OutsideExtended"
+                                EnableSmartLabels="true"
+                                ConnectorLineType="Bezier"
+                                EnableDataPointSelection="true">
+                                <chart:DoughnutSeries.DataMarker>
+                                    <chart:ChartDataMarker ShowLabel="True"/>
+                                </chart:DoughnutSeries.DataMarker>
+                                <chart:DoughnutSeries.ColorModel>
+                                    <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutColors}"/>
+                                </chart:DoughnutSeries.ColorModel>
+                            </chart:DoughnutSeries>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </Frame>
+
+                <!--Type of Vehicle per Nation-->
+                <Label 
+                    Text= "{x:Static properties:AppResources.TypeOfVehiclesPerNations}" 
+                    Style="{StaticResource LabelStyle}"/>
+                <Frame Style="{StaticResource FrameFilterSectionStyle}">
+                    <chart:SfChart
+                        HeightRequest="200">
+                        <!--Trackball & Zoom-->
+                        <chart:SfChart.ChartBehaviors>
+                            <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" ActivationMode="LongPress"/>
+                            <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+                        </chart:SfChart.ChartBehaviors>
+                        <!--Horizontal axis (X)-->
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:CategoryAxis PlotOffset="10" AxisLineOffset="10" ShowMajorGridLines="false">
+                                <chart:CategoryAxis.MajorTickStyle>
+                                    <chart:ChartAxisTickStyle TickSize="10">
+                                    </chart:ChartAxisTickStyle>
+                                </chart:CategoryAxis.MajorTickStyle>
+                            </chart:CategoryAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <!--Vertical axis (Y)-->
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis>
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <chart:ChartLineStyle StrokeWidth="0">
+                                    </chart:ChartLineStyle>
+                                </chart:NumericalAxis.AxisLineStyle>
+                                <chart:NumericalAxis.MajorTickStyle>
+                                    <chart:ChartAxisTickStyle TickSize="0" />
+                                </chart:NumericalAxis.MajorTickStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <!--Legend-->
+                        <chart:SfChart.Legend >
+                            <chart:ChartLegend 
+                                DockPosition="Top"
+                                ToggleSeriesVisibility="True" 
+                                IconWidth="14" 
+                                IconHeight="14">
+                            </chart:ChartLegend>
+                        </chart:SfChart.Legend>
+                        <!--Lines-->
+                        <chart:SfChart.Series>
+                            <!--Line 1-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineUsual}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#746e62" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Usual}" 
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 2-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LinePremium}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#fdcb46" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Premium}" 
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 3-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LinePromotional}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#ce766c" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Promotional}" 
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 4-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineSquadron}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#90a74f" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Squadron}" 
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </Frame>
+
+                <!--Role of Vehicle per Class-->
+                <Label 
+                    Text="{x:Static properties:AppResources.RoleOfVehiclesPerClass}" 
+                    Style="{StaticResource LabelStyle}"/>
+                <Frame 
+                    Style="{StaticResource FrameFilterSectionStyle}">
+
+                    <Grid ColumnSpacing="10" Padding="15, 0, 15, 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150" />
+                            <RowDefinition Height="150" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                       
+                        <chart:SfChart 
+                            BackgroundColor="Transparent">
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend 
+                                IconHeight="14" 
+                                IconWidth="14" 
+                                OverflowMode="Scroll" 
+                                DockPosition="Top" />
+                            </chart:SfChart.Legend>
+                            <chart:SfChart.Series>
+                                <chart:DoughnutSeries  
+                                ExplodeIndex="{Binding SelectedIndex}" 
+                                ItemsSource="{Binding DoughnutAviaRolesData}" 
+                                XBindingPath="XValue" 
+                                StartAngle="180"
+                                EndAngle="360"
+                                YBindingPath="YValue" 
+                                LegendIcon="Circle" 
+                                CircularCoefficient="1"
+                                EnableAnimation="true" >
+                                    <chart:DoughnutSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutAviaRolesColors}"/>
+                                    </chart:DoughnutSeries.ColorModel>
+                                </chart:DoughnutSeries>
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+
+                        <chart:SfChart Grid.Row="0" Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend 
+                                IconHeight="14" 
+                                IconWidth="14" 
+                                OverflowMode="Scroll" 
+                                DockPosition="Top" />
+                            </chart:SfChart.Legend>
+                            <chart:SfChart.Series>
+                                <chart:DoughnutSeries  
+                                ExplodeIndex="{Binding SelectedIndex}" 
+                                ItemsSource="{Binding DoughnutTankRolesData}" 
+                                XBindingPath="XValue" 
+                                StartAngle="180"
+                                EndAngle="360"
+                                YBindingPath="YValue" 
+                                LegendIcon="Circle" 
+                                CircularCoefficient="1"
+                                EnableAnimation="true" >
+                                    <chart:DoughnutSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutTankRolesColors}"/>
+                                    </chart:DoughnutSeries.ColorModel>
+                                </chart:DoughnutSeries>
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+
+                        <chart:SfChart Grid.Row="1" Grid.Column="0"
+                            BackgroundColor="Transparent">
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend 
+                                IconHeight="14" 
+                                IconWidth="14" 
+                                OverflowMode="Scroll" 
+                                DockPosition="Bottom" />
+                            </chart:SfChart.Legend>
+                            <chart:SfChart.Series>
+                                <chart:DoughnutSeries  
+                                ExplodeIndex="{Binding SelectedIndex}" 
+                                ItemsSource="{Binding DoughnutHeliRolesData}" 
+                                XBindingPath="XValue" 
+                                StartAngle="180"
+                                EndAngle="360"
+                                YBindingPath="YValue" 
+                                LegendIcon="Circle" 
+                                CircularCoefficient="1"
+                                EnableAnimation="true" >
+                                    <chart:DoughnutSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutHeliRolesColors}"/>
+                                    </chart:DoughnutSeries.ColorModel>
+                                </chart:DoughnutSeries>
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+
+                        <chart:SfChart Grid.Row="1" Grid.Column="1"
+                            BackgroundColor="Transparent">
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend 
+                                IconHeight="14" 
+                                IconWidth="14" 
+                                OverflowMode="Scroll" 
+                                DockPosition="Bottom" />
+                            </chart:SfChart.Legend>
+                            <chart:SfChart.Series>
+                                <chart:DoughnutSeries  
+                                ExplodeIndex="{Binding SelectedIndex}" 
+                                ItemsSource="{Binding DoughnutShipRolesData}" 
+                                XBindingPath="XValue" 
+                                StartAngle="180"
+                                EndAngle="360"
+                                YBindingPath="YValue" 
+                                LegendIcon="Circle" 
+                                CircularCoefficient="1"
+                                EnableAnimation="true" >
+                                    <chart:DoughnutSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource DoughnutShipRolesColors}"/>
+                                    </chart:DoughnutSeries.ColorModel>
+                                </chart:DoughnutSeries>
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+                    </Grid>
+                </Frame>
+
+                <!--Year of Vehicle per Nation-->
+                <Label 
+                    Text= "{x:Static properties:AppResources.YearOfVehiclePerNation}" 
+                    Style="{StaticResource LabelStyle}"/>
+                <Frame Style="{StaticResource FrameFilterSectionStyle}">
+                    <chart:SfChart
+                        HeightRequest="200">
+                        <!--Trackball & Zoom-->
+                        <chart:SfChart.ChartBehaviors>
+                            <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" ActivationMode="LongPress"/>
+                            <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+                        </chart:SfChart.ChartBehaviors>
+                        <!--Horizontal axis (X)-->
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:NumericalAxis PlotOffset="10" AxisLineOffset="10" ShowMajorGridLines="false">
+                                <chart:NumericalAxis.MajorTickStyle>
+                                    <chart:ChartAxisTickStyle TickSize="10">
+                                    </chart:ChartAxisTickStyle>
+                                </chart:NumericalAxis.MajorTickStyle>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <!--Vertical axis (Y)-->
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis>
+                                <chart:NumericalAxis.AxisLineStyle>
+                                    <chart:ChartLineStyle StrokeWidth="0">
+                                    </chart:ChartLineStyle>
+                                </chart:NumericalAxis.AxisLineStyle>
+                                <chart:NumericalAxis.MajorTickStyle>
+                                    <chart:ChartAxisTickStyle TickSize="0" />
+                                </chart:NumericalAxis.MajorTickStyle>                              
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <!--Legend-->
+                        <chart:SfChart.Legend >
+                            <chart:ChartLegend 
+                                DockPosition="Top"
+                                ToggleSeriesVisibility="True" 
+                                IconWidth="14" 
+                                IconHeight="14">
+                            </chart:ChartLegend>
+                        </chart:SfChart.Legend>
+                        <!--Lines-->
+                        <chart:SfChart.Series>
+                            <!--Line 1-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineAvia}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#64b5f6" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Aviation}" 
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 2-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineTank}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#a5d1a0" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Tanks}"
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 3-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineHeli}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#f19661" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Helicopters}"
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                            <!--Line 4-->
+                            <chart:AreaSeries 
+                                ItemsSource="{Binding LineShip}" 
+                                XBindingPath="XValue" 
+                                YBindingPath="YValue" 
+                                Color="#3f51b5" 
+                                LegendIcon="Circle" 
+                                Label="{x:Static properties:AppResources.Ships}"
+                                EnableTooltip="true" 
+                                EnableAnimation="false"/>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

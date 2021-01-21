@@ -232,4 +232,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\AntiTankMissileCarrierTank.png" />
   </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

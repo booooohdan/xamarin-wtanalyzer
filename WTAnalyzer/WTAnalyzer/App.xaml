@@ -22,6 +22,31 @@
                 <Color>#ffeb3b</Color>
             </chart:ChartColorCollection>
 
+            <chart:ChartColorCollection x:Key="DoughnutAviaRolesColors">
+                <Color>#f19661</Color>
+                <Color>#a5d1a0</Color>
+                <Color>#9f8ec8</Color>
+            </chart:ChartColorCollection>
+
+            <chart:ChartColorCollection x:Key="DoughnutTankRolesColors">
+                <Color>#fff9ae</Color>
+                <Color>#f19661</Color>
+                <Color>#ca6d6d</Color>
+                <Color>#a5d1a0</Color>
+                <Color>#9f8ec8</Color>
+            </chart:ChartColorCollection>
+
+            <chart:ChartColorCollection x:Key="DoughnutHeliRolesColors">
+                <Color>#fff9ae</Color>
+                <Color>#f19661</Color>
+            </chart:ChartColorCollection>
+
+            <chart:ChartColorCollection x:Key="DoughnutShipRolesColors">
+                <Color>#fff9ae</Color>
+                <Color>#f19661</Color>
+                <Color>#ca6d6d</Color>
+            </chart:ChartColorCollection>
+
             <Style x:Key="MainBackground" TargetType="StackLayout">
                 <Setter Property="BackgroundColor" Value="{StaticResource MyWhite}"/>
             </Style>
