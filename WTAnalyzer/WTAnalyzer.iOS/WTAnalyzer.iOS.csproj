@@ -160,6 +160,9 @@
     <PackageReference Include="akavache">
       <Version>7.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.StoreReview">
+      <Version>3.0.0-beta</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Licensing">
       <Version>18.4.0.31</Version>
     </PackageReference>
@@ -172,9 +175,12 @@
     <PackageReference Include="Syncfusion.Xamarin.SfChart">
       <Version>18.4.0.31</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRating">
+      <Version>18.4.0.31</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1821</Version>
+      <Version>5.0.0.1905</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -231,6 +237,24 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\AntiTankMissileCarrierTank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Analyzer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SkillMeter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Versus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WoTQuiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WTQuiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapGuide.png" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

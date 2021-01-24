@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WTAnalyzer.Views.MenuPages.OverallPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             xmlns:properties="clr-namespace:WTAnalyzer.Resx" xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
