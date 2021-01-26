@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Akavache;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reactive.Linq;
 using System.Text;
 using System.Windows.Input;
 using WTAnalyzer.ViewModels.BaseViewModels;
+using WTAnalyzer.Views.MenuPages;
+using WTAnalyzer.Views.ServicePages;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -54,14 +59,20 @@ namespace WTAnalyzer.ViewModels
             Launcher.OpenAsync(new Uri("mailto:waveappfeedback@gmail.com"));
         }
 
-        private void HintsHandler(object obj)
+        private async void HintsHandler(object obj)
         {
-            Launcher.OpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.wave.wotquiz"));
+            if (Navigation.ModalStack.Count == 0)
+            {               
+                await Navigation.PushAsync(new HintsPage());
+            }
         }
 
-        private void AboutAppHandler(object obj)
+        private async void AboutAppHandler(object obj)
         {
-            Launcher.OpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.wave.wotquiz"));
+            if (Navigation.ModalStack.Count == 0)
+            {
+                await Navigation.PushAsync(new AboutAppPage());
+            }
         }
 
         private void PatreonHandler(object obj)
@@ -97,9 +108,13 @@ namespace WTAnalyzer.ViewModels
             Launcher.OpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.wave.wotquiz"));
         }
 
-        private void UpdateCacheHandler(object obj)
+        private async void UpdateCacheHandler(object obj)
         {
-            
+            await BlobCache.UserAccount.Invalidate("cachedArrayOfPlanes");
+            await BlobCache.UserAccount.Invalidate("cachedArrayOfTanks");
+            await BlobCache.UserAccount.Invalidate("cachedArrayOfHelis");
+            await BlobCache.UserAccount.Invalidate("cachedArrayOfShips");
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

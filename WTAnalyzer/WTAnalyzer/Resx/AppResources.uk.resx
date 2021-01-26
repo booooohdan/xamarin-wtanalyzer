@@ -388,4 +388,46 @@
   <data name="Tanks" xml:space="preserve">
     <value>Танки</value>
   </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Вихід</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Спробувати ще раз</value>
+  </data>
+  <data name="PleaseMakeSure" xml:space="preserve">
+    <value>Будь ласка переконайтесь, що інтернет увімкнено</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Немає інтернету</value>
+  </data>
+  <data name="LoadingVehicleData" xml:space="preserve">
+    <value>Завантаження даних \n Це може зайняти до 15 секунд</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Зворотній зв'язок:</value>
+  </data>
+  <data name="RateUsInStore" xml:space="preserve">
+    <value>Оцініть нас:</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
+  <data name="AboutApp" xml:space="preserve">
+    <value>Автори</value>
+  </data>
+  <data name="Hints" xml:space="preserve">
+    <value>Підказки</value>
+  </data>
+  <data name="TryOurApps" xml:space="preserve">
+    <value>Спробуйте наші програми:</value>
+  </data>
+  <data name="TryOurGames" xml:space="preserve">
+    <value>Спробуйте наші ігри:</value>
+  </data>
+  <data name="UpdateDatabase" xml:space="preserve">
+    <value>Оновлення бази даних</value>
+  </data>
+  <data name="UPDATEReopenIsRequired" xml:space="preserve">
+    <value>ОНОВИТИ (Необхідне перезавантаження)</value>
+  </data>
 </root>

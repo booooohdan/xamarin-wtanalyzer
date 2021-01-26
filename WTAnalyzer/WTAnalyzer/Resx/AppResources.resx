@@ -389,4 +389,46 @@
   <data name="Ships" xml:space="preserve">
     <value>Fleet</value>
   </data>
+  <data name="LoadingVehicleData" xml:space="preserve">
+    <value>Loading vehicle data \n This may take up to a 15 sec</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>No internet</value>
+  </data>
+  <data name="PleaseMakeSure" xml:space="preserve">
+    <value>Please make sure the Internet is available</value>
+  </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>Try again</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact us:</value>
+  </data>
+  <data name="RateUsInStore" xml:space="preserve">
+    <value>Rate us in store:</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutApp" xml:space="preserve">
+    <value>About app</value>
+  </data>
+  <data name="Hints" xml:space="preserve">
+    <value>Hints</value>
+  </data>
+  <data name="TryOurApps" xml:space="preserve">
+    <value>Try our apps:</value>
+  </data>
+  <data name="TryOurGames" xml:space="preserve">
+    <value>Try our games:</value>
+  </data>
+  <data name="UpdateDatabase" xml:space="preserve">
+    <value>Update Database</value>
+  </data>
+  <data name="UPDATEReopenIsRequired" xml:space="preserve">
+    <value>UPDATE (Reboot is required)</value>
+  </data>
 </root>

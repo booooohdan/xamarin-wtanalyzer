@@ -70,6 +70,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на About app.
+        /// </summary>
+        internal static string AboutApp {
+            get {
+                return ResourceManager.GetString("AboutApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ascending.
         /// </summary>
         internal static string Ascending {
@@ -201,6 +219,15 @@ namespace WTAnalyzer.Resx {
         internal static string ClimbTime01000M {
             get {
                 return ResourceManager.GetString("ClimbTime01000M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Contact us:.
+        /// </summary>
+        internal static string ContactUs {
+            get {
+                return ResourceManager.GetString("ContactUs", resourceCulture);
             }
         }
         
@@ -349,6 +376,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hints.
+        /// </summary>
+        internal static string Hints {
+            get {
+                return ResourceManager.GetString("Hints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на h.p.
         /// </summary>
         internal static string HP {
@@ -435,6 +471,15 @@ namespace WTAnalyzer.Resx {
         internal static string LightTank {
             get {
                 return ResourceManager.GetString("LightTank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Loading vehicle data \n This may take up to a 15 sec.
+        /// </summary>
+        internal static string LoadingVehicleData {
+            get {
+                return ResourceManager.GetString("LoadingVehicleData", resourceCulture);
             }
         }
         
@@ -529,6 +574,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на No internet.
+        /// </summary>
+        internal static string NoInternet {
+            get {
+                return ResourceManager.GetString("NoInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Optimal Alitude.
         /// </summary>
         internal static string OptimalAlitude {
@@ -565,6 +619,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Please make sure the Internet is available.
+        /// </summary>
+        internal static string PleaseMakeSure {
+            get {
+                return ResourceManager.GetString("PleaseMakeSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Premium.
         /// </summary>
         internal static string Premium {
@@ -592,11 +655,29 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Quit.
+        /// </summary>
+        internal static string Quit {
+            get {
+                return ResourceManager.GetString("Quit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ranks.
         /// </summary>
         internal static string Ranks {
             get {
                 return ResourceManager.GetString("Ranks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Rate us in store:.
+        /// </summary>
+        internal static string RateUsInStore {
+            get {
+                return ResourceManager.GetString("RateUsInStore", resourceCulture);
             }
         }
         
@@ -808,6 +889,33 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Try again.
+        /// </summary>
+        internal static string TryAgain {
+            get {
+                return ResourceManager.GetString("TryAgain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Try our apps:.
+        /// </summary>
+        internal static string TryOurApps {
+            get {
+                return ResourceManager.GetString("TryOurApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Try our games:.
+        /// </summary>
+        internal static string TryOurGames {
+            get {
+                return ResourceManager.GetString("TryOurGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Turn Time.
         /// </summary>
         internal static string TurnTime {
@@ -849,6 +957,24 @@ namespace WTAnalyzer.Resx {
         internal static string UnguidedMissile {
             get {
                 return ResourceManager.GetString("UnguidedMissile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Update Database.
+        /// </summary>
+        internal static string UpdateDatabase {
+            get {
+                return ResourceManager.GetString("UpdateDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на UPDATE (Reboot is required).
+        /// </summary>
+        internal static string UPDATEReopenIsRequired {
+            get {
+                return ResourceManager.GetString("UPDATEReopenIsRequired", resourceCulture);
             }
         }
         

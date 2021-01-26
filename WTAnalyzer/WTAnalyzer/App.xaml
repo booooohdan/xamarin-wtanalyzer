@@ -10,6 +10,11 @@
             <Color x:Key="MyWhite">#f1f1f1</Color>
             <Color x:Key="MyDarkest">#5d6368</Color>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#f1f1f1"/>
+                <Setter Property="BarTextColor" Value="#2a2a2a"/>
+            </Style>
+
             <chart:ChartColorCollection x:Key="DoughnutColors">
                 <Color>#64b5f6</Color>
                 <Color>#455a64</Color>

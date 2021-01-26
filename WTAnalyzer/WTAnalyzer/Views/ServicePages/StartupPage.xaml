@@ -20,6 +20,13 @@
             ViewBoxHeight="150"
             TextColor="White"
             EnableAnimation="True"/>
+        <Label
+            Text="{Binding StartupLabel}"
+            FontSize="18"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            Padding="0"/>
     </StackLayout>
 
 </ContentPage>

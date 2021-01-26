@@ -34,6 +34,9 @@
     <Compile Update="Views\MenuPages\ExplorerPage.xaml.cs">
       <DependentUpon>ExplorerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ServicePages\HintsPage.xaml.cs">
+      <DependentUpon>HintsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ServicePages\StartupPage.xaml.cs">
       <DependentUpon>StartupPage.xaml</DependentUpon>
     </Compile>
@@ -59,7 +62,13 @@
     <EmbeddedResource Update="Views\MenuPages\OverallPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\ServicePages\AboutAppPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ServicePages\FilterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ServicePages\HintsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ServicePages\StartupPage.xaml">

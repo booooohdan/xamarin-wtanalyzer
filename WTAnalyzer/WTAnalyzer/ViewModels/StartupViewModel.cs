@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using WTAnalyzer.Cache;
+using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.Views.ServicePages;
 using Xamarin.Essentials;
@@ -17,6 +18,16 @@ namespace WTAnalyzer.ViewModels
         HeliFilterDataSetter filterHeliDataSetter;
         ShipFilterDataSetter filterShipDataSetter;
         bool alertResult;
+        private string startupLabel;
+        public string StartupLabel
+        {
+            get => startupLabel;
+            set
+            {
+                startupLabel = value;
+                OnPropertyChanged();
+            }
+        }
         public StartupViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -33,7 +44,9 @@ namespace WTAnalyzer.ViewModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
+                StartupLabel = AppResources.LoadingVehicleData;
                 await Task.Run(dataDownloader.CheckIfDBCached);
+                StartupLabel = string.Empty;
                 await Task.Run(filterPlaneDataSetter.InitAsync);
                 await Task.Run(filterTankDataSetter.InitAsync);
                 await Task.Run(filterHeliDataSetter.InitAsync);
@@ -44,7 +57,7 @@ namespace WTAnalyzer.ViewModels
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    alertResult = await App.Current.MainPage.DisplayAlert("No internet", "Please make sure the Internet is available and restart the app", "Try again", "Quit");
+                    alertResult = await App.Current.MainPage.DisplayAlert(AppResources.NoInternet, AppResources.PleaseMakeSure, AppResources.TryAgain, AppResources.Quit);
 
                     if (alertResult)
                     {

@@ -12,7 +12,7 @@
                      Style="{StaticResource MainBackground}">
             <!--Contact us-->
             <Label
-                Text="Contact us:"
+                Text="{x:Static properties:AppResources.ContactUs}"
                 Style="{StaticResource LabelStyle}"/>
             <StackLayout Orientation="Horizontal">
                 <Button Command="{Binding RedditCommand}"
@@ -36,7 +36,7 @@
 
             <!--Rate us in store-->
             <Label
-                Text="Rate us in store:"
+                Text="{x:Static properties:AppResources.RateUsInStore}"
                 Style="{StaticResource LabelStyle}"/>
 
             <rating:SfRating  
@@ -53,17 +53,17 @@
 
             <!--About app-->
             <Label
-                Text="About"
+                Text="{x:Static properties:AppResources.About}"
                 Style="{StaticResource LabelStyle}"/>
             <StackLayout Orientation="Horizontal">
                 <Button Command="{Binding HintsCommand}"
-                    Text="Hints" 
+                    Text="{x:Static properties:AppResources.Hints}" 
                     TextColor="Gray"
                     BorderColor="Gray"
                     Style="{StaticResource ButtonStyle}"/>
 
                 <Button Command="{Binding AboutAppCommand}"
-                    Text="About app" 
+                    Text="{x:Static properties:AppResources.AboutApp}" 
                     TextColor="Gray"
                     BorderColor="Gray"
                     Style="{StaticResource ButtonStyle}"/>
@@ -101,7 +101,7 @@
 
                 <!--Try our apps-->
                 <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
-                    Text="Try our apps:"
+                    Text="{x:Static properties:AppResources.TryOurApps}"
                     Style="{StaticResource LabelStyle}"/>
                 <Image Grid.Column="0" Grid.Row="1"
                     WidthRequest="90"
@@ -140,7 +140,7 @@
 
                 <!--Try our games-->
                 <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"                            
-                    Text="Try our games:"
+                    Text="{x:Static properties:AppResources.TryOurGames}"
                     Style="{StaticResource LabelStyle}"/>
                 <Image Grid.Column="0" Grid.Row="4"
                     WidthRequest="90"
@@ -210,13 +210,13 @@
 
             <!--Update Cache button-->
             <Label
-                Text="Database"
+                Text="{x:Static properties:AppResources.UpdateDatabase}"
                 Style="{StaticResource LabelStyle}"/>
             <Button Command="{Binding UpdateCacheCommand}"
                     Style="{StaticResource ButtonStyle}"
                     TextColor="Red"
                     BorderColor="Red"
-                Text="Update Database"/>
+                Text="{x:Static properties:AppResources.UPDATEReopenIsRequired}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
