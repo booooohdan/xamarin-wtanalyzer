@@ -26,7 +26,8 @@
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             TextColor="White"
-            Padding="0"/>
+            Padding="0"
+            WidthRequest="250"/>
     </StackLayout>
 
 </ContentPage>

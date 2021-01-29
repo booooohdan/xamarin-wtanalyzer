@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:properties="clr-namespace:WTAnalyzer.Resx"
+      xmlns:menu="clr-namespace:WTAnalyzer.Views.MenuPages"
+      xmlns:vehicle="clr-namespace:WTAnalyzer.Views.VehiclePages"
+      xmlns:service="clr-namespace:WTAnalyzer.Views.ServicePages"
+      Title="WTAnalyzer"
+      x:Class="WTAnalyzer.AppShell"
+      Shell.NavBarIsVisible="False">
+
+    <!-- 
+       Styles and Resources 
+   -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#2a2a2a" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="Gray" />
+                <Setter Property="Shell.UnselectedColor" Value="Gray" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#2a2a2a" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!-- Startup Page -->
+    <ShellContent Route="startup"
+              ContentTemplate="{DataTemplate service:StartupPage}">
+    </ShellContent>
+
+    <!-- Tabs Pages -->
+    <TabBar Route="tabs">
+        <Tab
+            Icon="menu_explorer"
+            Title="{x:Static properties:AppResources.Explorer}">
+            <ShellContent 
+                Title="{x:Static properties:AppResources.Aviation}"
+                ContentTemplate="{DataTemplate vehicle:AviaPage}" />
+            <ShellContent  
+                Title="{x:Static properties:AppResources.Tanks}"
+                ContentTemplate="{DataTemplate vehicle:TankPage}" />
+            <ShellContent            
+                Title="{x:Static properties:AppResources.Helicopters}"
+                ContentTemplate="{DataTemplate vehicle:HeliPage}" />
+            <ShellContent          
+                Title="{x:Static properties:AppResources.Ships}"
+                ContentTemplate="{DataTemplate vehicle:ShipPage}" />
+        </Tab>
+        <Tab
+            Icon="menu_onepointbr"
+            Title="{x:Static properties:AppResources._10BR}">
+            <ShellContent
+                ContentTemplate="{DataTemplate menu:OnePointBrPage}"/>
+        </Tab>
+        <Tab
+            Icon="menu_overall"
+            Title="{x:Static properties:AppResources.Overall}">
+            <ShellContent
+                ContentTemplate="{DataTemplate menu:OverallPage}"/>
+        </Tab>
+        <Tab
+            Icon="menu_feedback"
+            Title="{x:Static properties:AppResources.Feedback}">
+            <ShellContent
+                ContentTemplate="{DataTemplate menu:FeedbackPage}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>

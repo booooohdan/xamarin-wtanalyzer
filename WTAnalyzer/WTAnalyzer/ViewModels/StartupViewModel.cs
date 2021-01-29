@@ -51,7 +51,7 @@ namespace WTAnalyzer.ViewModels
                 await Task.Run(filterTankDataSetter.InitAsync);
                 await Task.Run(filterHeliDataSetter.InitAsync);
                 await Task.Run(filterShipDataSetter.InitAsync);
-                await Navigation.PushAsync(new TabMenuPage());
+                await Shell.Current.GoToAsync("//tabs");
             }
             else
             {

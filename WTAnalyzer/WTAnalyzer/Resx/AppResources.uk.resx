@@ -401,7 +401,7 @@
     <value>Немає інтернету</value>
   </data>
   <data name="LoadingVehicleData" xml:space="preserve">
-    <value>Завантаження даних \n Це може зайняти до 15 секунд</value>
+    <value>Завантаження даних. Це може зайняти до 15 секунд</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Зворотній зв'язок:</value>

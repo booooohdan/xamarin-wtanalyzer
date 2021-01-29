@@ -390,7 +390,7 @@
     <value>Fleet</value>
   </data>
   <data name="LoadingVehicleData" xml:space="preserve">
-    <value>Loading vehicle data \n This may take up to a 15 sec</value>
+    <value>Loading vehicle data. This may take up to a 15 sec</value>
   </data>
   <data name="NoInternet" xml:space="preserve">
     <value>No internet</value>

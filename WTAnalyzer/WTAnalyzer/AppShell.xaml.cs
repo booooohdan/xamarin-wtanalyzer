@@ -1,15 +1,17 @@
-﻿
+﻿using WTAnalyzer.Views.ServicePages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WTAnalyzer.Views.MenuPages
+namespace WTAnalyzer
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ExplorerPage : TabbedPage
+    public partial class AppShell : Xamarin.Forms.Shell
     {
-        public ExplorerPage()
+        public AppShell()
         {
             InitializeComponent();
         }
+
+
     }
 }

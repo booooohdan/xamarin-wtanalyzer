@@ -11,7 +11,7 @@ namespace WTAnalyzer
             Syncfusion.Licensing.SyncfusionLicenseProvider
                 .RegisterLicense("MzczNjk4QDMxMzgyZTM0MmUzMGVyLzFjZ3RvTjlsSkN0bGtIdThqdnU1TnZwZjJSM0FZSGw5dmd3bUVtbWM9");
             InitializeComponent();
-            MainPage = new NavigationPage(new StartupPage());
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

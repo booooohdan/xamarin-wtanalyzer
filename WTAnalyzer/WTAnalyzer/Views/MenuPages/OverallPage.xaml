@@ -29,7 +29,6 @@
                         </chart:SfChart.Legend>
                         <chart:SfChart.Series>
                             <chart:DoughnutSeries  
-                                ExplodeIndex="{Binding SelectedIndex}" 
                                 ItemsSource="{Binding DoughnutCountPerNationData}" 
                                 XBindingPath="XValue" 
                                 StartAngle="-90"

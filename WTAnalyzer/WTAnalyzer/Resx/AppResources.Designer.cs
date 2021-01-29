@@ -475,7 +475,7 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Loading vehicle data \n This may take up to a 15 sec.
+        ///   Ищет локализованную строку, похожую на Loading vehicle data. This may take up to a 15 sec.
         /// </summary>
         internal static string LoadingVehicleData {
             get {
