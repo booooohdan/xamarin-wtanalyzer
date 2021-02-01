@@ -12,7 +12,7 @@ using WTAnalyzer.Models;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using Xamarin.Forms;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.ServiceViewModels
 {
     public class FilterViewModel : BaseViewModel
     {

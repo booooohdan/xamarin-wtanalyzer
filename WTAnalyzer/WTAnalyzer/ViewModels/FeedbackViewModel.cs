@@ -6,7 +6,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Windows.Input;
 using WTAnalyzer.ViewModels.BaseViewModels;
-using WTAnalyzer.Views.MenuPages;
+using WTAnalyzer.Views;
 using WTAnalyzer.Views.ServicePages;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -63,7 +63,7 @@ namespace WTAnalyzer.ViewModels
         {
             if (Navigation.ModalStack.Count == 0)
             {               
-                await Navigation.PushAsync(new HintsPage());
+                //await Navigation.PushAsync(new HintsPage());
             }
         }
 
@@ -71,7 +71,7 @@ namespace WTAnalyzer.ViewModels
         {
             if (Navigation.ModalStack.Count == 0)
             {
-                await Navigation.PushAsync(new AboutAppPage());
+                //await Navigation.PushAsync(new AboutAppPage());
             }
         }
 

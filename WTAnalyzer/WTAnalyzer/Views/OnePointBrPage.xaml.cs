@@ -1,12 +1,13 @@
-﻿using Xamarin.Forms;
+﻿
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WTAnalyzer.Views.ServicePages
+namespace WTAnalyzer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HintsPage : ContentPage
+    public partial class OnePointBrPage : ContentPage
     {
-        public HintsPage()
+        public OnePointBrPage()
         {
             InitializeComponent();
         }

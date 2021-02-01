@@ -8,10 +8,11 @@ using WTAnalyzer.Helpers;
 using WTAnalyzer.Models;
 using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
+using WTAnalyzer.ViewModels.ServiceViewModels;
 using WTAnalyzer.Views.ServicePages;
 using Xamarin.Forms;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.VehicleViewModels
 {
     public class AviaViewModel : BaseVehiclesViewModel
     {

@@ -1,4 +1,5 @@
 ﻿using WTAnalyzer.ViewModels;
+using WTAnalyzer.ViewModels.ServiceViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

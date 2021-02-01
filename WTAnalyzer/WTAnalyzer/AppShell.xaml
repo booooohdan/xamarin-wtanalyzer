@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       xmlns:properties="clr-namespace:WTAnalyzer.Resx"
-      xmlns:menu="clr-namespace:WTAnalyzer.Views.MenuPages"
+      xmlns:menu="clr-namespace:WTAnalyzer.Views"
       xmlns:vehicle="clr-namespace:WTAnalyzer.Views.VehiclePages"
       xmlns:service="clr-namespace:WTAnalyzer.Views.ServicePages"
       Title="WTAnalyzer"

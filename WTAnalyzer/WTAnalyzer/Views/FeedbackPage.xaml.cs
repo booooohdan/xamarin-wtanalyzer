@@ -3,7 +3,7 @@ using WTAnalyzer.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WTAnalyzer.Views.MenuPages
+namespace WTAnalyzer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FeedbackPage : ContentPage

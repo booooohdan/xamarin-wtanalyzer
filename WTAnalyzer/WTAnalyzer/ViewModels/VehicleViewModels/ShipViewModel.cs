@@ -8,12 +8,13 @@ using WTAnalyzer.Helpers;
 using WTAnalyzer.Models;
 using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
+using WTAnalyzer.ViewModels.ServiceViewModels;
 using WTAnalyzer.Views.ServicePages;
 using Xamarin.Forms;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.VehicleViewModels
 {
-    class ShipViewModel : BaseVehiclesViewModel
+    public class ShipViewModel : BaseVehiclesViewModel
     {
         #region Define variables
         public INavigation Navigation { get; set; }

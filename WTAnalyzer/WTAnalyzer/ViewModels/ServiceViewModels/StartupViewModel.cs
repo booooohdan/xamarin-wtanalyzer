@@ -7,7 +7,7 @@ using WTAnalyzer.Views.ServicePages;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.ServiceViewModels
 {
     public class StartupViewModel : BaseViewModel
     {
