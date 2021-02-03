@@ -62,7 +62,7 @@
 
                 <!--Type of Vehicle per Nation-->
                 <Label 
-                    Text= "{x:Static properties:AppResources.TypeOfVehiclesPerNations}" 
+                    Text= "{x:Static properties:AppResources.CountOfVehiclePerType}" 
                     Style="{StaticResource LabelStyle}"/>
                 <Frame Style="{StaticResource FrameFilterSectionStyle}">
                     <chart:SfChart
@@ -273,7 +273,7 @@
 
                 <!--Year of Vehicle per Nation-->
                 <Label 
-                    Text= "{x:Static properties:AppResources.YearOfVehiclePerNation}" 
+                    Text= "{x:Static properties:AppResources.CountOfVehiclePerYear}" 
                     Style="{StaticResource LabelStyle}"/>
                 <Frame Style="{StaticResource FrameFilterSectionStyle}">
                     <chart:SfChart

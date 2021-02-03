@@ -370,11 +370,11 @@
   <data name="RoleOfVehiclesPerClass" xml:space="preserve">
     <value>Ролі техніки за класами</value>
   </data>
-  <data name="TypeOfVehiclesPerNations" xml:space="preserve">
-    <value>Типи техніки за націями</value>
+  <data name="CountOfVehiclePerType" xml:space="preserve">
+    <value>Кількість техніки за типом</value>
   </data>
-  <data name="YearOfVehiclePerNation" xml:space="preserve">
-    <value>Роки за націями</value>
+  <data name="CountOfVehiclePerYear" xml:space="preserve">
+    <value>Кількість техніки за роком</value>
   </data>
   <data name="Aviation" xml:space="preserve">
     <value>Авіація</value>
@@ -428,6 +428,6 @@
     <value>Оновлення бази даних</value>
   </data>
   <data name="UPDATEReopenIsRequired" xml:space="preserve">
-    <value>ОНОВИТИ (Необхідне перезавантаження)</value>
+    <value>ПРИМУСОВЕ ОНОВЛЕННЯ (Необхідне перезавантаження)</value>
   </data>
 </root>

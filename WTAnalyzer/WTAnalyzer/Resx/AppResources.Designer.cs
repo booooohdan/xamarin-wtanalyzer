@@ -232,6 +232,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Count of Vehicles per Type.
+        /// </summary>
+        internal static string CountOfVehiclePerType {
+            get {
+                return ResourceManager.GetString("CountOfVehiclePerType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Count of Vehicles per Year.
+        /// </summary>
+        internal static string CountOfVehiclePerYear {
+            get {
+                return ResourceManager.GetString("CountOfVehiclePerYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Crew count.
         /// </summary>
         internal static string CrewCount {
@@ -943,15 +961,6 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Type of vehicles per nations.
-        /// </summary>
-        internal static string TypeOfVehiclesPerNations {
-            get {
-                return ResourceManager.GetString("TypeOfVehiclesPerNations", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Unguided missile.
         /// </summary>
         internal static string UnguidedMissile {
@@ -970,7 +979,7 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на UPDATE (Reboot is required).
+        ///   Ищет локализованную строку, похожую на FORCE UPDATE (Reboot is required).
         /// </summary>
         internal static string UPDATEReopenIsRequired {
             get {
@@ -1047,15 +1056,6 @@ namespace WTAnalyzer.Resx {
         internal static string Y {
             get {
                 return ResourceManager.GetString("Y", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Year of Vehicle per Nation.
-        /// </summary>
-        internal static string YearOfVehiclePerNation {
-            get {
-                return ResourceManager.GetString("YearOfVehiclePerNation", resourceCulture);
             }
         }
     }

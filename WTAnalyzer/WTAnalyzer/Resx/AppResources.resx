@@ -368,14 +368,14 @@
   <data name="VehiclesPerNations" xml:space="preserve">
     <value>Vehicles per Nations</value>
   </data>
-  <data name="TypeOfVehiclesPerNations" xml:space="preserve">
-    <value>Type of vehicles per nations</value>
+  <data name="CountOfVehiclePerType" xml:space="preserve">
+    <value>Count of Vehicles per Type</value>
   </data>
   <data name="RoleOfVehiclesPerClass" xml:space="preserve">
     <value>Role of vehicles per class</value>
   </data>
-  <data name="YearOfVehiclePerNation" xml:space="preserve">
-    <value>Year of Vehicle per Nation</value>
+  <data name="CountOfVehiclePerYear" xml:space="preserve">
+    <value>Count of Vehicles per Year</value>
   </data>
   <data name="Aviation" xml:space="preserve">
     <value>Aviation</value>
@@ -429,6 +429,6 @@
     <value>Update Database</value>
   </data>
   <data name="UPDATEReopenIsRequired" xml:space="preserve">
-    <value>UPDATE (Reboot is required)</value>
+    <value>FORCE UPDATE (Reboot is required)</value>
   </data>
 </root>

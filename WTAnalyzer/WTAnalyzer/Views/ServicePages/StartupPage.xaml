@@ -14,6 +14,12 @@
             Source="iconTransparent"
             HeightRequest="300"
             WidthRequest="200"/>
+        <ActivityIndicator
+            IsRunning="True"
+            IsVisible="True"
+            Color="White"
+            HeightRequest="50"
+            WidthRequest="50"/>
         <Label
             Text="{Binding StartupLabel}"
             FontSize="18"
