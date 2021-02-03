@@ -1,5 +1,4 @@
 ﻿using Foundation;
-using Syncfusion.SfBusyIndicator.XForms.iOS;
 using Syncfusion.SfChart.XForms.iOS.Renderers;
 using Syncfusion.XForms.iOS.Buttons;
 using UIKit;
@@ -25,7 +24,6 @@ namespace WTAnalyzer.iOS
             global::Xamarin.Forms.Forms.Init();
             SfChartRenderer.Init();
             SfButtonRenderer.Init();
-            new SfBusyIndicatorRenderer();
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

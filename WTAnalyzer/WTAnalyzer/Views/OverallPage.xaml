@@ -12,7 +12,13 @@
             <StackLayout 
                 Padding="8" 
                 Style="{StaticResource MainBackground}">
-
+                
+                <ActivityIndicator IsRunning="{Binding Busy}"
+                           IsVisible="{Binding Busy}"
+                          HeightRequest="40"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"/>
+                
                 <!--Vehicle Count per Nation-->
                 <Label 
                     Text="{x:Static properties:AppResources.VehiclesPerNations}" 
@@ -196,7 +202,6 @@
                             </chart:SfChart.Legend>
                             <chart:SfChart.Series>
                                 <chart:DoughnutSeries  
-                                ExplodeIndex="{Binding SelectedIndex}" 
                                 ItemsSource="{Binding DoughnutTankRolesData}" 
                                 XBindingPath="XValue" 
                                 StartAngle="180"
@@ -223,7 +228,6 @@
                             </chart:SfChart.Legend>
                             <chart:SfChart.Series>
                                 <chart:DoughnutSeries  
-                                ExplodeIndex="{Binding SelectedIndex}" 
                                 ItemsSource="{Binding DoughnutHeliRolesData}" 
                                 XBindingPath="XValue" 
                                 StartAngle="180"
@@ -250,7 +254,6 @@
                             </chart:SfChart.Legend>
                             <chart:SfChart.Series>
                                 <chart:DoughnutSeries  
-                                ExplodeIndex="{Binding SelectedIndex}" 
                                 ItemsSource="{Binding DoughnutShipRolesData}" 
                                 XBindingPath="XValue" 
                                 StartAngle="180"

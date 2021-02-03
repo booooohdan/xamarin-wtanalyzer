@@ -4,7 +4,6 @@
              x:Class="WTAnalyzer.Views.FeedbackPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
-             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False">
     <ScrollView>
@@ -39,17 +38,7 @@
                 Text="{x:Static properties:AppResources.RateUsInStore}"
                 Style="{StaticResource LabelStyle}"/>
 
-            <rating:SfRating  
-            ValueChanged="SfRating_ValueChanged"
-            ItemSize="35">
-                <rating:SfRating.RatingSettings>
-                    <rating:SfRatingSettings 
-                    RatedFill="Gold" 
-                    UnRatedFill="Wheat" 
-                    RatedStrokeWidth="0" 
-                    UnRatedStrokeWidth="0" />
-                </rating:SfRating.RatingSettings>
-            </rating:SfRating>
+
 
             <!--About app-->
             <Label

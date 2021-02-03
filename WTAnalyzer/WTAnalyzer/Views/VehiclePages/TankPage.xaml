@@ -17,6 +17,12 @@
 
     <StackLayout Padding="8, 8, 8, 0" Style="{StaticResource MainBackground}">
 
+        <ActivityIndicator IsRunning="{Binding Busy}"
+                           IsVisible="{Binding Busy}"
+                          HeightRequest="40"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"/>
+
         <!--Filter label-->
         <Frame Style="{StaticResource FrameFilterSectionStyle}">
             <Grid Padding="10, 0, 10, 0">

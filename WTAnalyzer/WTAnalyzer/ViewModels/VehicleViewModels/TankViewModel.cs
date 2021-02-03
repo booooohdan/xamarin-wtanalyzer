@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WTAnalyzer.DataCollections;
 using WTAnalyzer.Helpers;
@@ -26,8 +27,13 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
         {
             Navigation = navigation;
             OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
-            SetDataToChartsView();
-            SetDataToListView();
+            Busy = true;
+            Task.Run(() =>
+            {
+                SetDataToChartsView();
+                SetDataToListView();
+                Busy = false;
+            });
         }
 
         private async void OpenFilterModalPageHandler(object obj)
