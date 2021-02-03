@@ -11784,154 +11784,157 @@ namespace WTAnalyzer.Droid
 			public const int MediumTank = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int menu_avia = 2131165369;
+			public const int menu_about = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int menu_explorer = 2131165370;
+			public const int menu_avia = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int menu_feedback = 2131165371;
+			public const int menu_brchanger = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int menu_heli = 2131165372;
+			public const int menu_explorer = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int menu_onepointbr = 2131165373;
+			public const int menu_heli = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int menu_overall = 2131165374;
+			public const int menu_onepointbr = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int menu_ship = 2131165375;
+			public const int menu_overall = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int menu_tank = 2131165376;
+			public const int menu_ship = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int mtrl_dialog_background = 2131165377;
+			public const int menu_tank = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int mtrl_dropdown_arrow = 2131165378;
+			public const int mtrl_dialog_background = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int mtrl_ic_arrow_drop_down = 2131165379;
+			public const int mtrl_dropdown_arrow = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int mtrl_ic_arrow_drop_up = 2131165380;
+			public const int mtrl_ic_arrow_drop_down = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int mtrl_ic_cancel = 2131165381;
+			public const int mtrl_ic_arrow_drop_up = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int mtrl_ic_error = 2131165382;
+			public const int mtrl_ic_cancel = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int mtrl_popupmenu_background = 2131165383;
+			public const int mtrl_ic_error = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int mtrl_popupmenu_background_dark = 2131165384;
+			public const int mtrl_popupmenu_background = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int mtrl_tabs_default_indicator = 2131165385;
+			public const int mtrl_popupmenu_background_dark = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int navigation_empty_icon = 2131165386;
+			public const int mtrl_tabs_default_indicator = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int notification_action_background = 2131165387;
+			public const int navigation_empty_icon = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int notification_bg = 2131165388;
+			public const int notification_action_background = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int notification_bg_low = 2131165389;
+			public const int notification_bg = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int notification_bg_low_normal = 2131165390;
+			public const int notification_bg_low = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int notification_bg_low_pressed = 2131165391;
+			public const int notification_bg_low_normal = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int notification_bg_normal = 2131165392;
+			public const int notification_bg_low_pressed = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int notification_bg_normal_pressed = 2131165393;
+			public const int notification_bg_normal = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int notification_icon_background = 2131165394;
+			public const int notification_bg_normal_pressed = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int notification_template_icon_bg = 2131165395;
+			public const int notification_icon_background = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int notification_template_icon_low_bg = 2131165396;
+			public const int notification_template_icon_bg = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int notification_tile_bg = 2131165397;
+			public const int notification_template_icon_low_bg = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int notify_panel_notification_icon_bg = 2131165398;
+			public const int notification_tile_bg = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int ShipBarge = 2131165399;
+			public const int notify_panel_notification_icon_bg = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int ShipBoat = 2131165400;
+			public const int ShipBarge = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int ShipCruiser = 2131165401;
+			public const int ShipBoat = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int ShipDestroyer = 2131165402;
+			public const int ShipCruiser = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int ShipSubChaser = 2131165403;
+			public const int ShipDestroyer = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int SkillMeter = 2131165404;
+			public const int ShipSubChaser = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int SplashScreen = 2131165405;
+			public const int SkillMeter = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int Sweden = 2131165406;
+			public const int SplashScreen = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int TankHeavy = 2131165407;
+			public const int Sweden = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int TankSPAA = 2131165408;
+			public const int TankHeavy = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int test_custom_background = 2131165409;
+			public const int TankSPAA = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int tooltip_frame_dark = 2131165410;
+			public const int test_custom_background = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int tooltip_frame_light = 2131165411;
+			public const int tooltip_frame_dark = 2131165411;
 			
 			// aapt resource value: 0x7F0700E4
-			public const int USA = 2131165412;
+			public const int tooltip_frame_light = 2131165412;
 			
 			// aapt resource value: 0x7F0700E5
-			public const int USSR = 2131165413;
+			public const int USA = 2131165413;
 			
 			// aapt resource value: 0x7F0700E6
-			public const int UtilityHelicopter = 2131165414;
+			public const int USSR = 2131165414;
 			
 			// aapt resource value: 0x7F0700E7
-			public const int Versus = 2131165415;
+			public const int UtilityHelicopter = 2131165415;
 			
 			// aapt resource value: 0x7F0700E8
-			public const int WoTQuiz = 2131165416;
+			public const int Versus = 2131165416;
 			
 			// aapt resource value: 0x7F0700E9
-			public const int WTQuiz = 2131165417;
+			public const int WoTQuiz = 2131165417;
 			
 			// aapt resource value: 0x7F0700EA
-			public const int xamarin_logo = 2131165418;
+			public const int WTQuiz = 2131165418;
+			
+			// aapt resource value: 0x7F0700EB
+			public const int xamarin_logo = 2131165419;
 			
 			static Drawable()
 			{

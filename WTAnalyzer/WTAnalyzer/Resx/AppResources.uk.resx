@@ -430,4 +430,7 @@
   <data name="UPDATEReopenIsRequired" xml:space="preserve">
     <value>ПРИМУСОВЕ ОНОВЛЕННЯ (Необхідне перезавантаження)</value>
   </data>
+  <data name="BRChanger" xml:space="preserve">
+    <value>Змінити БР</value>
+  </data>
 </root>

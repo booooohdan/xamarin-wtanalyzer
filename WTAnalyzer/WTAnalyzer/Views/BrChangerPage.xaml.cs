@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WTAnalyzer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OnePointBrPage : ContentPage
+    public partial class BrChangerPage : ContentPage
     {
-        public OnePointBrPage()
+        public BrChangerPage()
         {
             InitializeComponent();
         }

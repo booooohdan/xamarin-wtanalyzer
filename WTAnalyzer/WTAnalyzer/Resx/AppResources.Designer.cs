@@ -169,6 +169,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на BR Changer.
+        /// </summary>
+        internal static string BRChanger {
+            get {
+                return ResourceManager.GetString("BRChanger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Britain.
         /// </summary>
         internal static string Britain {

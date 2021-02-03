@@ -431,4 +431,7 @@
   <data name="UPDATEReopenIsRequired" xml:space="preserve">
     <value>FORCE UPDATE (Reboot is required)</value>
   </data>
+  <data name="BRChanger" xml:space="preserve">
+    <value>BR Changer</value>
+  </data>
 </root>

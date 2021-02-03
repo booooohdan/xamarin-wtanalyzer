@@ -4,7 +4,8 @@
       xmlns:properties="clr-namespace:WTAnalyzer.Resx"
       xmlns:menu="clr-namespace:WTAnalyzer.Views"
       xmlns:vehicle="clr-namespace:WTAnalyzer.Views.VehiclePages"
-      xmlns:service="clr-namespace:WTAnalyzer.Views.ServicePages"
+      xmlns:service="clr-namespace:WTAnalyzer.Views.ServicePages"     
+      xmlns:about="clr-namespace:WTAnalyzer.Views.AboutPages"
       Title="WTAnalyzer"
       x:Class="WTAnalyzer.AppShell"
       Shell.NavBarIsVisible="False">
@@ -55,8 +56,14 @@
         <Tab
             Icon="menu_onepointbr"
             Title="{x:Static properties:AppResources._10BR}">
-            <ShellContent
-                ContentTemplate="{DataTemplate menu:OnePointBrPage}"/>
+            <ShellContent  
+                ContentTemplate="{DataTemplate menu:OnePointBrPage}" />
+        </Tab>
+        <Tab
+            Icon="menu_brchanger"
+            Title="{x:Static properties:AppResources.BRChanger}">
+            <ShellContent  
+                ContentTemplate="{DataTemplate menu:BrChangerPage}" />
         </Tab>
         <Tab
             Icon="menu_overall"
@@ -65,10 +72,14 @@
                 ContentTemplate="{DataTemplate menu:OverallPage}"/>
         </Tab>
         <Tab
-            Icon="menu_feedback"
-            Title="{x:Static properties:AppResources.Feedback}">
-            <ShellContent
-                ContentTemplate="{DataTemplate menu:FeedbackPage}"/>
+            Icon="menu_about"
+            Title="{x:Static properties:AppResources.About}">
+            <ShellContent 
+                Title="{x:Static properties:AppResources.About}"
+                ContentTemplate="{DataTemplate about:AboutPage}" />
+            <ShellContent  
+                Title="{x:Static properties:AppResources.Feedback}"
+                ContentTemplate="{DataTemplate about:FeedbackPage}" />
         </Tab>
     </TabBar>
 

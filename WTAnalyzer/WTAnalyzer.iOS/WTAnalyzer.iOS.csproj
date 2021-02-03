@@ -130,7 +130,6 @@
     <BundleResource Include="Resources\menu_ship.png" />
     <BundleResource Include="Resources\menu_onepointbr.png" />
     <BundleResource Include="Resources\menu_heli.png" />
-    <BundleResource Include="Resources\menu_feedback.png" />
     <BundleResource Include="Resources\menu_explorer.png" />
     <BundleResource Include="Resources\menu_avia.png" />
     <BundleResource Include="Resources\icon.png" />
@@ -249,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\MapGuide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_brchanger.png" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

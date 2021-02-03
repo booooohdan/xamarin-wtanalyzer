@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace WTAnalyzer.Views
+namespace WTAnalyzer.Views.AboutPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OnePointBrPage : ContentPage
+    public partial class FeedbackPage : ContentPage
     {
-        public OnePointBrPage()
+        public FeedbackPage()
         {
             InitializeComponent();
         }
