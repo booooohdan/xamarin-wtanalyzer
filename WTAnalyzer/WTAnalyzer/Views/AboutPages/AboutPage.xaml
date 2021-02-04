@@ -1,12 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WTAnalyzer.Views.AboutPages.AboutPage">
+             x:Class="WTAnalyzer.Views.AboutPages.AboutPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout 
+                Padding="20"
+                Style="{StaticResource MainBackground}">
+                <Image 
+                    Source="Analyzer"
+                    HeightRequest="100"
+                    WidthRequest="100"/>
+                <Label 
+                    Text="Version 1.3.0"
+                    HorizontalOptions="CenterAndExpand" 
+                    Padding="0"
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="DB update: 02.03.2021"
+                    FontSize="10"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand" />
+                <Label Padding="20,0,20,0"
+                    Text="{x:Static properties:AppResources.WTAnalyzerAboutText}"
+                    HorizontalOptions="Center" 
+                    HorizontalTextAlignment="Center"
+                    FontSize="14"
+                    FontAttributes="None"
+                    Style="{StaticResource LabelStyle}"/>
+                <TableView Intent="Data">
+                    <TableView.Root>
+                        <TableRoot>
+                            <TableSection>
+                                <ImageCell
+                                    ImageSource="Rate" 
+                                    Text="{x:Static properties:AppResources.RateTheApp}"
+                                    Command="{Binding RateCommand}"/>
+                                <ImageCell
+                                    ImageSource="Patreon" 
+                                    Text="{x:Static properties:AppResources.SupportUsOnPatreon}" TextColor="Red"
+                                    Command="{Binding PatreonCommand}"/>
+                                <ImageCell
+                                    ImageSource="Share" 
+                                    Text="{x:Static properties:AppResources.ShareWithFriends}" 
+                                    Command="{Binding ShareCommand}"/>
+                                <ImageCell
+                                    ImageSource="Privacy" 
+                                    Text="{x:Static properties:AppResources.PrivacyPolicy}" 
+                                    Command="{Binding PrivacyCommand}"/>
+                            </TableSection>
+                            <TableSection>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button 
+                                            Margin="3"
+                                            WidthRequest="50"
+                                            Text="{x:Static properties:AppResources.ForceDBUpdate}" 
+                                            BorderColor="Red"
+                                            Style="{StaticResource ButtonStyle}"/>
+                                        <Button 
+                                            Margin="3"
+                                            Text="{x:Static properties:AppResources.Hints}" 
+                                            WidthRequest="50"
+                                            BorderColor="Red"
+                                            Style="{StaticResource ButtonStyle}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView.Root>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

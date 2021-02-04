@@ -434,4 +434,37 @@
   <data name="BRChanger" xml:space="preserve">
     <value>BR Changer</value>
   </data>
+  <data name="WTAnalyzerAboutText" xml:space="preserve">
+    <value>WT Analyzer is an unofficial, must-have app for all War Thunder players. App uses own database with data collected from the game client and wiki.warthunder.com</value>
+  </data>
+  <data name="ShareWithFriends" xml:space="preserve">
+    <value>Share with friends</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="RateTheApp" xml:space="preserve">
+    <value>Rate the app</value>
+  </data>
+  <data name="SupportUsOnPatreon" xml:space="preserve">
+    <value>Support us on Patreon</value>
+  </data>
+  <data name="ForceDBUpdate" xml:space="preserve">
+    <value>Force DB Update</value>
+  </data>
+  <data name="FollowTheNews" xml:space="preserve">
+    <value>Follow the news</value>
+  </data>
+  <data name="AppForVehiclesComparison" xml:space="preserve">
+    <value>App for vehicles comparison</value>
+  </data>
+  <data name="AppForCheckoutOfPlayerStatistics" xml:space="preserve">
+    <value>App for checkout of player statistics</value>
+  </data>
+  <data name="TriviaGameWithWarThunderVehicles" xml:space="preserve">
+    <value>Trivia game with War Thunder vehicles</value>
+  </data>
+  <data name="TriviaGameWithWorldOfTanksVehicles" xml:space="preserve">
+    <value>Trivia game with World of Tanks vehicles</value>
+  </data>
 </root>

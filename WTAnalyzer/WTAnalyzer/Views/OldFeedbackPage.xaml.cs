@@ -11,7 +11,7 @@ namespace WTAnalyzer.Views
         public FeedbackPage()
         {
             InitializeComponent();
-            BindingContext = new FeedbackViewModel(Navigation);
+            BindingContext = new OldFeedbackViewModel(Navigation);
         }
 
         // RatingBar value change handler

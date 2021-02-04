@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels
 {
-    public class FeedbackViewModel : BaseViewModel
+    public class OldFeedbackViewModel : BaseViewModel
     {
         public INavigation Navigation { get; set; }
         public ICommand RedditCommand { get; }
@@ -28,7 +28,7 @@ namespace WTAnalyzer.ViewModels
         public ICommand Game2Command { get; }
         public ICommand UpdateCacheCommand { get; }
 
-        public FeedbackViewModel(INavigation navigation)
+        public OldFeedbackViewModel(INavigation navigation)
         {
             Navigation = navigation;
             RedditCommand = new Command(RedditHandler);

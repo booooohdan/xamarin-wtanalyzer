@@ -255,6 +255,27 @@
   <ItemGroup>
     <BundleResource Include="Resources\menu_brchanger.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Gmail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Patreon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Privacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Reddit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Vk.png" />
+  </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties TriggeredFromHotReload="False" />

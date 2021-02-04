@@ -1,12 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WTAnalyzer.Views.AboutPages.FeedbackPage">
+             x:Class="WTAnalyzer.Views.AboutPages.FeedbackPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout 
+                Padding="20"
+                Style="{StaticResource MainBackground}">
+                <TableView Intent="Data">
+                    <TableView.Root>
+                        <TableRoot>
+                            <TableSection Title="{x:Static properties:AppResources.FollowTheNews}">
+                                <ImageCell
+                                    ImageSource="Reddit" 
+                                    Text="Reddit"
+                                    Command="{Binding RateCommand}"/>
+                                <ImageCell
+                                    ImageSource="Vk" 
+                                    Text="VK" 
+                                    Command="{Binding ShareCommand}"/>
+                                <ImageCell
+                                    ImageSource="Gmail" 
+                                    Text="Gmail"
+                                    Command="{Binding PatreonCommand}"/>   
+                                <ImageCell
+                                    ImageSource="Patreon" 
+                                    Text="Patreon" TextColor="Red"
+                                    Command="{Binding PatreonCommand}"/>
+                            </TableSection>
+                            <TableSection Title="{x:Static properties:AppResources.TryOurApps}">
+                                <ImageCell
+                                    ImageSource="Versus" 
+                                    Text="War Thunder Versus"
+                                    Detail="{x:Static properties:AppResources.AppForVehiclesComparison}"
+                                    Command="{Binding RateCommand}"/>
+                                <ImageCell
+                                    ImageSource="SkillMeter" 
+                                    Text="War Thunder Skill Meter" 
+                                    Detail="{x:Static properties:AppResources.AppForCheckoutOfPlayerStatistics}"
+                                    Command="{Binding ShareCommand}"/>
+                            </TableSection>
+                            <TableSection Title="{x:Static properties:AppResources.TryOurGames}">
+                                <ImageCell
+                                    ImageSource="WTQuiz" 
+                                    Text="War Thunder Quiz"
+                                    Detail="{x:Static properties:AppResources.TriviaGameWithWarThunderVehicles}"
+                                    Command="{Binding RateCommand}"/>
+                                <ImageCell
+                                    ImageSource="WoTQuiz" 
+                                    Text="War Thunder Quiz"
+                                    Detail="{x:Static properties:AppResources.TriviaGameWithWorldOfTanksVehicles}"                                  Command="{Binding ShareCommand}"/>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView.Root>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

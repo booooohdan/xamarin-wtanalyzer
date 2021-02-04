@@ -88,6 +88,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на App for checkout of player statistics.
+        /// </summary>
+        internal static string AppForCheckoutOfPlayerStatistics {
+            get {
+                return ResourceManager.GetString("AppForCheckoutOfPlayerStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на App for vehicles comparison.
+        /// </summary>
+        internal static string AppForVehiclesComparison {
+            get {
+                return ResourceManager.GetString("AppForVehiclesComparison", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ascending.
         /// </summary>
         internal static string Ascending {
@@ -363,6 +381,24 @@ namespace WTAnalyzer.Resx {
         internal static string Flutter {
             get {
                 return ResourceManager.GetString("Flutter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Follow the news.
+        /// </summary>
+        internal static string FollowTheNews {
+            get {
+                return ResourceManager.GetString("FollowTheNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Force DB Update.
+        /// </summary>
+        internal static string ForceDBUpdate {
+            get {
+                return ResourceManager.GetString("ForceDBUpdate", resourceCulture);
             }
         }
         
@@ -664,6 +700,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Privacy policy.
+        /// </summary>
+        internal static string PrivacyPolicy {
+            get {
+                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Promotional.
         /// </summary>
         internal static string Promotional {
@@ -696,6 +741,15 @@ namespace WTAnalyzer.Resx {
         internal static string Ranks {
             get {
                 return ResourceManager.GetString("Ranks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Rate the app.
+        /// </summary>
+        internal static string RateTheApp {
+            get {
+                return ResourceManager.GetString("RateTheApp", resourceCulture);
             }
         }
         
@@ -768,6 +822,15 @@ namespace WTAnalyzer.Resx {
         internal static string S {
             get {
                 return ResourceManager.GetString("S", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Share with friends.
+        /// </summary>
+        internal static string ShareWithFriends {
+            get {
+                return ResourceManager.GetString("ShareWithFriends", resourceCulture);
             }
         }
         
@@ -853,6 +916,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Support us on Patreon.
+        /// </summary>
+        internal static string SupportUsOnPatreon {
+            get {
+                return ResourceManager.GetString("SupportUsOnPatreon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Sweden.
         /// </summary>
         internal static string Sweden {
@@ -912,6 +984,24 @@ namespace WTAnalyzer.Resx {
         internal static string TowerArmor {
             get {
                 return ResourceManager.GetString("TowerArmor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Trivia game with War Thunder vehicles.
+        /// </summary>
+        internal static string TriviaGameWithWarThunderVehicles {
+            get {
+                return ResourceManager.GetString("TriviaGameWithWarThunderVehicles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Trivia game with World of Tanks vehicles.
+        /// </summary>
+        internal static string TriviaGameWithWorldOfTanksVehicles {
+            get {
+                return ResourceManager.GetString("TriviaGameWithWorldOfTanksVehicles", resourceCulture);
             }
         }
         
@@ -1056,6 +1146,15 @@ namespace WTAnalyzer.Resx {
         internal static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на WT Analyzer is an unofficial, must-have app for all War Thunder players. App uses own database with data collected from the game client and wiki.warthunder.com.
+        /// </summary>
+        internal static string WTAnalyzerAboutText {
+            get {
+                return ResourceManager.GetString("WTAnalyzerAboutText", resourceCulture);
             }
         }
         

@@ -433,4 +433,37 @@
   <data name="BRChanger" xml:space="preserve">
     <value>Змінити БР</value>
   </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Політика конфіденційності</value>
+  </data>
+  <data name="RateTheApp" xml:space="preserve">
+    <value>Оцініть програму</value>
+  </data>
+  <data name="ShareWithFriends" xml:space="preserve">
+    <value>Поділіться з друзями</value>
+  </data>
+  <data name="ForceDBUpdate" xml:space="preserve">
+    <value>Примусове оновлення БД</value>
+  </data>
+  <data name="SupportUsOnPatreon" xml:space="preserve">
+    <value>Підтримайте нас на Патреоні</value>
+  </data>
+  <data name="TriviaGameWithWarThunderVehicles" xml:space="preserve">
+    <value>Вікторина з технікою гри War Thunder</value>
+  </data>
+  <data name="TriviaGameWithWorldOfTanksVehicles" xml:space="preserve">
+    <value>Вікторина з технікою гри World of Tanks</value>
+  </data>
+  <data name="WTAnalyzerAboutText" xml:space="preserve">
+    <value>WT Analyzer це неофіційний, must-have додаток для гравців War Thunder. Додаток використовує власну БД, дані для якої зібрані з ігрового клієнту та wiki.warthunder.com</value>
+  </data>
+  <data name="FollowTheNews" xml:space="preserve">
+    <value>Слідкуйте за новинами</value>
+  </data>
+  <data name="AppForCheckoutOfPlayerStatistics" xml:space="preserve">
+    <value>Додаток для перевірки статистики гравця</value>
+  </data>
+  <data name="AppForVehiclesComparison" xml:space="preserve">
+    <value>Додаток для порівняння техніки</value>
+  </data>
 </root>
