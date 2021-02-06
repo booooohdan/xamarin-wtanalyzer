@@ -121,4 +121,10 @@
   <data name="Type" xml:space="preserve">
     <value>Тип</value>
   </data>
+  <data name="WarThunderQuiz" xml:space="preserve">
+    <value>Викторина War Thunder</value>
+  </data>
+  <data name="WorldOfTanksQuiz" xml:space="preserve">
+    <value>Викторина World of Tanks</value>
+  </data>
 </root>

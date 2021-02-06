@@ -4,14 +4,11 @@ using Xamarin.Forms.Xaml;
 
 namespace WTAnalyzer
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
             InitializeComponent();
         }
-
-
     }
 }

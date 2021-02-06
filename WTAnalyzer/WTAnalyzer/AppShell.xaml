@@ -31,53 +31,56 @@
     </Shell.Resources>
 
     <!-- Startup Page -->
-    <ShellContent Route="startup"
-              ContentTemplate="{DataTemplate service:StartupPage}">
-    </ShellContent>
+    <ShellContent Route="startup" ContentTemplate="{DataTemplate service:StartupPage}"/>
 
     <!-- Tabs Pages -->
     <TabBar Route="tabs">
-        <Tab
+        <Tab 
             Icon="menu_explorer"
             Title="{x:Static properties:AppResources.Explorer}">
             <ShellContent 
+                Route="aviation"
                 Title="{x:Static properties:AppResources.Aviation}"
                 ContentTemplate="{DataTemplate vehicle:AviaPage}" />
             <ShellContent  
+                Route="tanks"
                 Title="{x:Static properties:AppResources.Tanks}"
                 ContentTemplate="{DataTemplate vehicle:TankPage}" />
             <ShellContent            
+                Route="helicopters"
                 Title="{x:Static properties:AppResources.Helicopters}"
                 ContentTemplate="{DataTemplate vehicle:HeliPage}" />
-            <ShellContent          
+            <ShellContent  
+                Route="ships"
                 Title="{x:Static properties:AppResources.Ships}"
                 ContentTemplate="{DataTemplate vehicle:ShipPage}" />
+            <ShellContent
+                Route="overall"
+                ContentTemplate="{DataTemplate menu:OverallPage}"/>
         </Tab>
         <Tab
             Icon="menu_onepointbr"
             Title="{x:Static properties:AppResources._10BR}">
             <ShellContent  
+                Route="onepointbr"
                 ContentTemplate="{DataTemplate menu:OnePointBrPage}" />
         </Tab>
         <Tab
             Icon="menu_brchanger"
             Title="{x:Static properties:AppResources.BRChanger}">
             <ShellContent  
+                Route="brchanger"
                 ContentTemplate="{DataTemplate menu:BrChangerPage}" />
-        </Tab>
-        <Tab
-            Icon="menu_overall"
-            Title="{x:Static properties:AppResources.Overall}">
-            <ShellContent
-                ContentTemplate="{DataTemplate menu:OverallPage}"/>
         </Tab>
         <Tab
             Icon="menu_about"
             Title="{x:Static properties:AppResources.About}">
             <ShellContent 
+                Route="about"
                 Title="{x:Static properties:AppResources.About}"
                 ContentTemplate="{DataTemplate about:AboutPage}" />
             <ShellContent  
+                Route="feedback"
                 Title="{x:Static properties:AppResources.Feedback}"
                 ContentTemplate="{DataTemplate about:FeedbackPage}" />
         </Tab>

@@ -214,6 +214,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Check this cool app for War Thunder.
+        /// </summary>
+        internal static string CheckThisCoolApp {
+            get {
+                return ResourceManager.GetString("CheckThisCoolApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на China.
         /// </summary>
         internal static string China {
@@ -246,15 +255,6 @@ namespace WTAnalyzer.Resx {
         internal static string ClimbTime01000M {
             get {
                 return ResourceManager.GetString("ClimbTime01000M", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Contact us:.
-        /// </summary>
-        internal static string ContactUs {
-            get {
-                return ResourceManager.GetString("ContactUs", resourceCulture);
             }
         }
         
@@ -390,6 +390,15 @@ namespace WTAnalyzer.Resx {
         internal static string FollowTheNews {
             get {
                 return ResourceManager.GetString("FollowTheNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Follow the news, make suggest.
+        /// </summary>
+        internal static string FollowTheNewsAskQuestion {
+            get {
+                return ResourceManager.GetString("FollowTheNewsAskQuestion", resourceCulture);
             }
         }
         
@@ -781,6 +790,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Report a bug.
+        /// </summary>
+        internal static string ReportABug {
+            get {
+                return ResourceManager.GetString("ReportABug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на RESET.
         /// </summary>
         internal static string RESET {
@@ -948,6 +966,15 @@ namespace WTAnalyzer.Resx {
         internal static string Tanks {
             get {
                 return ResourceManager.GetString("Tanks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The database contains all vehicles except bombers of 1-3 tiers and the coastal fleet.
+        /// </summary>
+        internal static string TheDatabaseContains {
+            get {
+                return ResourceManager.GetString("TheDatabaseContains", resourceCulture);
             }
         }
         
@@ -1141,11 +1168,29 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на War Thunder Quiz.
+        /// </summary>
+        internal static string WarThunderQuiz {
+            get {
+                return ResourceManager.GetString("WarThunderQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Weight.
         /// </summary>
         internal static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на World of Tanks Quiz.
+        /// </summary>
+        internal static string WorldOfTanksQuiz {
+            get {
+                return ResourceManager.GetString("WorldOfTanksQuiz", resourceCulture);
             }
         }
         

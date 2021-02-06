@@ -11,7 +11,6 @@ namespace WTAnalyzer.ViewModels.ServiceViewModels
 {
     public class StartupViewModel : BaseViewModel
     {
-        public INavigation Navigation { get; set; }
         VehicleDataDownloader dataDownloader;
         PlaneFilterDataSetter filterPlaneDataSetter;
         TankFilterDataSetter filterTankDataSetter;
@@ -28,9 +27,8 @@ namespace WTAnalyzer.ViewModels.ServiceViewModels
                 OnPropertyChanged();
             }
         }
-        public StartupViewModel(INavigation navigation)
+        public StartupViewModel()
         {
-            Navigation = navigation;
             dataDownloader = new VehicleDataDownloader();
             filterPlaneDataSetter = new PlaneFilterDataSetter();
             filterTankDataSetter = new TankFilterDataSetter();
@@ -51,7 +49,7 @@ namespace WTAnalyzer.ViewModels.ServiceViewModels
                 await Task.Run(filterTankDataSetter.InitAsync);
                 await Task.Run(filterHeliDataSetter.InitAsync);
                 await Task.Run(filterShipDataSetter.InitAsync);
-                await Shell.Current.GoToAsync("//tabs");
+                await Shell.Current.GoToAsync("//tanks");
             }
             else
             {

@@ -11,13 +11,7 @@ namespace WTAnalyzer.Views.ServicePages
         public StartupPage()
         {
             InitializeComponent();
-            BindingContext = new StartupViewModel(Navigation);
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            Navigation.RemovePage(this);
+            BindingContext = new StartupViewModel();
         }
     }
 }

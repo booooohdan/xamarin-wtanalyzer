@@ -11,7 +11,6 @@
                      Style="{StaticResource MainBackground}">
             <!--Contact us-->
             <Label
-                Text="{x:Static properties:AppResources.ContactUs}"
                 Style="{StaticResource LabelStyle}"/>
             <StackLayout Orientation="Horizontal">
                 <Button Command="{Binding RedditCommand}"

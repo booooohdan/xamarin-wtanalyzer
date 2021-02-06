@@ -6,58 +6,106 @@
              xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout 
-                Padding="20"
-                Style="{StaticResource MainBackground}">
-                <TableView Intent="Data">
-                    <TableView.Root>
-                        <TableRoot>
-                            <TableSection Title="{x:Static properties:AppResources.FollowTheNews}">
-                                <ImageCell
-                                    ImageSource="Reddit" 
-                                    Text="Reddit"
-                                    Command="{Binding RateCommand}"/>
-                                <ImageCell
-                                    ImageSource="Vk" 
-                                    Text="VK" 
-                                    Command="{Binding ShareCommand}"/>
-                                <ImageCell
+        <StackLayout 
+            Padding="20"
+            Style="{StaticResource MainBackground}">
+        <!--Android table-->
+            <TableView Intent="Data">
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="{x:Static properties:AppResources.ReportABug}">
+                            <ImageCell
+                                ImageSource="Gmail" 
+                                Text="Gmail"
+                                Command="{Binding GmailCommand}"/>
+                        </TableSection>
+                        <TableSection Title="{x:Static properties:AppResources.FollowTheNewsAskQuestion}">
+                            <ImageCell
+                                ImageSource="Reddit" 
+                                Text="Reddit"
+                                Command="{Binding RedditCommand}"/>
+                            <ImageCell
+                                ImageSource="Vk" 
+                                Text="VK" 
+                                Command="{Binding VkCommand}"/>
+                            <ImageCell
+                                ImageSource="Patreon" 
+                                Text="Patreon" TextColor="Red"
+                                Command="{Binding PatreonCommand}"/>
+                        </TableSection>
+                        <TableSection Title="{x:Static properties:AppResources.TryOurApps}">
+                            <ImageCell
+                                ImageSource="Versus" 
+                                Text="War Thunder Versus"
+                                Detail="{x:Static properties:AppResources.AppForVehiclesComparison}"
+                                Command="{Binding VersusCommand}"/>
+                            <ImageCell
+                                ImageSource="SkillMeter" 
+                                Text="War Thunder Skill Meter" 
+                                Detail="{x:Static properties:AppResources.AppForCheckoutOfPlayerStatistics}"
+                                Command="{Binding SkillMeterCommand}"/>
+                        </TableSection>
+                        <TableSection Title="{x:Static properties:AppResources.TryOurGames}">
+                            <ImageCell
+                                ImageSource="WTQuiz" 
+                                Text="{x:Static properties:AppResources.WarThunderQuiz}"
+                                Detail="{x:Static properties:AppResources.TriviaGameWithWarThunderVehicles}"
+                                Command="{Binding WTQuizCommand}"/>
+                            <ImageCell
+                                ImageSource="WoTQuiz" 
+                                Text="{x:Static properties:AppResources.WorldOfTanksQuiz}"
+                                Detail="{x:Static properties:AppResources.TriviaGameWithWorldOfTanksVehicles}"                                  
+                                Command="{Binding WoTQuizCommand}"/>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+
+                <TableView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                        iOS="False"
+                        Android="True"/>
+                </TableView.IsVisible>
+            </TableView>
+
+            <!--iOS table-->
+            <TableView Intent="Data">
+                <TableView.Root>
+                    <TableRoot>
+                        <TableSection Title="{x:Static properties:AppResources.ReportABug}">
+                            <ImageCell
                                     ImageSource="Gmail" 
                                     Text="Gmail"
-                                    Command="{Binding PatreonCommand}"/>   
-                                <ImageCell
+                                    Command="{Binding GmailCommand}"/>
+                        </TableSection>
+                        <TableSection Title="{x:Static properties:AppResources.FollowTheNewsAskQuestion}">
+                            <ImageCell
+                                    ImageSource="Reddit" 
+                                    Text="Reddit"
+                                    Command="{Binding RedditCommand}"/>
+                            <ImageCell
+                                    ImageSource="Vk" 
+                                    Text="VK" 
+                                    Command="{Binding VkCommand}"/>
+                            <ImageCell
                                     ImageSource="Patreon" 
                                     Text="Patreon" TextColor="Red"
                                     Command="{Binding PatreonCommand}"/>
-                            </TableSection>
-                            <TableSection Title="{x:Static properties:AppResources.TryOurApps}">
-                                <ImageCell
-                                    ImageSource="Versus" 
-                                    Text="War Thunder Versus"
-                                    Detail="{x:Static properties:AppResources.AppForVehiclesComparison}"
-                                    Command="{Binding RateCommand}"/>
-                                <ImageCell
+                        </TableSection>
+                        <TableSection Title="{x:Static properties:AppResources.TryOurApps}">
+                            <ImageCell
                                     ImageSource="SkillMeter" 
                                     Text="War Thunder Skill Meter" 
                                     Detail="{x:Static properties:AppResources.AppForCheckoutOfPlayerStatistics}"
-                                    Command="{Binding ShareCommand}"/>
-                            </TableSection>
-                            <TableSection Title="{x:Static properties:AppResources.TryOurGames}">
-                                <ImageCell
-                                    ImageSource="WTQuiz" 
-                                    Text="War Thunder Quiz"
-                                    Detail="{x:Static properties:AppResources.TriviaGameWithWarThunderVehicles}"
-                                    Command="{Binding RateCommand}"/>
-                                <ImageCell
-                                    ImageSource="WoTQuiz" 
-                                    Text="War Thunder Quiz"
-                                    Detail="{x:Static properties:AppResources.TriviaGameWithWorldOfTanksVehicles}"                                  Command="{Binding ShareCommand}"/>
-                            </TableSection>
-                        </TableRoot>
-                    </TableView.Root>
-                </TableView>
-            </StackLayout>
-        </ScrollView>
+                                    Command="{Binding SkillMeterCommand}"/>
+                        </TableSection>
+                    </TableRoot>
+                </TableView.Root>
+                <TableView.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                            iOS="True"
+                            Android="False"/>
+                </TableView.IsVisible>
+            </TableView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
