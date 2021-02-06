@@ -15,7 +15,7 @@ using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.XmlHandler;
 using Xamarin.Forms;
 
-namespace WTAnalyzer.ViewModels
+namespace WTAnalyzer.ViewModels.VehicleViewModels
 {
     public class OverallViewModel : BaseViewModel
     {

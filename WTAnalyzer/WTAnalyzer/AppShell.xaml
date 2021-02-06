@@ -38,14 +38,18 @@
         <Tab 
             Icon="menu_explorer"
             Title="{x:Static properties:AppResources.Explorer}">
-            <ShellContent 
-                Route="aviation"
-                Title="{x:Static properties:AppResources.Aviation}"
-                ContentTemplate="{DataTemplate vehicle:AviaPage}" />
+            <ShellContent
+                Route="overall"
+                Title="{x:Static properties:AppResources.Overall}"
+                ContentTemplate="{DataTemplate vehicle:OverallPage}"/>
             <ShellContent  
                 Route="tanks"
                 Title="{x:Static properties:AppResources.Tanks}"
                 ContentTemplate="{DataTemplate vehicle:TankPage}" />
+            <ShellContent 
+                Route="aviation"
+                Title="{x:Static properties:AppResources.Aviation}"
+                ContentTemplate="{DataTemplate vehicle:AviaPage}" />
             <ShellContent            
                 Route="helicopters"
                 Title="{x:Static properties:AppResources.Helicopters}"
@@ -54,9 +58,6 @@
                 Route="ships"
                 Title="{x:Static properties:AppResources.Ships}"
                 ContentTemplate="{DataTemplate vehicle:ShipPage}" />
-            <ShellContent
-                Route="overall"
-                ContentTemplate="{DataTemplate menu:OverallPage}"/>
         </Tab>
         <Tab
             Icon="menu_onepointbr"

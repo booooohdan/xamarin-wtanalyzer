@@ -60,7 +60,7 @@
     <EmbeddedResource Update="Views\OnePointBrPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OverallPage.xaml">
+    <EmbeddedResource Update="Views\VehiclePages\OverallPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ServicePages\FilterPage.xaml">
