@@ -22,9 +22,9 @@ namespace WTAnalyzer.Cache
             {
                 Registrations.Start("WTAAkavacheCache");
                 var arrayOfPlansCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
-                var arrayOfTanksCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfTanks");
-                var arrayOfHelisCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfHelis");
-                var arrayOfShipsCached = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfShips");
+                var arrayOfTanksCached = await BlobCache.UserAccount.GetObject<ArrayOfTanks>("cachedArrayOfTanks");
+                var arrayOfHelisCached = await BlobCache.UserAccount.GetObject<ArrayOfHelis>("cachedArrayOfHelis");
+                var arrayOfShipsCached = await BlobCache.UserAccount.GetObject<ArrayOfShips>("cachedArrayOfShips");
             }
             catch (KeyNotFoundException)
             {

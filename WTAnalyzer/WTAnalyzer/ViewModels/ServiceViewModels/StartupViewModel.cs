@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using WTAnalyzer.Cache;
 using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
-using WTAnalyzer.Views.ServicePages;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -49,7 +48,7 @@ namespace WTAnalyzer.ViewModels.ServiceViewModels
                 await Task.Run(filterTankDataSetter.InitAsync);
                 await Task.Run(filterHeliDataSetter.InitAsync);
                 await Task.Run(filterShipDataSetter.InitAsync);
-                await Shell.Current.GoToAsync("//tanks");
+                Application.Current.MainPage = new AppShell();
             }
             else
             {

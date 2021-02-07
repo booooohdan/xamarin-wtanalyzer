@@ -30,18 +30,11 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <!-- Startup Page -->
-    <ShellContent Route="startup" ContentTemplate="{DataTemplate service:StartupPage}"/>
-
     <!-- Tabs Pages -->
     <TabBar Route="tabs">
         <Tab 
             Icon="menu_explorer"
             Title="{x:Static properties:AppResources.Explorer}">
-            <ShellContent
-                Route="overall"
-                Title="{x:Static properties:AppResources.Overall}"
-                ContentTemplate="{DataTemplate vehicle:OverallPage}"/>
             <ShellContent  
                 Route="tanks"
                 Title="{x:Static properties:AppResources.Tanks}"
@@ -58,6 +51,10 @@
                 Route="ships"
                 Title="{x:Static properties:AppResources.Ships}"
                 ContentTemplate="{DataTemplate vehicle:ShipPage}" />
+            <ShellContent
+                Route="overall"
+                Title="{x:Static properties:AppResources.Overall}"
+                ContentTemplate="{DataTemplate vehicle:OverallPage}"/>
         </Tab>
         <Tab
             Icon="menu_onepointbr"
