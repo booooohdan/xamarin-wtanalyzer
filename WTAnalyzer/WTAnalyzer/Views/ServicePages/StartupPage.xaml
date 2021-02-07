@@ -6,28 +6,139 @@
              ios:Page.UseSafeArea="true"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#2a2a2a">
-    <StackLayout
-        Spacing="50" 
-        Padding="0,100,0,0"
-        HorizontalOptions="Center">
-        <Image
-            Source="iconTransparent"
-            HeightRequest="300"
-            WidthRequest="200"/>
-        <ActivityIndicator
-            IsRunning="True"
-            IsVisible="True"
-            Color="White"
-            HeightRequest="50"
-            WidthRequest="50"/>
-        <Label
-            Text="{Binding StartupLabel}"
-            FontSize="18"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center"
-            TextColor="White"
-            Padding="0"
-            WidthRequest="250"/>
-    </StackLayout>
 
+    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="11"  BackgroundColor="White" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+        <BoxView Grid.Column="2" Grid.Row="0" Grid.RowSpan="11"  BackgroundColor="White" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+        <BoxView Grid.Column="4" Grid.Row="0" Grid.RowSpan="11"  BackgroundColor="White" WidthRequest="1" VerticalOptions="FillAndExpand" HorizontalOptions="End"/>
+
+        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End" HorizontalOptions="FillAndExpand"/>
+            <Label 
+                Grid.Row="1" Grid.Column="1"
+                VerticalOptions="Center"
+                Text="Check Internet" 
+                TextColor="White" 
+                FontSize="15"/>
+            <ActivityIndicator 
+                HeightRequest="30"
+                Grid.Row="1" 
+                Grid.Column="3" 
+                IsRunning="{Binding InternetActivity}" 
+                Color="White"/>
+            <Path 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="1" Grid.Column="3"
+                Fill="White"
+                IsVisible="{Binding InternetIcon}"
+                Data="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+
+        <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End"  HorizontalOptions="FillAndExpand"/>
+            <Label 
+                Grid.Row="3" Grid.Column="1"
+                VerticalOptions="Center"
+                Text="Download plane data" 
+                TextColor="White" 
+                FontSize="15"/>
+            <ActivityIndicator 
+                HeightRequest="30"
+                Grid.Row="3" 
+                Grid.Column="3" 
+                IsRunning="{Binding PlaneActivity}" 
+                Color="White"/>
+            <Path 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="3" Grid.Column="3"
+                Fill="White"
+                IsVisible="{Binding PlaneIcon}"
+                Data="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+
+        <BoxView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End"  HorizontalOptions="FillAndExpand"/>
+            <Label 
+                Grid.Row="5" Grid.Column="1"
+                VerticalOptions="Center"
+                Text="Download tanks data" 
+                TextColor="White" 
+                FontSize="15"/>
+            <ActivityIndicator 
+                HeightRequest="30"
+                Grid.Row="5" 
+                Grid.Column="3" 
+                IsRunning="{Binding TankActivity}" 
+                Color="White"/>
+            <Path 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="5" Grid.Column="3"
+                Fill="White"
+                IsVisible="{Binding TankIcon}"
+                Data="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+
+        <BoxView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End"  HorizontalOptions="FillAndExpand"/>
+            <Label 
+                Grid.Row="7" Grid.Column="1"
+                VerticalOptions="Center"
+                Text="Download helicopters data" 
+                TextColor="White" 
+                FontSize="15"/>
+            <ActivityIndicator 
+                HeightRequest="30"
+                Grid.Row="7" 
+                Grid.Column="3" 
+                IsRunning="{Binding HeliActivity}" 
+                Color="White"/>
+            <Path 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="7" Grid.Column="3"
+                Fill="White"
+                IsVisible="{Binding HeliIcon}"
+                Data="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+
+        <BoxView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End"  HorizontalOptions="FillAndExpand"/>
+            <Label 
+                Grid.Row="9" Grid.Column="1"
+                VerticalOptions="Center"
+                Text="Download ships data" 
+                TextColor="White" 
+                FontSize="15"/>
+            <ActivityIndicator 
+                HeightRequest="30"
+                Grid.Row="9" 
+                Grid.Column="3" 
+                IsRunning="{Binding ShipActivity}" 
+                Color="White"/>
+            <Path 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="9" Grid.Column="3"
+                Fill="White"
+                IsVisible="{Binding ShipIcon}"
+                Data="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+
+        <BoxView Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="5" BackgroundColor="White" HeightRequest="1" VerticalOptions="End"  HorizontalOptions="FillAndExpand"/>
+
+    </Grid>
 </ContentPage>

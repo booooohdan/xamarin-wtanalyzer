@@ -4,7 +4,6 @@
       xmlns:properties="clr-namespace:WTAnalyzer.Resx"
       xmlns:menu="clr-namespace:WTAnalyzer.Views"
       xmlns:vehicle="clr-namespace:WTAnalyzer.Views.VehiclePages"
-      xmlns:service="clr-namespace:WTAnalyzer.Views.ServicePages"     
       xmlns:about="clr-namespace:WTAnalyzer.Views.AboutPages"
       Title="WTAnalyzer"
       x:Class="WTAnalyzer.AppShell"
