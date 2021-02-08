@@ -14,12 +14,12 @@
                 HeightRequest="100"
                 WidthRequest="100"/>
             <Label 
-                Text="Version 1.2.0"
+                Text="{Binding CurrentAppVersion}"
                 HorizontalOptions="CenterAndExpand" 
                 Padding="0"
                 Style="{StaticResource LabelStyle}"/>
             <Label 
-                Text="DB update: 02.03.2021"
+                Text="{Binding DbDateUpdate}"
                 FontSize="10"
                 TextColor="Gray"
                 HorizontalOptions="CenterAndExpand" />

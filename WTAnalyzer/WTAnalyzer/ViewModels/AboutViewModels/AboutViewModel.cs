@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reactive.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
@@ -21,6 +22,27 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
         public ICommand ShareCommand { get; set; }
         public ICommand DBUpdateCommand { get; set; }
         public ICommand HintsCommand { get; set; }
+        private string currentAppVersion;
+        private string dbDateUpdate;
+
+        public string CurrentAppVersion
+        {
+            get => currentAppVersion;
+            set 
+            { 
+                currentAppVersion = value;
+                OnPropertyChanged();
+            }
+        }
+        public string DbDateUpdate
+        {
+            get => dbDateUpdate; 
+            set 
+            { 
+                dbDateUpdate = value;
+                OnPropertyChanged();
+            }
+        }
 
         public AboutViewModel()
         {
@@ -29,6 +51,11 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
             ShareCommand = new Command(ShareHandler);
             DBUpdateCommand = new Command(DBUpdateHandler);
             HintsCommand = new Command(HintsHandler);
+
+            CurrentAppVersion = "Version " + AppInfo.VersionString;
+            var dbDate = BlobCache.UserAccount.GetCreatedAt("cachedArrayOfPlanes").Wait().ToString();
+            dbDate = dbDate.Split()[0];
+            DbDateUpdate = "DB update: " + dbDate;
         }
 
         private void RateHandler(object obj)

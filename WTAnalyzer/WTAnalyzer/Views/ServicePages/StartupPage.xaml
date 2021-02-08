@@ -4,6 +4,7 @@
              x:Class="WTAnalyzer.Views.ServicePages.StartupPage"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx" 
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#2a2a2a">
 
@@ -37,7 +38,7 @@
             <Label 
                 Grid.Row="1" Grid.Column="1"
                 VerticalOptions="Center"
-                Text="Check Internet" 
+                Text="{x:Static properties:AppResources.CheckInternetConnection}" 
                 TextColor="White" 
                 FontSize="15"/>
             <ActivityIndicator 
@@ -58,7 +59,7 @@
             <Label 
                 Grid.Row="3" Grid.Column="1"
                 VerticalOptions="Center"
-                Text="Download plane data" 
+                Text="{x:Static properties:AppResources.DownloadPlaneData}" 
                 TextColor="White" 
                 FontSize="15"/>
             <ActivityIndicator 
@@ -79,7 +80,7 @@
             <Label 
                 Grid.Row="5" Grid.Column="1"
                 VerticalOptions="Center"
-                Text="Download tanks data" 
+                Text="{x:Static properties:AppResources.DownloadTanksData}" 
                 TextColor="White" 
                 FontSize="15"/>
             <ActivityIndicator 
@@ -100,7 +101,7 @@
             <Label 
                 Grid.Row="7" Grid.Column="1"
                 VerticalOptions="Center"
-                Text="Download helicopters data" 
+                Text="{x:Static properties:AppResources.DownloadHelicoptersData}" 
                 TextColor="White" 
                 FontSize="15"/>
             <ActivityIndicator 
@@ -121,7 +122,7 @@
             <Label 
                 Grid.Row="9" Grid.Column="1"
                 VerticalOptions="Center"
-                Text="Download ships data" 
+                Text="{x:Static properties:AppResources.DownloadShipsData}" 
                 TextColor="White" 
                 FontSize="15"/>
             <ActivityIndicator 

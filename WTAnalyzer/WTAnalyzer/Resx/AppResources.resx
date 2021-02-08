@@ -502,4 +502,19 @@
   <data name="WorldOfTanksQuiz" xml:space="preserve">
     <value>World of Tanks Quiz</value>
   </data>
+  <data name="DownloadPlaneData" xml:space="preserve">
+    <value>Download plane data</value>
+  </data>
+  <data name="DownloadTanksData" xml:space="preserve">
+    <value>Download tanks data</value>
+  </data>
+  <data name="DownloadHelicoptersData" xml:space="preserve">
+    <value>Download helicopters data</value>
+  </data>
+  <data name="DownloadShipsData" xml:space="preserve">
+    <value>Download ships data</value>
+  </data>
+  <data name="CheckInternetConnection" xml:space="preserve">
+    <value>Check Internet connection</value>
+  </data>
 </root>

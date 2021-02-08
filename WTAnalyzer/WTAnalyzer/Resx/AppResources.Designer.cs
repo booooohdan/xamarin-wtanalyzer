@@ -214,6 +214,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Check Internet connection.
+        /// </summary>
+        internal static string CheckInternetConnection {
+            get {
+                return ResourceManager.GetString("CheckInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Check this cool app for War Thunder.
         /// </summary>
         internal static string CheckThisCoolApp {
@@ -318,6 +327,42 @@ namespace WTAnalyzer.Resx {
         internal static string Displacement {
             get {
                 return ResourceManager.GetString("Displacement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Download helicopters data.
+        /// </summary>
+        internal static string DownloadHelicoptersData {
+            get {
+                return ResourceManager.GetString("DownloadHelicoptersData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Download plane data.
+        /// </summary>
+        internal static string DownloadPlaneData {
+            get {
+                return ResourceManager.GetString("DownloadPlaneData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Download ships data.
+        /// </summary>
+        internal static string DownloadShipsData {
+            get {
+                return ResourceManager.GetString("DownloadShipsData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Download tanks data.
+        /// </summary>
+        internal static string DownloadTanksData {
+            get {
+                return ResourceManager.GetString("DownloadTanksData", resourceCulture);
             }
         }
         
