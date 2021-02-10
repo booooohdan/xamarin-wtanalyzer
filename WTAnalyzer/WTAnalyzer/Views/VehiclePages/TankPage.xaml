@@ -162,7 +162,8 @@
             SeparatorVisibility="None"
             ItemsSource="{Binding ListViewVehicleProp}" 
             BackgroundColor="Transparent"
-            android:ListView.IsFastScrollEnabled="True">
+            android:ListView.IsFastScrollEnabled="True"
+            SelectedItem="{Binding SelectedVehicle}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
