@@ -109,19 +109,19 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
 
             foreach (var item in filteredShipList)
             {
-                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR)); }
-                if (filterTask == AppResources.MainCaliberSize) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MainCaliberSize, AppResources.Mm, item.BR)); }
-                if (filterTask == AppResources.MainCaliberReload) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MainCaliberReload, AppResources.S, item.BR)); }
-                if (filterTask == AppResources.TorpedoCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoItem, AppResources.Item, item.BR)); }
-                if (filterTask == AppResources.TorpedoSpeed) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoMaxSpeed, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.TorpedoTNT) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoTNT, AppResources.Kg, item.BR)); }
-                if (filterTask == AppResources.MaxSpeedShip) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeed, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.CirculationTime) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Turn360, AppResources.S, item.BR)); }
-                if (filterTask == AppResources.TowerArmor) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ArmorTower, AppResources.Mm, item.BR)); }
-                if (filterTask == AppResources.HullArmor) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ArmorHull, AppResources.Mm, item.BR)); }
-                if (filterTask == AppResources.CrewCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.CrewCount, AppResources.Item, item.BR)); }
-                if (filterTask == AppResources.Displacement) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Displacement, AppResources.T, item.BR)); }
-                if (filterTask == AppResources.LaunchedYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstLaunchYear, AppResources.Y, item.BR)); }
+                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.MainCaliberSize) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MainCaliberSize, AppResources.Mm, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.MainCaliberReload) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MainCaliberReload, AppResources.S, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.TorpedoCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoItem, AppResources.Item, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.TorpedoSpeed) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoMaxSpeed, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.TorpedoTNT) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TorpedoTNT, AppResources.Kg, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.MaxSpeedShip) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeed, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.CirculationTime) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Turn360, AppResources.S, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.TowerArmor) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ArmorTower, AppResources.Mm, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.HullArmor) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ArmorHull, AppResources.Mm, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.CrewCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.CrewCount, AppResources.Item, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.Displacement) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Displacement, AppResources.T, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.LaunchedYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstLaunchYear, AppResources.Y, item.BR, item.VehicleId)); }
             }
 
             sortedDataForListView = filterOrder == AppResources.Ascending

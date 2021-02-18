@@ -108,18 +108,18 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
 
             foreach (var item in filteredPlaneList)
             {
-                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR)); }
-                if (filterTask == AppResources.MaxSpeed) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.MaxSpeedAt5000M) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.Climb) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, AppResources.S, item.BR)); }
-                if (filterTask == AppResources.TurnTime) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, AppResources.S, item.BR)); }
-                if (filterTask == AppResources.EnginePower) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, "", item.BR)); }
-                if (filterTask == AppResources.Weight) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, AppResources.Kg, item.BR)); }
-                if (filterTask == AppResources.Flutter) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.OptimalAlitude) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, AppResources.M, item.BR)); }
-                if (filterTask == AppResources.BombLoad) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, AppResources.Kg, item.BR)); }
-                if (filterTask == AppResources.BurstMass) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, AppResources.KgS, item.BR)); }
-                if (filterTask == AppResources.FirstFlyYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, AppResources.Y, item.BR)); }
+                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.MaxSpeed) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt0, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.MaxSpeedAt5000M) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeedAt5000, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.Climb) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Climb, AppResources.S, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.TurnTime) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.TurnAt0, AppResources.S, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.EnginePower) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.EnginePower, "", item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.Weight) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, AppResources.Kg, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.Flutter) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Flutter, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.OptimalAlitude) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.OptimalAlitude, AppResources.M, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.BombLoad) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BombLoad, AppResources.Kg, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.BurstMass) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.BurstMass, AppResources.KgS, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.FirstFlyYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, AppResources.Y, item.BR, item.VehicleId)); }
             }
 
             sortedDataForListView = filterOrder == AppResources.Ascending

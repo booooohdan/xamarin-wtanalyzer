@@ -21,11 +21,6 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
         protected string[] filterGameTypes { get; set; }
         protected string filterOrder { get; set; }
 
-        protected ArrayOfPlanes arrayOfPlanes { get; set; }
-        protected ArrayOfTanks arrayOfTanks { get; set; }
-        protected ArrayOfHelis arrayOfHelis { get; set; }
-        protected ArrayOfShips arrayOfShips { get; set; }
-
         private string vmType;
         private string cachedTask;
         private string cachedNation;
@@ -154,7 +149,6 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
         {
             this.vmType = vmType;
             SetParametersDependingCallingViewModel();
-            Task.Run(GetVehicleDataFromCacheAsync).Wait();
             Task.Run(GetDataFromFilterPageAsync).Wait();
         }
         private void SetParametersDependingCallingViewModel()
@@ -198,14 +192,6 @@ namespace WTAnalyzer.ViewModels.BaseViewModels
                 cachedGameType = "cachedShipGameTypes";
                 cachedOrder = "cachedShipOrder";
             }
-        }
-
-        public async Task GetVehicleDataFromCacheAsync()
-        {
-            arrayOfPlanes = await BlobCache.UserAccount.GetObject<ArrayOfPlanes>("cachedArrayOfPlanes");
-            arrayOfTanks = await BlobCache.UserAccount.GetObject<ArrayOfTanks>("cachedArrayOfTanks");
-            arrayOfHelis = await BlobCache.UserAccount.GetObject<ArrayOfHelis>("cachedArrayOfHelis");
-            arrayOfShips = await BlobCache.UserAccount.GetObject<ArrayOfShips>("cachedArrayOfShips");
         }
 
         protected async Task GetDataFromFilterPageAsync()

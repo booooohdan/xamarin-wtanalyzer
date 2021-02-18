@@ -1,8 +1,10 @@
 ﻿using Akavache;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Reactive.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -15,8 +17,9 @@ using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels.ServiceViewModels
 {
-    public class StartupViewModel : BaseViewModel
+    public class StartupViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         ArrayOfPlanes arrayOfPlanes;
         ArrayOfTanks arrayOfTanks;
         ArrayOfHelis arrayOfHelis;
@@ -245,6 +248,12 @@ namespace WTAnalyzer.ViewModels.ServiceViewModels
             await BlobCache.UserAccount.InsertObject("cachedArrayOfShips", arrayOfShips, TimeSpan.FromDays(7));
             ShipActivity = false;
             ShipIcon = true;
+        }
+
+
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

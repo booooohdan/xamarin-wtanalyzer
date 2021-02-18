@@ -104,14 +104,14 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
 
             foreach (var item in filteredHeliList)
             {
-                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR)); }
-                if (filterTask == AppResources.SpeedAtSeaLevel) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeed, AppResources.KmH, item.BR)); }
-                if (filterTask == AppResources.ClimbTime01000M) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ClimbTo1000, AppResources.S, item.BR)); }
-                if (filterTask == AppResources.Weight) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, AppResources.Kg, item.BR)); }
-                if (filterTask == AppResources.ATGMCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.AGMCount, AppResources.Item, item.BR)); }
-                if (filterTask == AppResources.ATGMRange) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.AGMRange, AppResources.M, item.BR)); }
-                if (filterTask == AppResources.UnguidedMissile) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ASMCount, AppResources.Item, item.BR)); }
-                if (filterTask == AppResources.FirstRideYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, AppResources.Y, item.BR)); }
+                if (filterTask == AppResources.RepairCost) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.RepairCost, AppResources.SL, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.SpeedAtSeaLevel) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.MaxSpeed, AppResources.KmH, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.ClimbTime01000M) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ClimbTo1000, AppResources.S, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.Weight) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.Weight, AppResources.Kg, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.ATGMCount) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.AGMCount, AppResources.Item, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.ATGMRange) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.AGMRange, AppResources.M, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.UnguidedMissile) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.ASMCount, AppResources.Item, item.BR, item.VehicleId)); }
+                if (filterTask == AppResources.FirstRideYear) { dataForListView.Add(new ListViewItem(item.Nation, item.Class, item.Type, item.Name, item.FirstFlyYear, AppResources.Y, item.BR, item.VehicleId)); }
             }
 
             sortedDataForListView = filterOrder == AppResources.Ascending
