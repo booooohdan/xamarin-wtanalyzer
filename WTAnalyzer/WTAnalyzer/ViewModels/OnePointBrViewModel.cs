@@ -94,6 +94,13 @@ namespace WTAnalyzer.ViewModels
 
         public OnePointBrViewModel()
         {
+            MessagingCenter.Subscribe<VehiclesSearchHandler, string>(this, "searchResult",
+                (sender, arg) => {
+                    if (arg != null)
+                    {
+                        Id = arg;
+                    }
+                });
         }
 
         private void SelectCorrectCollection()
@@ -101,7 +108,7 @@ namespace WTAnalyzer.ViewModels
             if (Id.StartsWith("1"))
             {
                 Tasks = TasksCollection.PlaneTasks();
-                SelectedTask = 0;
+                SelectedTask = 2;
             }
             if (Id.StartsWith("2"))
             {

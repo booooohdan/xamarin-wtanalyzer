@@ -13,9 +13,38 @@
             <local:StringToColorConverter x:Key="stringToColor" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <Shell.SearchHandler>
-        <SearchHandler ShowsResults="True" Placeholder="Search.."/>
+        <local:VehiclesSearchHandler Placeholder="Search.."
+                                      ShowsResults="true">
+            <local:VehiclesSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" HeightRequest="40">
+                        <Image Aspect="AspectFit"
+                            Margin="12, 12, 0, 12"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Source="{Binding Flag}" />
+                        <Image Aspect="AspectFit"
+                            Margin="0, 11, 0, 11"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Source="{Binding Role}" />
+                        <Label 
+                            Style="{StaticResource LabelListViewItemStyle}"
+                            HorizontalOptions="Start"
+                            FontAttributes="None" 
+                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
+                        <Label 
+                            Style="{StaticResource LabelListViewItemStyle}"
+                            HorizontalOptions="StartAndExpand"   
+                            FontFamily="SymbolFont"
+                            FontAttributes="None"
+                            Text="{Binding Name}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </local:VehiclesSearchHandler.ItemTemplate>
+        </local:VehiclesSearchHandler>
     </Shell.SearchHandler>
 
     <ContentPage.Content>
@@ -43,6 +72,7 @@
                     </Grid.RowDefinitions>
                     <Label
                        Text="{Binding Name}"
+                       FontFamily="SymbolFont"
                        Padding="8,4,0,0"
                        HorizontalOptions="Start"
                        Style="{StaticResource LabelStyle}"/>
@@ -71,7 +101,7 @@
                    Text="Better than you"
                    FontAttributes="None"
                    FontSize="14"
-                   Style="{StaticResource LabelStyle}"/>            
+                   Style="{StaticResource LabelStyle}"/>
             <Label Grid.Column="1" Grid.Row="1" 
                    Text="Worse or equal"
                    FontAttributes="None"
@@ -181,7 +211,7 @@
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
-                        </ViewCell>                    
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
