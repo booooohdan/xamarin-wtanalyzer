@@ -15,13 +15,18 @@ namespace WTAnalyzer.ViewModels
     [QueryProperty("Id", "id")]
     public class OnePointBrViewModel : BaseViewModel
     {
+        #region Define variables
+
         private string id;
         private string name;
         private int vehicleValue;
         private string vehicleValueDesc;
-        private string valueDifference;
+        private string ValueDifference;
         private int selectedTask;
         private ObservableCollection<string> tasks;
+        #endregion
+
+        #region View Properties
         public string Id
         {
             get => id;
@@ -29,9 +34,20 @@ namespace WTAnalyzer.ViewModels
             {
                 id = Uri.UnescapeDataString(value);
                 OnPropertyChanged();
-                SelectCorrectCollection();
+                SelectCorrectTasks();
             }
         }
+        public int SelectedTask
+        {
+            get => selectedTask;
+            set
+            {
+                selectedTask = value;
+                OnPropertyChanged();
+                ChooseWhichDataSetToListView();
+            }
+        }
+
         public string Name
         {
             get => name;
@@ -62,26 +78,6 @@ namespace WTAnalyzer.ViewModels
             }
         }
 
-        public string ValueDifference
-        {
-            get => valueDifference;
-            set
-            {
-                valueDifference = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int SelectedTask
-        {
-            get => selectedTask;
-            set
-            {
-                selectedTask = value;
-                OnPropertyChanged();
-                SetPlaneDataToListView();
-            }
-        }
         public ObservableCollection<string> Tasks
         {
             get => tasks;
@@ -91,6 +87,7 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
+        #endregion
 
         public OnePointBrViewModel()
         {
@@ -103,7 +100,7 @@ namespace WTAnalyzer.ViewModels
                 });
         }
 
-        private void SelectCorrectCollection()
+        private void SelectCorrectTasks()
         {
             if (Id.StartsWith("1"))
             {
@@ -113,17 +110,37 @@ namespace WTAnalyzer.ViewModels
             if (Id.StartsWith("2"))
             {
                 Tasks = TasksCollection.TankTasks();
-                SelectedTask = 0;
+                SelectedTask = 1;
             }
             if (Id.StartsWith("3"))
             {
                 Tasks = TasksCollection.HeliTasks();
-                SelectedTask = 0;
+                SelectedTask = 4;
             }
             if (Id.StartsWith("4"))
             {
                 Tasks = TasksCollection.ShipTasks();
-                SelectedTask = 0;
+                SelectedTask = 1;
+            }
+        }
+
+        private void ChooseWhichDataSetToListView()
+        {
+            if (Id.StartsWith("1"))
+            {
+                SetPlaneDataToListView();
+            }
+            if (Id.StartsWith("2"))
+            {
+                //
+            }
+            if (Id.StartsWith("3"))
+            {
+                //
+            }
+            if (Id.StartsWith("4"))
+            {
+                //
             }
         }
 
