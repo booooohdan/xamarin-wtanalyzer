@@ -98,12 +98,12 @@
                 </Grid>
             </Frame>
             <Label Grid.Column="0" Grid.Row="1" 
-                   Text="Better than you"
+                   Text="{x:Static properties:AppResources.BetterThanYou}"
                    FontAttributes="None"
                    FontSize="14"
                    Style="{StaticResource LabelStyle}"/>
             <Label Grid.Column="1" Grid.Row="1" 
-                   Text="Worse or equal"
+                   Text="{x:Static properties:AppResources.WorseOrEqual}"
                    FontAttributes="None"
                    FontSize="14"
                    Style="{StaticResource LabelStyle}"/>

@@ -169,6 +169,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Better than you.
+        /// </summary>
+        internal static string BetterThanYou {
+            get {
+                return ResourceManager.GetString("BetterThanYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Bomber.
         /// </summary>
         internal static string Bomber {
@@ -1236,6 +1245,15 @@ namespace WTAnalyzer.Resx {
         internal static string WorldOfTanksQuiz {
             get {
                 return ResourceManager.GetString("WorldOfTanksQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Worse or equal.
+        /// </summary>
+        internal static string WorseOrEqual {
+            get {
+                return ResourceManager.GetString("WorseOrEqual", resourceCulture);
             }
         }
         

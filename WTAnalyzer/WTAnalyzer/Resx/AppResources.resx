@@ -517,4 +517,10 @@
   <data name="CheckInternetConnection" xml:space="preserve">
     <value>Check Internet connection</value>
   </data>
+  <data name="BetterThanYou" xml:space="preserve">
+    <value>Better than you</value>
+  </data>
+  <data name="WorseOrEqual" xml:space="preserve">
+    <value>Worse or equal</value>
+  </data>
 </root>

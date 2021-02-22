@@ -496,4 +496,10 @@
   <data name="DownloadPlaneData" xml:space="preserve">
     <value>Завантаження даних авіації</value>
   </data>
+  <data name="BetterThanYou" xml:space="preserve">
+    <value>Краще за тебе</value>
+  </data>
+  <data name="WorseOrEqual" xml:space="preserve">
+    <value>Гірше або одинаково</value>
+  </data>
 </root>
