@@ -1024,6 +1024,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Use the Search Bar on the top of this screen.
+        /// </summary>
+        internal static string TextPlaceholder1 {
+            get {
+                return ResourceManager.GetString("TextPlaceholder1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Or click on any vehicle in the &quot;Explorer&quot; menu section.
+        /// </summary>
+        internal static string TextPlaceholder2 {
+            get {
+                return ResourceManager.GetString("TextPlaceholder2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The database contains all vehicles except bombers of 1-3 tiers and the coastal fleet.
         /// </summary>
         internal static string TheDatabaseContains {

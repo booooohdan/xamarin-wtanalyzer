@@ -502,4 +502,10 @@
   <data name="WorseOrEqual" xml:space="preserve">
     <value>Гірше або одинаково</value>
   </data>
+  <data name="TextPlaceholder1" xml:space="preserve">
+    <value>Використовуйте Пошук в верхній панелі</value>
+  </data>
+  <data name="TextPlaceholder2" xml:space="preserve">
+    <value>Або натисніть на будь яку техніку в меню "Дослідити"</value>
+  </data>
 </root>

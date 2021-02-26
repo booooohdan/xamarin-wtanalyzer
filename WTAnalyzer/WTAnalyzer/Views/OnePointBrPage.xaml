@@ -48,87 +48,101 @@
     </Shell.SearchHandler>
 
     <ContentPage.Content>
-        <Grid Padding="8, 8, 8, 0" Style="{StaticResource MainBackground}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <StackLayout>
+            <StackLayout 
+                IsVisible="{Binding IsPlaceHolderVisible}"
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand">
+                <Label Text="{x:Static properties:AppResources.TextPlaceholder1}" 
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="{x:Static properties:AppResources.TextPlaceholder2}" 
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <Grid Padding="8, 8, 8, 0" 
+                  Style="{StaticResource MainBackground}"
+                  IsVisible="{Binding IsMainVisible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
                    Style="{StaticResource FrameFilterSectionStyle}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
                        Text="{Binding Name}"
                        FontFamily="SymbolFont"
-                       Padding="8,4,0,0"
+                       Padding="8,8,0,0"
+                       FontSize="20"
                        HorizontalOptions="Start"
                        Style="{StaticResource LabelStyle}"/>
-                    <StackLayout Grid.ColumnSpan="2"
+                        <StackLayout Grid.ColumnSpan="2"
                                  Padding="0,4,8,0"
                                  Orientation="Horizontal" 
                                  HorizontalOptions="End">
-                        <Label
+                            <Label
                            Text="{Binding VehicleValue}"
                            Style="{StaticResource LabelStyle}"/>
-                        <Label
+                            <Label
                            Text="{Binding VehicleValueDesc}"
                            Padding="0"
                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <Picker Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                        <Picker Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
                         Margin="4,-10,4,0"
                         FontSize="16"
+                        Title="Select Task" 
                         SelectedIndex="{Binding SelectedTask}"
                         ItemsSource="{Binding Tasks}">
-                    </Picker>
-                </Grid>
-            </Frame>
-            <Label Grid.Column="0" Grid.Row="1" 
+                        </Picker>
+                    </Grid>
+                </Frame>
+                <Label Grid.Column="0" Grid.Row="1" 
                    Text="{x:Static properties:AppResources.BetterThanYou}"
                    FontAttributes="None"
                    FontSize="14"
                    Style="{StaticResource LabelStyle}"/>
-            <Label Grid.Column="1" Grid.Row="1" 
+                <Label Grid.Column="1" Grid.Row="1" 
                    Text="{x:Static properties:AppResources.WorseOrEqual}"
                    FontAttributes="None"
                    FontSize="14"
                    Style="{StaticResource LabelStyle}"/>
 
-            <ListView Grid.Column="0" Grid.Row="2"
+                <ListView Grid.Column="0" Grid.Row="2"
                 CachingStrategy="RecycleElementAndDataTemplate"
                 SeparatorVisibility="None"
                 HasUnevenRows="True"
                 ItemsSource="{Binding LeftListView}" 
                 BackgroundColor="Transparent">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame Style="{StaticResource FrameFilterSectionStyle}"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Style="{StaticResource FrameFilterSectionStyle}"
                                BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
-                                <StackLayout Padding="10">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
+                                    <StackLayout Padding="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            LineBreakMode="NoWrap"
                                            VerticalOptions="Center"
                                            HorizontalOptions="Start"
                                            FontAttributes="None" 
                                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            LineBreakMode="MiddleTruncation"
                                            VerticalOptions="Center"
@@ -136,86 +150,86 @@
                                            FontFamily="SymbolFont"
                                            FontAttributes="None"
                                            Text="{Binding Name}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Text="{Binding Value, StringFormat='{0:#,0.##}'}"
                                            VerticalOptions="Center"/>
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Padding="0,2, 10, 0"
                                            FontSize="10"
                                            Text="{Binding ValueDescription}" />
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Padding="0, 0, 10, 0"
                                            FontSize="13"
                                            TextColor="Green"
                                            HorizontalOptions="EndAndExpand"
                                            Text="{Binding Id}" />
-                                        <!--ID is a difference vehicle-->
+                                            <!--ID is a difference vehicle-->
+                                        </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <ListView Grid.Column="1" Grid.Row="2"
+                <ListView Grid.Column="1" Grid.Row="2"
             CachingStrategy="RecycleElementAndDataTemplate"
             SeparatorVisibility="None"
             HasUnevenRows="True"
             ItemsSource="{Binding RightListView}" 
             BackgroundColor="Transparent">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame Style="{StaticResource FrameFilterSectionStyle}"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Style="{StaticResource FrameFilterSectionStyle}"
                                BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
-                                <StackLayout Padding="10">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
+                                    <StackLayout Padding="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            VerticalOptions="Center"
                                            HorizontalOptions="Start"
                                            FontAttributes="None" 
                                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            VerticalOptions="Center"
                                            HorizontalOptions="StartAndExpand"   
                                            FontFamily="SymbolFont"
                                            FontAttributes="None"
                                            Text="{Binding Name}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Text="{Binding Value, StringFormat='{0:#,0.##}'}"
                                            VerticalOptions="Center"/>
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Padding="0,2, 10, 0"
                                            FontSize="10"
                                            Text="{Binding ValueDescription}" />
-                                        <Label
+                                            <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
                                            Padding="0, 0, 10, 0"
                                            FontSize="13"
                                            TextColor="Red"
                                            HorizontalOptions="EndAndExpand"
                                            Text="{Binding Id}" />
-                                        <!--ID is a difference vehicle-->
+                                            <!--ID is a difference vehicle-->
+                                        </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-        </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

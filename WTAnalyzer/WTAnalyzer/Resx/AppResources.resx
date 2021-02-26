@@ -523,4 +523,10 @@
   <data name="WorseOrEqual" xml:space="preserve">
     <value>Worse or equal</value>
   </data>
+  <data name="TextPlaceholder2" xml:space="preserve">
+    <value>Or click on any vehicle in the "Explorer" menu section</value>
+  </data>
+  <data name="TextPlaceholder1" xml:space="preserve">
+    <value>Use the Search Bar on the top of this screen</value>
+  </data>
 </root>

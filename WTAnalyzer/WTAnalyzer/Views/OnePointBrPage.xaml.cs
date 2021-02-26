@@ -16,7 +16,6 @@ namespace WTAnalyzer.Views
         {
             InitializeComponent();
             BindingContext = new OnePointBrViewModel();
-
         }
     }
 }

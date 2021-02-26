@@ -24,6 +24,8 @@ namespace WTAnalyzer.ViewModels
         private string ValueDifference;
         private int selectedTask;
         private ObservableCollection<string> tasks;
+        private bool isMainVisible;
+        private bool isPlaceHolderVisible;
         #endregion
 
         #region View Properties
@@ -87,10 +89,32 @@ namespace WTAnalyzer.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool IsMainVisible
+        {
+            get => isMainVisible;
+            set
+            {
+                isMainVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsPlaceHolderVisible
+        {
+            get => isPlaceHolderVisible;
+            set
+            {
+                isPlaceHolderVisible = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         public OnePointBrViewModel()
         {
+            IsPlaceHolderVisible = true;
+            IsMainVisible = false;
+
             MessagingCenter.Subscribe<VehiclesSearchHandler, string>(this, "searchResult",
                 (sender, arg) => {
                     if (arg != null)
@@ -120,12 +144,15 @@ namespace WTAnalyzer.ViewModels
             if (Id.StartsWith("4"))
             {
                 Tasks = TasksCollection.ShipTasks();
-                SelectedTask = 0;
+                SelectedTask = 1;
             }
         }
 
         private void ChooseWhichDataSetToListView()
         {
+            IsPlaceHolderVisible = false;
+            IsMainVisible = true;
+
             if (Id.StartsWith("1"))
             {
                 SetPlaneDataToListView();

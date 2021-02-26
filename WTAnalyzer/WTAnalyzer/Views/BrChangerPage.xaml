@@ -2,12 +2,201 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WTAnalyzer.Views.BrChangerPage"
-             Shell.NavBarIsVisible ="True">
+             Shell.NavBarIsVisible ="True"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:properties="clr-namespace:WTAnalyzer.Resx"
+             xmlns:local="clr-namespace:WTAnalyzer.Helpers"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToColorConverter x:Key="stringToColor" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Shell.SearchHandler>
+        <local:VehiclesSearchHandler Placeholder="Search.."
+                                      ShowsResults="true">
+            <local:VehiclesSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" HeightRequest="40">
+                        <Image Aspect="AspectFit"
+                            Margin="12, 12, 0, 12"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Source="{Binding Flag}" />
+                        <Image Aspect="AspectFit"
+                            Margin="0, 11, 0, 11"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Source="{Binding Role}" />
+                        <Label 
+                            Style="{StaticResource LabelListViewItemStyle}"
+                            HorizontalOptions="Start"
+                            FontAttributes="None" 
+                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
+                        <Label 
+                            Style="{StaticResource LabelListViewItemStyle}"
+                            HorizontalOptions="StartAndExpand"   
+                            FontFamily="SymbolFont"
+                            FontAttributes="None"
+                            Text="{Binding Name}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </local:VehiclesSearchHandler.ItemTemplate>
+        </local:VehiclesSearchHandler>
+    </Shell.SearchHandler>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout 
+                IsVisible="{Binding IsPlaceHolderVisible}"
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand">
+                <Label Text="{x:Static properties:AppResources.TextPlaceholder1}" 
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <Grid Padding="8, 8, 8, 0" 
+                  Style="{StaticResource MainBackground}" 
+                  IsVisible="{Binding IsMainVisible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Style="{StaticResource FrameFilterSectionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.RowSpan="2"
+                       Text="{Binding Name}"
+                       FontFamily="SymbolFont"
+                       FontSize="20"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       Style="{StaticResource LabelStyle}"/>
+                        <Label Grid.Column="1"
+                       Text="Current BR:"
+                       Padding="0"
+                       FontAttributes="None"
+                       Style="{StaticResource LabelStyle}"/>
+                        <Label Grid.Column="1"
+                       Text="{Binding CurrentBr, StringFormat='{0:0.0}'}"
+                       Padding="0, 0, 10, 0"
+                       HorizontalOptions="End"
+                       Style="{StaticResource LabelStyle}"/>
+                        <Label Grid.Column="1" Grid.Row="1"
+                       Text="New BR:"
+                       Padding="0"
+                       FontAttributes="None"
+                       Style="{StaticResource LabelStyle}"/>
+                        <Picker Grid.Column="1" Grid.Row="1"
+                        TextColor="{StaticResource MyDarkest}"
+                        Margin="0, -10, 10, 0"
+                        Title="  BR" 
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HorizontalOptions="End"
+                        SelectedIndex="{Binding NewBr}"
+                        ItemsSource="{Binding BrArray}">
+                        </Picker>
+                    </Grid>
+                </Frame>
+
+                <Label Grid.Column="0" Grid.Row="1" 
+                   Text="Will meet in battle"
+                   FontAttributes="None"
+                   FontSize="14"
+                   Style="{StaticResource LabelStyle}"/>
+                <Label Grid.Column="1" Grid.Row="1" 
+                   Text="Will not meet in battle"
+                   FontAttributes="None"
+                   FontSize="14"
+                   Style="{StaticResource LabelStyle}"/>
+
+                <ListView Grid.Column="0" Grid.Row="2"
+                CachingStrategy="RecycleElementAndDataTemplate"
+                SeparatorVisibility="None"
+                HasUnevenRows="True"
+                ItemsSource="{Binding LeftListView}" 
+                BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Style="{StaticResource FrameFilterSectionStyle}"
+                               BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                           Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="NoWrap"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"
+                                           FontAttributes="None" 
+                                           Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
+                                            <Label
+                                           Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="MiddleTruncation"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="StartAndExpand"   
+                                           FontFamily="SymbolFont"
+                                           FontAttributes="None"
+                                           Text="{Binding Name}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Column="1" Grid.Row="2"
+            CachingStrategy="RecycleElementAndDataTemplate"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            ItemsSource="{Binding RightListView}" 
+            BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Style="{StaticResource FrameFilterSectionStyle}"
+                               BackgroundColor="{Binding Vtype, Converter={StaticResource stringToColor}, ConverterParameter=Frame}">
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <Label
+                                           Style="{StaticResource LabelListViewItemStyle}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"
+                                           FontAttributes="None" 
+                                           Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
+                                        <Label
+                                           Style="{StaticResource LabelListViewItemStyle}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="StartAndExpand"   
+                                           FontFamily="SymbolFont"
+                                           FontAttributes="None"
+                                           Text="{Binding Name}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>
