@@ -6,6 +6,7 @@
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:properties="clr-namespace:WTAnalyzer.Resx"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              xmlns:local="clr-namespace:WTAnalyzer.Helpers"
              ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
@@ -65,6 +66,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -194,8 +196,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
             </Grid>
+            <controls:MTAdView Grid.Row="3" Grid.ColumnSpan="2"
+                PersonalizedAds="True" 
+                AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/8662275229', iOS='ca-app-pub-8211072909515345/6719278795'}"/>
         </StackLayout>
     </ContentPage.Content>
 

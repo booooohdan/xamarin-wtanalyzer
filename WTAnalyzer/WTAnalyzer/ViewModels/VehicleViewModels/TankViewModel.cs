@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MarcTron.Plugin;
+using Plugin.StoreReview;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Linq;
@@ -11,6 +13,7 @@ using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.ViewModels.ServiceViewModels;
 using WTAnalyzer.Views.ServicePages;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels.VehicleViewModels
@@ -20,6 +23,8 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
         #region Define variables
         public INavigation Navigation { get; set; }
         public ICommand OpenFilterModalPageCommand { get; }
+        int adsCount = 0;
+        int start_count = Preferences.Get("start_count", 0);
 
         #endregion
 
@@ -41,7 +46,8 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
             if (Navigation.ModalStack.Count == 0)
             {
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
-                     async (sender, arg) => {
+                     async (sender, arg) =>
+                     {
                          await GetDataFromFilterPageAsync();
                          SetDataToChartsView();
                          SetDataToListView();
@@ -49,7 +55,47 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
 
                 await Navigation.PushModalAsync(new FilterPage("Tank"));
             }
+
+            ShowReview();
+            ShowIntersitialAds();
         }
+
+        private void ShowReview() //Review request
+        {
+            start_count++;
+            Preferences.Set("start_count", start_count);
+            if (start_count == 5 || start_count == 15)
+            {
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.Android:
+                        CrossStoreReview.Current.OpenStoreReviewPage("com.wtwave.wtinsider");
+                        break;
+                    case Device.iOS:
+                        //CrossStoreReview.Current.OpenStoreReviewPage("1542964380");
+                        CrossStoreReview.Current.OpenStoreReviewPage("");
+                        break;
+                }
+            }
+        }
+
+        private void ShowIntersitialAds()
+        {
+            adsCount++;
+            AdmobIntersitials.LoadIntersitialExplorer();
+
+            if (adsCount == 2 | adsCount == 5)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialExplorer();
+            }
+            if (adsCount > 7)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialExplorer();
+            }
+        }
+
 
         public List<Tank> FilterVehicleDataDependingFilterPage(string[] filterNations, string[] filterRank, string[] filterRole, string[] filterGameType)
         {

@@ -400,17 +400,8 @@
   <data name="NoInternet" xml:space="preserve">
     <value>Немає інтернету</value>
   </data>
-  <data name="LoadingVehicleData" xml:space="preserve">
-    <value>Завантаження даних. Це може зайняти до 15 секунд</value>
-  </data>
-  <data name="RateUsInStore" xml:space="preserve">
-    <value>Оцініть нас:</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>Про програму</value>
-  </data>
-  <data name="AboutApp" xml:space="preserve">
-    <value>Автори</value>
   </data>
   <data name="Hints" xml:space="preserve">
     <value>Підказки</value>
@@ -421,17 +412,8 @@
   <data name="TryOurGames" xml:space="preserve">
     <value>Спробуйте наші ігри:</value>
   </data>
-  <data name="UpdateDatabase" xml:space="preserve">
-    <value>Оновлення бази даних</value>
-  </data>
-  <data name="UPDATEReopenIsRequired" xml:space="preserve">
-    <value>ПРИМУСОВЕ ОНОВЛЕННЯ (Необхідне перезавантаження)</value>
-  </data>
   <data name="BRChanger" xml:space="preserve">
     <value>Змінити БР</value>
-  </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Політика конфіденційності</value>
   </data>
   <data name="RateTheApp" xml:space="preserve">
     <value>Оцініть програму</value>
@@ -453,9 +435,6 @@
   </data>
   <data name="WTAnalyzerAboutText" xml:space="preserve">
     <value>WT Analyzer це неофіційний, must-have додаток для гравців War Thunder. Додаток використовує власну БД, дані для якої зібрані з ігрового клієнту та wiki.warthunder.com</value>
-  </data>
-  <data name="FollowTheNews" xml:space="preserve">
-    <value>Слідкуйте за новинами</value>
   </data>
   <data name="AppForCheckoutOfPlayerStatistics" xml:space="preserve">
     <value>Додаток для перевірки статистики гравця</value>

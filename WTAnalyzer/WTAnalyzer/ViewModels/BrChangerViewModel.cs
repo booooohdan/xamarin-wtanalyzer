@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarcTron.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -26,6 +27,8 @@ namespace WTAnalyzer.ViewModels
         private double[] brArray;
         private bool isMainVisible;
         private bool isPlaceHolderVisible;
+        int adsCount = 0;
+
         #endregion
 
         #region View Properties
@@ -159,6 +162,7 @@ namespace WTAnalyzer.ViewModels
         {
             IsPlaceHolderVisible = false;
             IsMainVisible = true;
+            ShowIntersitialAds();
 
             if (Id.StartsWith("1"))
             {
@@ -175,6 +179,23 @@ namespace WTAnalyzer.ViewModels
             if (Id.StartsWith("4"))
             {
                 SetShipDataToListView();
+            }
+        }
+
+        private void ShowIntersitialAds()
+        {
+            adsCount++;
+            AdmobIntersitials.LoadIntersitialBrChanger();
+
+            if (adsCount == 2 | adsCount == 5)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialBrChanger();
+            }
+            if (adsCount > 7)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialBrChanger();
             }
         }
 

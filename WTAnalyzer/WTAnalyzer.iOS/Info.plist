@@ -33,5 +33,11 @@
 	<string>WTAnalyzer</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8211072909515345~6618099883</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 </dict>
 </plist>

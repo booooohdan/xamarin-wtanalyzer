@@ -79,15 +79,6 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на About app.
-        /// </summary>
-        internal static string AboutApp {
-            get {
-                return ResourceManager.GetString("AboutApp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на App for checkout of player statistics.
         /// </summary>
         internal static string AppForCheckoutOfPlayerStatistics {
@@ -187,7 +178,7 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Bomb Load.
+        ///   Ищет локализованную строку, похожую на Bomb Payload.
         /// </summary>
         internal static string BombLoad {
             get {
@@ -439,15 +430,6 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Follow the news.
-        /// </summary>
-        internal static string FollowTheNews {
-            get {
-                return ResourceManager.GetString("FollowTheNews", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Follow the news, make suggest.
         /// </summary>
         internal static string FollowTheNewsAskQuestion {
@@ -597,15 +579,6 @@ namespace WTAnalyzer.Resx {
         internal static string LightTank {
             get {
                 return ResourceManager.GetString("LightTank", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Loading vehicle data. This may take up to a 15 sec.
-        /// </summary>
-        internal static string LoadingVehicleData {
-            get {
-                return ResourceManager.GetString("LoadingVehicleData", resourceCulture);
             }
         }
         
@@ -763,15 +736,6 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Privacy policy.
-        /// </summary>
-        internal static string PrivacyPolicy {
-            get {
-                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Promotional.
         /// </summary>
         internal static string Promotional {
@@ -813,15 +777,6 @@ namespace WTAnalyzer.Resx {
         internal static string RateTheApp {
             get {
                 return ResourceManager.GetString("RateTheApp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Rate us in store:.
-        /// </summary>
-        internal static string RateUsInStore {
-            get {
-                return ResourceManager.GetString("RateUsInStore", resourceCulture);
             }
         }
         
@@ -1164,24 +1119,6 @@ namespace WTAnalyzer.Resx {
         internal static string UnguidedMissile {
             get {
                 return ResourceManager.GetString("UnguidedMissile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Update Database.
-        /// </summary>
-        internal static string UpdateDatabase {
-            get {
-                return ResourceManager.GetString("UpdateDatabase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на FORCE UPDATE (Reboot is required).
-        /// </summary>
-        internal static string UPDATEReopenIsRequired {
-            get {
-                return ResourceManager.GetString("UPDATEReopenIsRequired", resourceCulture);
             }
         }
         

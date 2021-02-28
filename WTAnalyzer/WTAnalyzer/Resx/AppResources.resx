@@ -208,7 +208,7 @@
     <value>Optimal Alitude</value>
   </data>
   <data name="BombLoad" xml:space="preserve">
-    <value>Bomb Load</value>
+    <value>Bomb Payload</value>
   </data>
   <data name="BurstMass" xml:space="preserve">
     <value>Burst Mass</value>
@@ -409,9 +409,6 @@
   <data name="Ships" xml:space="preserve">
     <value>Fleet</value>
   </data>
-  <data name="LoadingVehicleData" xml:space="preserve">
-    <value>Loading vehicle data. This may take up to a 15 sec</value>
-  </data>
   <data name="NoInternet" xml:space="preserve">
     <value>No internet</value>
   </data>
@@ -424,14 +421,8 @@
   <data name="Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
-  <data name="RateUsInStore" xml:space="preserve">
-    <value>Rate us in store:</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="AboutApp" xml:space="preserve">
-    <value>About app</value>
   </data>
   <data name="Hints" xml:space="preserve">
     <value>Hints</value>
@@ -442,12 +433,6 @@
   <data name="TryOurGames" xml:space="preserve">
     <value>Try our games:</value>
   </data>
-  <data name="UpdateDatabase" xml:space="preserve">
-    <value>Update Database</value>
-  </data>
-  <data name="UPDATEReopenIsRequired" xml:space="preserve">
-    <value>FORCE UPDATE (Reboot is required)</value>
-  </data>
   <data name="BRChanger" xml:space="preserve">
     <value>BR Changer</value>
   </data>
@@ -457,9 +442,6 @@
   <data name="ShareWithFriends" xml:space="preserve">
     <value>Share with friends</value>
   </data>
-  <data name="PrivacyPolicy" xml:space="preserve">
-    <value>Privacy policy</value>
-  </data>
   <data name="RateTheApp" xml:space="preserve">
     <value>Rate the app</value>
   </data>
@@ -468,9 +450,6 @@
   </data>
   <data name="ForceDBUpdate" xml:space="preserve">
     <value>Force DB Update</value>
-  </data>
-  <data name="FollowTheNews" xml:space="preserve">
-    <value>Follow the news</value>
   </data>
   <data name="AppForVehiclesComparison" xml:space="preserve">
     <value>App for vehicles comparison</value>

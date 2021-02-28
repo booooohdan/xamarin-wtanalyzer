@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="WTAnalyzer.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -13,6 +15,14 @@
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="#f1f1f1"/>
                 <Setter Property="BarTextColor" Value="#2a2a2a"/>
+            </Style>
+
+            <Style TargetType="controls:MTAdView">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <x:OnIdiom Phone="50" Tablet="90"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <chart:ChartColorCollection x:Key="DoughnutColors">

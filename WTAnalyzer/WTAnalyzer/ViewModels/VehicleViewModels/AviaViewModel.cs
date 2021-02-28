@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MarcTron.Plugin;
+using Plugin.StoreReview;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Linq;
@@ -11,6 +13,7 @@ using WTAnalyzer.Resx;
 using WTAnalyzer.ViewModels.BaseViewModels;
 using WTAnalyzer.ViewModels.ServiceViewModels;
 using WTAnalyzer.Views.ServicePages;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace WTAnalyzer.ViewModels.VehicleViewModels
@@ -21,9 +24,11 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
         public INavigation Navigation { get; set; }
         public ICommand OpenFilterModalPageCommand { get; }
 
+        int adsCount = 0;
+
         #endregion
 
-        public AviaViewModel(INavigation navigation):base("Avia")
+        public AviaViewModel(INavigation navigation) : base("Avia")
         {
             Navigation = navigation;
             OpenFilterModalPageCommand = new Command(OpenFilterModalPageHandler);
@@ -41,13 +46,33 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
             if (Navigation.ModalStack.Count == 0)
             {
                 MessagingCenter.Subscribe<FilterViewModel, string>(this, "filterClose",
-                     async (sender, arg) => {
+                     async (sender, arg) =>
+                     {
                          await GetDataFromFilterPageAsync();
                          SetDataToChartsView();
                          SetDataToListView();
                      });
 
                 await Navigation.PushModalAsync(new FilterPage("Avia"));
+            }
+
+            ShowIntersitialAds();
+        }
+
+        private void ShowIntersitialAds()
+        {
+            adsCount++;
+            AdmobIntersitials.LoadIntersitialExplorer();
+
+            if (adsCount == 2 | adsCount == 5)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialExplorer();
+            }
+            if (adsCount > 7)
+            {
+                CrossMTAdmob.Current.ShowInterstitial();
+                AdmobIntersitials.LoadIntersitialExplorer();
             }
         }
 
@@ -97,7 +122,6 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
             LineFrance = !filterNations.Contains("France") ? null : GetFilteredDataForCharts("France", filterTask);
             LineChina = !filterNations.Contains("China") ? null : GetFilteredDataForCharts("China", filterTask);
             LineSweden = !filterNations.Contains("Sweden") ? null : GetFilteredDataForCharts("Sweden", filterTask);
-
         }
 
         public void SetDataToListView()
