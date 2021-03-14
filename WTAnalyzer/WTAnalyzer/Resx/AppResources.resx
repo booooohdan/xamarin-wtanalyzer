@@ -508,4 +508,28 @@
   <data name="TextPlaceholder1" xml:space="preserve">
     <value>Use the Search Bar on the top of this screen</value>
   </data>
+  <data name="ARebootIsRequired" xml:space="preserve">
+    <value>A reboot is required</value>
+  </data>
+  <data name="DBUpdate" xml:space="preserve">
+    <value>DB update: </value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version </value>
+  </data>
+  <data name="CurrentBR" xml:space="preserve">
+    <value>Current BR:</value>
+  </data>
+  <data name="NewBR" xml:space="preserve">
+    <value>New BR:</value>
+  </data>
+  <data name="SelectTask" xml:space="preserve">
+    <value>Select Task</value>
+  </data>
+  <data name="BR" xml:space="preserve">
+    <value>  BR</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search..</value>
+  </data>
 </root>

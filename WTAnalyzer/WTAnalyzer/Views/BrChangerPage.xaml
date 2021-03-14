@@ -16,7 +16,7 @@
     </ContentPage.Resources>
 
     <Shell.SearchHandler>
-        <local:VehiclesSearchHandler Placeholder="Search.."
+        <local:VehiclesSearchHandler Placeholder="{x:Static properties:AppResources.Search}"
                                       ShowsResults="true">
             <local:VehiclesSearchHandler.ItemTemplate>
                 <DataTemplate>
@@ -69,7 +69,6 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
@@ -91,7 +90,7 @@
                        HorizontalOptions="Start"
                        Style="{StaticResource LabelStyle}"/>
                         <Label Grid.Column="1"
-                       Text="Current BR:"
+                       Text="{x:Static properties:AppResources.CurrentBR}"
                        Padding="0"
                        FontAttributes="None"
                        Style="{StaticResource LabelStyle}"/>
@@ -101,14 +100,14 @@
                        HorizontalOptions="End"
                        Style="{StaticResource LabelStyle}"/>
                         <Label Grid.Column="1" Grid.Row="1"
-                       Text="New BR:"
+                       Text="{x:Static properties:AppResources.NewBR}"
                        Padding="0"
                        FontAttributes="None"
                        Style="{StaticResource LabelStyle}"/>
                         <Picker Grid.Column="1" Grid.Row="1"
                         TextColor="{StaticResource MyDarkest}"
                         Margin="0, -10, 10, 0"
-                        Title="  BR" 
+                        Title="{x:Static properties:AppResources.BR}" 
                         FontSize="16"
                         FontAttributes="Bold"
                         HorizontalOptions="End"
@@ -179,12 +178,14 @@
                                     <StackLayout Padding="10" Orientation="Horizontal">
                                         <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="NoWrap"
                                            VerticalOptions="Center"
                                            HorizontalOptions="Start"
                                            FontAttributes="None" 
                                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
                                         <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="MiddleTruncation"
                                            VerticalOptions="Center"
                                            HorizontalOptions="StartAndExpand"   
                                            FontFamily="SymbolFont"
@@ -197,10 +198,9 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <controls:MTAdView Grid.Row="3" Grid.ColumnSpan="2"
+            <controls:MTAdView 
                 PersonalizedAds="True" 
                 AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/8662275229', iOS='ca-app-pub-8211072909515345/6719278795'}"/>
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>

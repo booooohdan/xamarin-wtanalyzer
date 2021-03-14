@@ -38,8 +38,8 @@
                             <chart:DoughnutSeries  
                                 ItemsSource="{Binding DoughnutCountPerNationData}" 
                                 XBindingPath="XValue" 
-                                StartAngle="-90"
-                                EndAngle="270"
+                                StartAngle="0"
+                                EndAngle="360"
                                 YBindingPath="YValue" 
                                 LegendIcon="Circle" 
                                 CircularCoefficient="0.7"

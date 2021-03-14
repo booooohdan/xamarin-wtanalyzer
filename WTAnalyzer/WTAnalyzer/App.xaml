@@ -71,7 +71,7 @@
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="CornerRadius" Value="15" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="BackgroundColor"  Value="#f1f1f1"/>
+                <Setter Property="BackgroundColor"  Value="Transparent"/>
             </Style>
 
             <Style x:Key="LabelStyle" TargetType="Label">

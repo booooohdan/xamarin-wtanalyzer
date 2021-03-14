@@ -374,7 +374,7 @@
     <value>Кількість техніки за типом</value>
   </data>
   <data name="CountOfVehiclePerYear" xml:space="preserve">
-    <value>Кількість техніки за роком</value>
+    <value>Кількість техніки за роками</value>
   </data>
   <data name="Aviation" xml:space="preserve">
     <value>Авіація</value>
@@ -486,5 +486,29 @@
   </data>
   <data name="TextPlaceholder2" xml:space="preserve">
     <value>Або натисніть на будь яку техніку в меню "Дослідити"</value>
+  </data>
+  <data name="ARebootIsRequired" xml:space="preserve">
+    <value>Необхідне перезавантаження</value>
+  </data>
+  <data name="DBUpdate" xml:space="preserve">
+    <value>Оновлення БД: </value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версія </value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Пошук..</value>
+  </data>
+  <data name="SelectTask" xml:space="preserve">
+    <value>Виберіть параметр</value>
+  </data>
+  <data name="NewBR" xml:space="preserve">
+    <value>Новий БР:</value>
+  </data>
+  <data name="CurrentBR" xml:space="preserve">
+    <value>Поточний БР:</value>
+  </data>
+  <data name="BR" xml:space="preserve">
+    <value>  БР</value>
   </data>
 </root>

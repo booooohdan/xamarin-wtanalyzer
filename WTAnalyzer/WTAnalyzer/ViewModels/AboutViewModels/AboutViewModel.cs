@@ -18,7 +18,6 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
     public class AboutViewModel : BaseViewModel
     {
         public ICommand RateCommand { get; set; }
-        public ICommand PatreonCommand { get; set; }
         public ICommand ShareCommand { get; set; }
         public ICommand DBUpdateCommand { get; set; }
         public ICommand HintsCommand { get; set; }
@@ -47,15 +46,14 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
         public AboutViewModel()
         {
             RateCommand = new Command(RateHandler);
-            PatreonCommand = new Command(PatreonHandler);
             ShareCommand = new Command(ShareHandler);
             DBUpdateCommand = new Command(DBUpdateHandler);
             HintsCommand = new Command(HintsHandler);
 
-            CurrentAppVersion = "Version " + AppInfo.VersionString;
+            CurrentAppVersion = AppResources.Version + AppInfo.VersionString;
             var dbDate = BlobCache.UserAccount.GetCreatedAt("cachedArrayOfPlanes").Wait().ToString();
             dbDate = dbDate.Split()[0];
-            DbDateUpdate = "DB update: " + dbDate;
+            DbDateUpdate = AppResources.DBUpdate + dbDate;
         }
 
         private void RateHandler(object obj)
@@ -67,14 +65,9 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     break;
                 case Device.iOS:
                     CrossStoreReview.Current.OpenStoreReviewPage(""/*"1542964380"*/);
+                    //TODO: Add Appstore ID
                     break;
             }
-        }
-
-        private async void PatreonHandler(object obj)
-        {
-            var uri = "https://www.patreon.com/wave_app";
-            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         private async void ShareHandler(object obj)
@@ -87,7 +80,8 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     appLink = "https://play.google.com/store/apps/details?id=com.wtwave.wtinsider";
                         break;
                 case Device.iOS:
-                    appLink = "Thunder Analyzer";
+                    appLink = "";
+                    //TODO: Add link to appstore
                     break;
             }
 
@@ -111,7 +105,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
 
         private void HintsHandler(object obj)
         {
-            
+            //TODO: Implement hints logic
         }
     }
 }

@@ -62,6 +62,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     break;
                 case Device.iOS:
                     //Launcher.OpenAsync(new Uri("https://apps.apple.com/us/app/id1542964380"));
+                    //TODO: Replace on AppStore id
                     break;
             }
         }
@@ -88,6 +89,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     break;
                 case Device.iOS:
                     //Launcher.OpenAsync(new Uri("https://apps.apple.com/us/app/id1542964380"));
+                    //TODO: Replace on AppStore id
                     break;
             }
         }
@@ -101,6 +103,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     break;
                 case Device.iOS:
                     //Launcher.OpenAsync(new Uri("https://apps.apple.com/us/app/id1542964380"));
+                    //TODO: Replace on AppStore id
                     break;
             }
         }

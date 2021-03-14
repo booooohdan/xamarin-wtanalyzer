@@ -47,35 +47,18 @@
                                 Text="{x:Static properties:AppResources.RateTheApp}"
                                 Command="{Binding RateCommand}"/>
                             <ImageCell
-                                ImageSource="Patreon" 
-                                Text="{x:Static properties:AppResources.SupportUsOnPatreon}" TextColor="Red"
-                                Command="{Binding PatreonCommand}"/>
-                            <ImageCell
                                 ImageSource="Share" 
                                 Text="{x:Static properties:AppResources.ShareWithFriends}" 
                                 Command="{Binding ShareCommand}"/>
+                            <ImageCell
+                                ImageSource="DbUpdate" 
+                                Text="{x:Static properties:AppResources.ForceDBUpdate}"
+                                Detail="{x:Static properties:AppResources.ARebootIsRequired}"    
+                                Command="{Binding DBUpdateCommand}"/>
                         </TableSection>
                     </TableRoot>
                 </TableView.Root>
             </TableView>
-            <StackLayout 
-                Orientation="Horizontal" Padding="0,10,0,10"
-                HeightRequest="50">
-            <Button 
-                Margin="3"
-                WidthRequest="50"
-                Text="{x:Static properties:AppResources.ForceDBUpdate}" 
-                BorderColor="Red"
-                Command="{Binding DBUpdateCommand}"
-                Style="{StaticResource ButtonStyle}"/>
-            <Button 
-                Margin="3"
-                Text="{x:Static properties:AppResources.Hints}" 
-                WidthRequest="50"
-                BorderColor="Red"
-                Command="{Binding HintsCommand}"
-                Style="{StaticResource ButtonStyle}"/>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

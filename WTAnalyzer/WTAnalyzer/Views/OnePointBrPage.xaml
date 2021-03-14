@@ -16,7 +16,7 @@
     </ContentPage.Resources>
 
     <Shell.SearchHandler>
-        <local:VehiclesSearchHandler Placeholder="Search.."
+        <local:VehiclesSearchHandler Placeholder="{x:Static properties:AppResources.Search}"
                                       ShowsResults="true">
             <local:VehiclesSearchHandler.ItemTemplate>
                 <DataTemplate>
@@ -70,7 +70,6 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
@@ -107,7 +106,7 @@
                         <Picker Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
                         Margin="4,-10,4,0"
                         FontSize="16"
-                        Title="Select Task" 
+                        Title="{x:Static properties:AppResources.SelectTask}"
                         SelectedIndex="{Binding SelectedTask}"
                         ItemsSource="{Binding Tasks}">
                         </Picker>
@@ -194,12 +193,14 @@
                                         <StackLayout Orientation="Horizontal">
                                             <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="NoWrap"
                                            VerticalOptions="Center"
                                            HorizontalOptions="Start"
                                            FontAttributes="None" 
                                            Text="{Binding Br, StringFormat='[{0:0.0}]'}" />
                                             <Label
                                            Style="{StaticResource LabelListViewItemStyle}"
+                                           LineBreakMode="MiddleTruncation"
                                            VerticalOptions="Center"
                                            HorizontalOptions="StartAndExpand"   
                                            FontFamily="SymbolFont"
@@ -232,7 +233,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <controls:MTAdView Grid.Row="3" Grid.ColumnSpan="2"
+            <controls:MTAdView BackgroundColor="Red"
                 PersonalizedAds="True" 
                 AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/5162013910', iOS='ca-app-pub-8211072909515345/7340620549'}"/>
         </StackLayout>

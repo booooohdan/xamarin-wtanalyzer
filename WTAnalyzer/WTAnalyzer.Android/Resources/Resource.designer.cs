@@ -3494,7 +3494,6 @@ namespace WTAnalyzer.Droid
 			global::MarcTron.Plugin.Resource.Xml.standalone_badge_gravity_bottom_start = global::WTAnalyzer.Droid.Resource.Xml.standalone_badge_gravity_bottom_start;
 			global::MarcTron.Plugin.Resource.Xml.standalone_badge_gravity_top_start = global::WTAnalyzer.Droid.Resource.Xml.standalone_badge_gravity_top_start;
 			global::Plugin.StoreReview.Resource.Attribute.alpha = global::WTAnalyzer.Droid.Resource.Attribute.alpha;
-			global::Plugin.StoreReview.Resource.Attribute.coordinatorLayoutStyle = global::WTAnalyzer.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Plugin.StoreReview.Resource.Attribute.font = global::WTAnalyzer.Droid.Resource.Attribute.font;
 			global::Plugin.StoreReview.Resource.Attribute.fontProviderAuthority = global::WTAnalyzer.Droid.Resource.Attribute.fontProviderAuthority;
 			global::Plugin.StoreReview.Resource.Attribute.fontProviderCerts = global::WTAnalyzer.Droid.Resource.Attribute.fontProviderCerts;
@@ -3505,23 +3504,15 @@ namespace WTAnalyzer.Droid
 			global::Plugin.StoreReview.Resource.Attribute.fontStyle = global::WTAnalyzer.Droid.Resource.Attribute.fontStyle;
 			global::Plugin.StoreReview.Resource.Attribute.fontVariationSettings = global::WTAnalyzer.Droid.Resource.Attribute.fontVariationSettings;
 			global::Plugin.StoreReview.Resource.Attribute.fontWeight = global::WTAnalyzer.Droid.Resource.Attribute.fontWeight;
-			global::Plugin.StoreReview.Resource.Attribute.keylines = global::WTAnalyzer.Droid.Resource.Attribute.keylines;
-			global::Plugin.StoreReview.Resource.Attribute.layout_anchor = global::WTAnalyzer.Droid.Resource.Attribute.layout_anchor;
-			global::Plugin.StoreReview.Resource.Attribute.layout_anchorGravity = global::WTAnalyzer.Droid.Resource.Attribute.layout_anchorGravity;
-			global::Plugin.StoreReview.Resource.Attribute.layout_behavior = global::WTAnalyzer.Droid.Resource.Attribute.layout_behavior;
-			global::Plugin.StoreReview.Resource.Attribute.layout_dodgeInsetEdges = global::WTAnalyzer.Droid.Resource.Attribute.layout_dodgeInsetEdges;
-			global::Plugin.StoreReview.Resource.Attribute.layout_insetEdge = global::WTAnalyzer.Droid.Resource.Attribute.layout_insetEdge;
-			global::Plugin.StoreReview.Resource.Attribute.layout_keyline = global::WTAnalyzer.Droid.Resource.Attribute.layout_keyline;
-			global::Plugin.StoreReview.Resource.Attribute.statusBarBackground = global::WTAnalyzer.Droid.Resource.Attribute.statusBarBackground;
 			global::Plugin.StoreReview.Resource.Attribute.ttcIndex = global::WTAnalyzer.Droid.Resource.Attribute.ttcIndex;
+			global::Plugin.StoreReview.Resource.Color.androidx_core_ripple_material_light = global::WTAnalyzer.Droid.Resource.Color.androidx_core_ripple_material_light;
+			global::Plugin.StoreReview.Resource.Color.androidx_core_secondary_text_default_material_light = global::WTAnalyzer.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Plugin.StoreReview.Resource.Color.browser_actions_bg_grey = global::WTAnalyzer.Droid.Resource.Color.browser_actions_bg_grey;
 			global::Plugin.StoreReview.Resource.Color.browser_actions_divider_color = global::WTAnalyzer.Droid.Resource.Color.browser_actions_divider_color;
 			global::Plugin.StoreReview.Resource.Color.browser_actions_text_color = global::WTAnalyzer.Droid.Resource.Color.browser_actions_text_color;
 			global::Plugin.StoreReview.Resource.Color.browser_actions_title_color = global::WTAnalyzer.Droid.Resource.Color.browser_actions_title_color;
 			global::Plugin.StoreReview.Resource.Color.notification_action_color_filter = global::WTAnalyzer.Droid.Resource.Color.notification_action_color_filter;
 			global::Plugin.StoreReview.Resource.Color.notification_icon_bg_color = global::WTAnalyzer.Droid.Resource.Color.notification_icon_bg_color;
-			global::Plugin.StoreReview.Resource.Color.ripple_material_light = global::WTAnalyzer.Droid.Resource.Color.ripple_material_light;
-			global::Plugin.StoreReview.Resource.Color.secondary_text_default_material_light = global::WTAnalyzer.Droid.Resource.Color.secondary_text_default_material_light;
 			global::Plugin.StoreReview.Resource.Dimension.browser_actions_context_menu_max_width = global::WTAnalyzer.Droid.Resource.Dimension.browser_actions_context_menu_max_width;
 			global::Plugin.StoreReview.Resource.Dimension.browser_actions_context_menu_min_padding = global::WTAnalyzer.Droid.Resource.Dimension.browser_actions_context_menu_min_padding;
 			global::Plugin.StoreReview.Resource.Dimension.compat_button_inset_horizontal_material = global::WTAnalyzer.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
@@ -3558,47 +3549,71 @@ namespace WTAnalyzer.Droid
 			global::Plugin.StoreReview.Resource.Drawable.notification_template_icon_low_bg = global::WTAnalyzer.Droid.Resource.Drawable.notification_template_icon_low_bg;
 			global::Plugin.StoreReview.Resource.Drawable.notification_tile_bg = global::WTAnalyzer.Droid.Resource.Drawable.notification_tile_bg;
 			global::Plugin.StoreReview.Resource.Drawable.notify_panel_notification_icon_bg = global::WTAnalyzer.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Plugin.StoreReview.Resource.Id.accessibility_action_clickable_span = global::WTAnalyzer.Droid.Resource.Id.accessibility_action_clickable_span;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_0 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_0;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_1 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_1;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_10 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_10;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_11 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_11;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_12 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_12;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_13 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_13;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_14 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_14;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_15 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_15;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_16 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_16;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_17 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_17;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_18 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_18;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_19 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_19;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_2 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_2;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_20 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_20;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_21 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_21;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_22 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_22;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_23 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_23;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_24 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_24;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_25 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_25;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_26 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_26;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_27 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_27;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_28 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_28;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_29 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_29;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_3 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_3;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_30 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_30;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_31 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_31;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_4 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_4;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_5 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_5;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_6 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_6;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_7 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_7;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_8 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_8;
+			global::Plugin.StoreReview.Resource.Id.accessibility_custom_action_9 = global::WTAnalyzer.Droid.Resource.Id.accessibility_custom_action_9;
 			global::Plugin.StoreReview.Resource.Id.actions = global::WTAnalyzer.Droid.Resource.Id.actions;
 			global::Plugin.StoreReview.Resource.Id.action_container = global::WTAnalyzer.Droid.Resource.Id.action_container;
 			global::Plugin.StoreReview.Resource.Id.action_divider = global::WTAnalyzer.Droid.Resource.Id.action_divider;
 			global::Plugin.StoreReview.Resource.Id.action_image = global::WTAnalyzer.Droid.Resource.Id.action_image;
 			global::Plugin.StoreReview.Resource.Id.action_text = global::WTAnalyzer.Droid.Resource.Id.action_text;
-			global::Plugin.StoreReview.Resource.Id.all = global::WTAnalyzer.Droid.Resource.Id.all;
 			global::Plugin.StoreReview.Resource.Id.async = global::WTAnalyzer.Droid.Resource.Id.async;
 			global::Plugin.StoreReview.Resource.Id.blocking = global::WTAnalyzer.Droid.Resource.Id.blocking;
-			global::Plugin.StoreReview.Resource.Id.bottom = global::WTAnalyzer.Droid.Resource.Id.bottom;
 			global::Plugin.StoreReview.Resource.Id.browser_actions_header_text = global::WTAnalyzer.Droid.Resource.Id.browser_actions_header_text;
 			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_items = global::WTAnalyzer.Droid.Resource.Id.browser_actions_menu_items;
 			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_item_icon = global::WTAnalyzer.Droid.Resource.Id.browser_actions_menu_item_icon;
 			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_item_text = global::WTAnalyzer.Droid.Resource.Id.browser_actions_menu_item_text;
 			global::Plugin.StoreReview.Resource.Id.browser_actions_menu_view = global::WTAnalyzer.Droid.Resource.Id.browser_actions_menu_view;
-			global::Plugin.StoreReview.Resource.Id.center = global::WTAnalyzer.Droid.Resource.Id.center;
-			global::Plugin.StoreReview.Resource.Id.center_horizontal = global::WTAnalyzer.Droid.Resource.Id.center_horizontal;
-			global::Plugin.StoreReview.Resource.Id.center_vertical = global::WTAnalyzer.Droid.Resource.Id.center_vertical;
 			global::Plugin.StoreReview.Resource.Id.chronometer = global::WTAnalyzer.Droid.Resource.Id.chronometer;
-			global::Plugin.StoreReview.Resource.Id.clip_horizontal = global::WTAnalyzer.Droid.Resource.Id.clip_horizontal;
-			global::Plugin.StoreReview.Resource.Id.clip_vertical = global::WTAnalyzer.Droid.Resource.Id.clip_vertical;
-			global::Plugin.StoreReview.Resource.Id.end = global::WTAnalyzer.Droid.Resource.Id.end;
-			global::Plugin.StoreReview.Resource.Id.fill = global::WTAnalyzer.Droid.Resource.Id.fill;
-			global::Plugin.StoreReview.Resource.Id.fill_horizontal = global::WTAnalyzer.Droid.Resource.Id.fill_horizontal;
-			global::Plugin.StoreReview.Resource.Id.fill_vertical = global::WTAnalyzer.Droid.Resource.Id.fill_vertical;
+			global::Plugin.StoreReview.Resource.Id.dialog_button = global::WTAnalyzer.Droid.Resource.Id.dialog_button;
 			global::Plugin.StoreReview.Resource.Id.forever = global::WTAnalyzer.Droid.Resource.Id.forever;
 			global::Plugin.StoreReview.Resource.Id.icon = global::WTAnalyzer.Droid.Resource.Id.icon;
 			global::Plugin.StoreReview.Resource.Id.icon_group = global::WTAnalyzer.Droid.Resource.Id.icon_group;
 			global::Plugin.StoreReview.Resource.Id.info = global::WTAnalyzer.Droid.Resource.Id.info;
 			global::Plugin.StoreReview.Resource.Id.italic = global::WTAnalyzer.Droid.Resource.Id.italic;
-			global::Plugin.StoreReview.Resource.Id.left = global::WTAnalyzer.Droid.Resource.Id.left;
 			global::Plugin.StoreReview.Resource.Id.line1 = global::WTAnalyzer.Droid.Resource.Id.line1;
 			global::Plugin.StoreReview.Resource.Id.line3 = global::WTAnalyzer.Droid.Resource.Id.line3;
-			global::Plugin.StoreReview.Resource.Id.none = global::WTAnalyzer.Droid.Resource.Id.none;
 			global::Plugin.StoreReview.Resource.Id.normal = global::WTAnalyzer.Droid.Resource.Id.normal;
 			global::Plugin.StoreReview.Resource.Id.notification_background = global::WTAnalyzer.Droid.Resource.Id.notification_background;
 			global::Plugin.StoreReview.Resource.Id.notification_main_column = global::WTAnalyzer.Droid.Resource.Id.notification_main_column;
 			global::Plugin.StoreReview.Resource.Id.notification_main_column_container = global::WTAnalyzer.Droid.Resource.Id.notification_main_column_container;
-			global::Plugin.StoreReview.Resource.Id.right = global::WTAnalyzer.Droid.Resource.Id.right;
 			global::Plugin.StoreReview.Resource.Id.right_icon = global::WTAnalyzer.Droid.Resource.Id.right_icon;
 			global::Plugin.StoreReview.Resource.Id.right_side = global::WTAnalyzer.Droid.Resource.Id.right_side;
-			global::Plugin.StoreReview.Resource.Id.start = global::WTAnalyzer.Droid.Resource.Id.start;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_actions = global::WTAnalyzer.Droid.Resource.Id.tag_accessibility_actions;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_clickable_spans = global::WTAnalyzer.Droid.Resource.Id.tag_accessibility_clickable_spans;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_heading = global::WTAnalyzer.Droid.Resource.Id.tag_accessibility_heading;
+			global::Plugin.StoreReview.Resource.Id.tag_accessibility_pane_title = global::WTAnalyzer.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Plugin.StoreReview.Resource.Id.tag_screen_reader_focusable = global::WTAnalyzer.Droid.Resource.Id.tag_screen_reader_focusable;
 			global::Plugin.StoreReview.Resource.Id.tag_transition_group = global::WTAnalyzer.Droid.Resource.Id.tag_transition_group;
 			global::Plugin.StoreReview.Resource.Id.tag_unhandled_key_event_manager = global::WTAnalyzer.Droid.Resource.Id.tag_unhandled_key_event_manager;
 			global::Plugin.StoreReview.Resource.Id.tag_unhandled_key_listeners = global::WTAnalyzer.Droid.Resource.Id.tag_unhandled_key_listeners;
@@ -3606,16 +3621,20 @@ namespace WTAnalyzer.Droid
 			global::Plugin.StoreReview.Resource.Id.text2 = global::WTAnalyzer.Droid.Resource.Id.text2;
 			global::Plugin.StoreReview.Resource.Id.time = global::WTAnalyzer.Droid.Resource.Id.time;
 			global::Plugin.StoreReview.Resource.Id.title = global::WTAnalyzer.Droid.Resource.Id.title;
-			global::Plugin.StoreReview.Resource.Id.top = global::WTAnalyzer.Droid.Resource.Id.top;
 			global::Plugin.StoreReview.Resource.Integer.status_bar_notification_info_maxnum = global::WTAnalyzer.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Plugin.StoreReview.Resource.Layout.browser_actions_context_menu_page = global::WTAnalyzer.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Plugin.StoreReview.Resource.Layout.browser_actions_context_menu_row = global::WTAnalyzer.Droid.Resource.Layout.browser_actions_context_menu_row;
+			global::Plugin.StoreReview.Resource.Layout.custom_dialog = global::WTAnalyzer.Droid.Resource.Layout.custom_dialog;
 			global::Plugin.StoreReview.Resource.Layout.notification_action = global::WTAnalyzer.Droid.Resource.Layout.notification_action;
 			global::Plugin.StoreReview.Resource.Layout.notification_action_tombstone = global::WTAnalyzer.Droid.Resource.Layout.notification_action_tombstone;
 			global::Plugin.StoreReview.Resource.Layout.notification_template_custom_big = global::WTAnalyzer.Droid.Resource.Layout.notification_template_custom_big;
 			global::Plugin.StoreReview.Resource.Layout.notification_template_icon_group = global::WTAnalyzer.Droid.Resource.Layout.notification_template_icon_group;
 			global::Plugin.StoreReview.Resource.Layout.notification_template_part_chronometer = global::WTAnalyzer.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Plugin.StoreReview.Resource.Layout.notification_template_part_time = global::WTAnalyzer.Droid.Resource.Layout.notification_template_part_time;
+			global::Plugin.StoreReview.Resource.String.copy_toast_msg = global::WTAnalyzer.Droid.Resource.String.copy_toast_msg;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_copy_link = global::WTAnalyzer.Droid.Resource.String.fallback_menu_item_copy_link;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_open_in_browser = global::WTAnalyzer.Droid.Resource.String.fallback_menu_item_open_in_browser;
+			global::Plugin.StoreReview.Resource.String.fallback_menu_item_share_link = global::WTAnalyzer.Droid.Resource.String.fallback_menu_item_share_link;
 			global::Plugin.StoreReview.Resource.String.status_bar_notification_info_overflow = global::WTAnalyzer.Droid.Resource.String.status_bar_notification_info_overflow;
 			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification = global::WTAnalyzer.Droid.Resource.Style.TextAppearance_Compat_Notification;
 			global::Plugin.StoreReview.Resource.Style.TextAppearance_Compat_Notification_Info = global::WTAnalyzer.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
@@ -3625,22 +3644,10 @@ namespace WTAnalyzer.Droid
 			global::Plugin.StoreReview.Resource.Style.Theme_PlayCore_Transparent = global::WTAnalyzer.Droid.Resource.Style.Theme_PlayCore_Transparent;
 			global::Plugin.StoreReview.Resource.Style.Widget_Compat_NotificationActionContainer = global::WTAnalyzer.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Plugin.StoreReview.Resource.Style.Widget_Compat_NotificationActionText = global::WTAnalyzer.Droid.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Plugin.StoreReview.Resource.Style.Widget_Support_CoordinatorLayout = global::WTAnalyzer.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem = global::WTAnalyzer.Droid.Resource.Styleable.ColorStateListItem;
 			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_alpha = global::WTAnalyzer.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_android_alpha = global::WTAnalyzer.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
 			global::Plugin.StoreReview.Resource.Styleable.ColorStateListItem_android_color = global::WTAnalyzer.Droid.Resource.Styleable.ColorStateListItem_android_color;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_keylines = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
-			global::Plugin.StoreReview.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::WTAnalyzer.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Plugin.StoreReview.Resource.Styleable.FontFamily = global::WTAnalyzer.Droid.Resource.Styleable.FontFamily;
 			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont = global::WTAnalyzer.Droid.Resource.Styleable.FontFamilyFont;
 			global::Plugin.StoreReview.Resource.Styleable.FontFamilyFont_android_font = global::WTAnalyzer.Droid.Resource.Styleable.FontFamilyFont_android_font;
@@ -3675,6 +3682,7 @@ namespace WTAnalyzer.Droid
 			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_startY = global::WTAnalyzer.Droid.Resource.Styleable.GradientColor_android_startY;
 			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_tileMode = global::WTAnalyzer.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Plugin.StoreReview.Resource.Styleable.GradientColor_android_type = global::WTAnalyzer.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Plugin.StoreReview.Resource.Xml.image_share_filepaths = global::WTAnalyzer.Droid.Resource.Xml.image_share_filepaths;
 			global::Plugin.StoreReview.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::WTAnalyzer.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Syncfusion.Buttons.XForms.Android.Resource.Animation.btn_checkbox_indeterminate_to_checked_box_inner_merged_animation = global::WTAnalyzer.Droid.Resource.Animation.btn_checkbox_indeterminate_to_checked_box_inner_merged_animation;
 			global::Syncfusion.Buttons.XForms.Android.Resource.Animation.btn_checkbox_indeterminate_to_checked_icon_null_animation = global::WTAnalyzer.Droid.Resource.Animation.btn_checkbox_indeterminate_to_checked_icon_null_animation;
@@ -15722,280 +15730,256 @@ namespace WTAnalyzer.Droid
 			public const int clear_button_icon = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int design_bottom_navigation_item_background = 2131165335;
+			public const int DbUpdate = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int design_fab_background = 2131165336;
+			public const int design_bottom_navigation_item_background = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int design_ic_visibility = 2131165337;
+			public const int design_fab_background = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int design_ic_visibility_off = 2131165338;
+			public const int design_ic_visibility = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int design_password_eye = 2131165339;
+			public const int design_ic_visibility_off = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int design_snackbar_background = 2131165340;
+			public const int design_password_eye = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int DestroyerTank = 2131165341;
+			public const int design_snackbar_background = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int Fighter = 2131165342;
+			public const int DestroyerTank = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int filter = 2131165343;
+			public const int Fighter = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int France = 2131165344;
+			public const int filter = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int Germany = 2131165345;
+			public const int France = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int Gmail = 2131165346;
-			
-			// aapt resource value: 0x7F0700A7
-			public const int icon = 2131165351;
-			
-			// aapt resource value: 0x7F0700AA
-			public const int iconTransparent = 2131165354;
-			
-			// aapt resource value: 0x7F0700A8
-			public const int icon_about = 2131165352;
-			
-			// aapt resource value: 0x7F0700A9
-			public const int icon_feed = 2131165353;
+			public const int Germany = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int ic_mtrl_checked_circle = 2131165347;
+			public const int Gmail = 2131165347;
+			
+			// aapt resource value: 0x7F0700A8
+			public const int icon = 2131165352;
+			
+			// aapt resource value: 0x7F0700A9
+			public const int iconTransparent = 2131165353;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int ic_mtrl_chip_checked_black = 2131165348;
+			public const int ic_mtrl_checked_circle = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int ic_mtrl_chip_checked_circle = 2131165349;
+			public const int ic_mtrl_chip_checked_black = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
-			public const int ic_mtrl_chip_close_circle = 2131165350;
+			public const int ic_mtrl_chip_checked_circle = 2131165350;
 			
-			// aapt resource value: 0x7F0700AC
-			public const int inputlayout_togglecollapseicon = 2131165356;
-			
-			// aapt resource value: 0x7F0700AD
-			public const int inputlayout_togglevisibleicon = 2131165357;
+			// aapt resource value: 0x7F0700A7
+			public const int ic_mtrl_chip_close_circle = 2131165351;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int input_layout_drop_down_icon = 2131165355;
+			public const int inputlayout_togglecollapseicon = 2131165355;
+			
+			// aapt resource value: 0x7F0700AC
+			public const int inputlayout_togglevisibleicon = 2131165356;
+			
+			// aapt resource value: 0x7F0700AA
+			public const int input_layout_drop_down_icon = 2131165354;
+			
+			// aapt resource value: 0x7F0700AD
+			public const int Italy = 2131165357;
 			
 			// aapt resource value: 0x7F0700AE
-			public const int Italy = 2131165358;
+			public const int Japan = 2131165358;
 			
 			// aapt resource value: 0x7F0700AF
-			public const int Japan = 2131165359;
+			public const int LightTank = 2131165359;
 			
 			// aapt resource value: 0x7F0700B0
-			public const int LightTank = 2131165360;
+			public const int material_ic_calendar_black_24dp = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int MapGuide = 2131165361;
+			public const int material_ic_clear_black_24dp = 2131165361;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int material_ic_calendar_black_24dp = 2131165362;
+			public const int material_ic_edit_black_24dp = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int material_ic_clear_black_24dp = 2131165363;
+			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int material_ic_edit_black_24dp = 2131165364;
+			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165364;
 			
 			// aapt resource value: 0x7F0700B5
-			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165365;
+			public const int material_ic_menu_arrow_down_black_24dp = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165366;
+			public const int material_ic_menu_arrow_up_black_24dp = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int material_ic_menu_arrow_down_black_24dp = 2131165367;
+			public const int MediumTank = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int material_ic_menu_arrow_up_black_24dp = 2131165368;
+			public const int menu_about = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int MediumTank = 2131165369;
+			public const int menu_brchanger = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int menu_about = 2131165370;
+			public const int menu_explorer = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int menu_avia = 2131165371;
+			public const int menu_onepointbr = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int menu_brchanger = 2131165372;
+			public const int mtrl_dialog_background = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int menu_explorer = 2131165373;
+			public const int mtrl_dropdown_arrow = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int menu_heli = 2131165374;
+			public const int mtrl_ic_arrow_drop_down = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int menu_onepointbr = 2131165375;
+			public const int mtrl_ic_arrow_drop_up = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int menu_overall = 2131165376;
+			public const int mtrl_ic_cancel = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int menu_ship = 2131165377;
+			public const int mtrl_ic_error = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int menu_tank = 2131165378;
+			public const int mtrl_popupmenu_background = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int mtrl_dialog_background = 2131165379;
+			public const int mtrl_popupmenu_background_dark = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int mtrl_dropdown_arrow = 2131165380;
+			public const int mtrl_tabs_default_indicator = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int mtrl_ic_arrow_drop_down = 2131165381;
+			public const int navigation_empty_icon = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int mtrl_ic_arrow_drop_up = 2131165382;
+			public const int notification_action_background = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int mtrl_ic_cancel = 2131165383;
+			public const int notification_bg = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int mtrl_ic_error = 2131165384;
+			public const int notification_bg_low = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int mtrl_popupmenu_background = 2131165385;
+			public const int notification_bg_low_normal = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int mtrl_popupmenu_background_dark = 2131165386;
+			public const int notification_bg_low_pressed = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int mtrl_tabs_default_indicator = 2131165387;
+			public const int notification_bg_normal = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int navigation_empty_icon = 2131165388;
+			public const int notification_bg_normal_pressed = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int notification_action_background = 2131165389;
+			public const int notification_icon_background = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int notification_bg = 2131165390;
+			public const int notification_template_icon_bg = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int notification_bg_low = 2131165391;
+			public const int notification_template_icon_low_bg = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int notification_bg_low_normal = 2131165392;
+			public const int notification_tile_bg = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int notification_bg_low_pressed = 2131165393;
+			public const int notify_panel_notification_icon_bg = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int notification_bg_normal = 2131165394;
+			public const int Patreon = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int notification_bg_normal_pressed = 2131165395;
+			public const int Privacy = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int notification_icon_background = 2131165396;
+			public const int Rate = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int notification_template_icon_bg = 2131165397;
+			public const int Reddit = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int notification_template_icon_low_bg = 2131165398;
+			public const int Share = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int notification_tile_bg = 2131165399;
+			public const int ShipBarge = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int notify_panel_notification_icon_bg = 2131165400;
+			public const int ShipBoat = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int Patreon = 2131165401;
+			public const int ShipCruiser = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int Privacy = 2131165402;
+			public const int ShipDestroyer = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int Rate = 2131165403;
+			public const int ShipSubChaser = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int Reddit = 2131165404;
+			public const int SkillMeter = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int Share = 2131165405;
+			public const int SplashScreen = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int ShipBarge = 2131165406;
+			public const int Sweden = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int ShipBoat = 2131165407;
+			public const int TankHeavy = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int ShipCruiser = 2131165408;
+			public const int TankSPAA = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int ShipDestroyer = 2131165409;
+			public const int test_custom_background = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int ShipSubChaser = 2131165410;
+			public const int tooltip_frame_dark = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int SkillMeter = 2131165411;
+			public const int tooltip_frame_light = 2131165411;
 			
 			// aapt resource value: 0x7F0700E4
-			public const int SplashScreen = 2131165412;
+			public const int USA = 2131165412;
 			
 			// aapt resource value: 0x7F0700E5
-			public const int Sweden = 2131165413;
+			public const int USSR = 2131165413;
 			
 			// aapt resource value: 0x7F0700E6
-			public const int TankHeavy = 2131165414;
+			public const int UtilityHelicopter = 2131165414;
 			
 			// aapt resource value: 0x7F0700E7
-			public const int TankSPAA = 2131165415;
+			public const int Versus = 2131165415;
 			
 			// aapt resource value: 0x7F0700E8
-			public const int test_custom_background = 2131165416;
+			public const int Vk = 2131165416;
 			
 			// aapt resource value: 0x7F0700E9
-			public const int tooltip_frame_dark = 2131165417;
+			public const int WoTQuiz = 2131165417;
 			
 			// aapt resource value: 0x7F0700EA
-			public const int tooltip_frame_light = 2131165418;
-			
-			// aapt resource value: 0x7F0700EB
-			public const int USA = 2131165419;
-			
-			// aapt resource value: 0x7F0700EC
-			public const int USSR = 2131165420;
-			
-			// aapt resource value: 0x7F0700ED
-			public const int UtilityHelicopter = 2131165421;
-			
-			// aapt resource value: 0x7F0700EE
-			public const int Versus = 2131165422;
-			
-			// aapt resource value: 0x7F0700EF
-			public const int Vk = 2131165423;
-			
-			// aapt resource value: 0x7F0700F0
-			public const int WoTQuiz = 2131165424;
-			
-			// aapt resource value: 0x7F0700F1
-			public const int WTQuiz = 2131165425;
-			
-			// aapt resource value: 0x7F0700F2
-			public const int xamarin_logo = 2131165426;
+			public const int WTQuiz = 2131165418;
 			
 			static Drawable()
 			{

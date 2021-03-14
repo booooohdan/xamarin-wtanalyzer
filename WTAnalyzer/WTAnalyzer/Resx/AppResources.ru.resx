@@ -194,7 +194,7 @@
     <value>Премиум</value>
   </data>
   <data name="Promotional" xml:space="preserve">
-    <value>Акционное</value>
+    <value>Акционная</value>
   </data>
   <data name="RepairCost" xml:space="preserve">
     <value>Стоимость ремонта</value>
@@ -374,7 +374,7 @@
     <value>Количество техники по типу</value>
   </data>
   <data name="CountOfVehiclePerYear" xml:space="preserve">
-    <value>Количество техники за годом</value>
+    <value>Количество техники по годам</value>
   </data>
   <data name="Aviation" xml:space="preserve">
     <value>Авиация</value>
@@ -434,7 +434,7 @@
     <value>Викторина с техникой игры World of Tanks</value>
   </data>
   <data name="WTAnalyzerAboutText" xml:space="preserve">
-    <value>WT Analyzer это неофициальное, must-have приложение для игроков War Thunder. Приложение использует собственную БД, данные для которой собраны с игрового клиенту и wiki.warthunder.com</value>
+    <value>WT Analyzer это неофициальное, must-have приложение для игроков War Thunder. Приложение использует собственную БД, данные для которой собраны с игрового клиента и wiki.warthunder.com</value>
   </data>
   <data name="AppForCheckoutOfPlayerStatistics" xml:space="preserve">
     <value>Приложение для проверки статистики игрока</value>
@@ -486,5 +486,29 @@
   </data>
   <data name="TextPlaceholder2" xml:space="preserve">
     <value>Или нажмите на любую технику в меню "Исследовать"</value>
+  </data>
+  <data name="ARebootIsRequired" xml:space="preserve">
+    <value>Требуется перезагрузка</value>
+  </data>
+  <data name="DBUpdate" xml:space="preserve">
+    <value>Обновление БД: </value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия </value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск..</value>
+  </data>
+  <data name="SelectTask" xml:space="preserve">
+    <value>Выберите параметр</value>
+  </data>
+  <data name="NewBR" xml:space="preserve">
+    <value>Новый БР:</value>
+  </data>
+  <data name="CurrentBR" xml:space="preserve">
+    <value>Текущий БР:</value>
+  </data>
+  <data name="BR" xml:space="preserve">
+    <value>  БР</value>
   </data>
 </root>
