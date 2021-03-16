@@ -38,7 +38,7 @@
                 HorizontalTextAlignment="Center"
                 TextColor="Gray"
                 HorizontalOptions="CenterAndExpand" />
-            <TableView Intent="Data" HasUnevenRows="True">
+            <TableView Intent="Menu" HasUnevenRows="True">
                 <TableView.Root>
                     <TableRoot>
                         <TableSection>

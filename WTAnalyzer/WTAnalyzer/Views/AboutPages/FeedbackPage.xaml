@@ -10,7 +10,7 @@
             Padding="20"
             Style="{StaticResource MainBackground}">
         <!--Android table-->
-            <TableView Intent="Data">
+            <TableView Intent="Menu">
                 <TableView.Root>
                     <TableRoot>
                         <TableSection Title="{x:Static properties:AppResources.ReportABug}">
@@ -68,7 +68,7 @@
             </TableView>
 
             <!--iOS table-->
-            <TableView Intent="Data">
+            <TableView Intent="Menu">
                 <TableView.Root>
                     <TableRoot>
                         <TableSection Title="{x:Static properties:AppResources.ReportABug}">
