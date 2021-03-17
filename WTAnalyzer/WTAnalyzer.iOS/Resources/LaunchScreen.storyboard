@@ -17,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.133658163128598" green="0.128480981974818" blue="0.162888600804645" alpha="1"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="963" translatesAutoresizingMaskIntoConstraints="NO" image="SplashScreen.png">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="963" translatesAutoresizingMaskIntoConstraints="NO" image="iconTransparent.png">
                                 <rect key="frame" x="104.5" y="306.5" width="166" height="99"/>
                                 <constraints>
-                                    <constraint id="1127" firstAttribute="width" constant="166"/>
-                                    <constraint id="1128" firstAttribute="height" constant="99"/>
+                                    <constraint id="1127" firstAttribute="width" constant="250"/>
+                                    <constraint id="1128" firstAttribute="height" constant="250"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SKILL METER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="964" translatesAutoresizingMaskIntoConstraints="NO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="251" text="THUNDER ANALYZER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="964" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="104.5" y="448.5" width="166" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <constraints>
                                     <constraint id="1149" firstAttribute="height" constant="52"/>
-                                    <constraint id="1150" firstAttribute="width" constant="166"/>
+                                    <constraint id="1150" firstAttribute="width" constant="250"/>
                                 </constraints>
                             </label>
                         </subviews>

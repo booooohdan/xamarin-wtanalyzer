@@ -19,6 +19,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
     {
         public ICommand RateCommand { get; set; }
         public ICommand ShareCommand { get; set; }
+        public ICommand PrivacyCommand { get; set; }
         public ICommand DBUpdateCommand { get; set; }
         public ICommand HintsCommand { get; set; }
         private string currentAppVersion;
@@ -47,6 +48,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
         {
             RateCommand = new Command(RateHandler);
             ShareCommand = new Command(ShareHandler);
+            PrivacyCommand = new Command(PrivacyHandler);
             DBUpdateCommand = new Command(DBUpdateHandler);
             HintsCommand = new Command(HintsHandler);
 
@@ -103,6 +105,19 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
             Process.GetCurrentProcess().Kill();
         }
 
+        private void PrivacyHandler(object obj)
+        {
+            switch (Device.RuntimePlatform)
+            {
+                case Device.Android:
+                    Launcher.OpenAsync(new Uri(""));
+                    break;
+                case Device.iOS:
+                    Launcher.OpenAsync(new Uri(""));
+                    break;
+            }
+        }
+        
         private void HintsHandler(object obj)
         {
             //TODO: Implement hints logic

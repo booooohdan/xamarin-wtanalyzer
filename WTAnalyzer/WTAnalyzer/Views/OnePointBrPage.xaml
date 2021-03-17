@@ -50,9 +50,10 @@
     </Shell.SearchHandler>
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Style="{StaticResource MainBackground}">
             <StackLayout
                 IsVisible="{Binding IsPlaceHolderVisible}"
+                Padding="40"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand">
                 <Label Text="{x:Static properties:AppResources.TextPlaceholder1}"
@@ -61,7 +62,6 @@
                        HorizontalTextAlignment="Center" />
             </StackLayout>
             <Grid Padding="8, 8, 8, 0"
-                  Style="{StaticResource MainBackground}"
                   IsVisible="{Binding IsMainVisible}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -91,7 +91,7 @@
                             FontSize="20"
                             HorizontalOptions="Start"
                             Style="{StaticResource LabelStyle}" />
-                        <StackLayout Grid.ColumnSpan="2"
+                        <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0"
                                      Padding="0,4,8,0"
                                      Orientation="Horizontal"
                                      HorizontalOptions="End">
@@ -105,30 +105,45 @@
                         </StackLayout>
 
                         <Picker Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
-                                Margin="4,-10,4,0"
+                                
                                 FontSize="16"
                                 Title="{x:Static properties:AppResources.SelectTask}"
                                 SelectedIndex="{Binding SelectedTask}"
-                                ItemsSource="{Binding Tasks}" />
+                                ItemsSource="{Binding Tasks}">
+                            <Picker.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <OnPlatform.iOS>0,0,0, 0</OnPlatform.iOS>
+                                    <OnPlatform.Android>4,-10,4,0</OnPlatform.Android>
+                                </OnPlatform>
+                            </Picker.Margin>
+                        </Picker>
                     </Grid>
                 </Frame>
-                <Label Grid.Column="0" Grid.Row="1"
+            </Grid>
+            <StackLayout 
+                Orientation="Horizontal" 
+                IsVisible="{Binding IsMainVisible}">
+                <Label HorizontalTextAlignment="Center"
                        Text="{x:Static properties:AppResources.BetterThanYou}"
+                       HorizontalOptions="FillAndExpand"
                        FontAttributes="None"
                        FontSize="14"
                        Style="{StaticResource LabelStyle}" />
-                <Label Grid.Column="1" Grid.Row="1"
+                <Label HorizontalTextAlignment="Center"
                        Text="{x:Static properties:AppResources.WorseOrEqual}"
+                       HorizontalOptions="FillAndExpand"
                        FontAttributes="None"
                        FontSize="14"
                        Style="{StaticResource LabelStyle}" />
-
-                <ListView Grid.Column="0" Grid.Row="2"
-                          CachingStrategy="RecycleElementAndDataTemplate"
-                          SeparatorVisibility="None"
-                          HasUnevenRows="True"
-                          ItemsSource="{Binding LeftListView}"
-                          BackgroundColor="Transparent">
+            </StackLayout>
+            <StackLayout 
+                Orientation="Horizontal" >
+                <ListView
+                    CachingStrategy="RecycleElementAndDataTemplate"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding LeftListView}"
+                    BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -178,12 +193,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <ListView Grid.Column="1" Grid.Row="2"
-                          CachingStrategy="RecycleElementAndDataTemplate"
-                          SeparatorVisibility="None"
-                          HasUnevenRows="True"
-                          ItemsSource="{Binding RightListView}"
-                          BackgroundColor="Transparent">
+                <ListView
+                    CachingStrategy="RecycleElementAndDataTemplate"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding RightListView}"
+                    BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -232,10 +247,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
-            <controls:MTAdView BackgroundColor="Red"
-                               PersonalizedAds="True"
-                               AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/5162013910', iOS='ca-app-pub-8211072909515345/7340620549'}" />
+            </StackLayout>
+            <controls:MTAdView
+                PersonalizedAds="True"
+                AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/5162013910', iOS='ca-app-pub-8211072909515345/7340620549'}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
