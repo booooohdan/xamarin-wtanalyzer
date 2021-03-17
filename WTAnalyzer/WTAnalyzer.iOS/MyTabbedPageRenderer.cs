@@ -1,53 +1,51 @@
 ﻿using CoreGraphics;
+using System.ComponentModel;
 using UIKit;
+using WTAnalyzer;
 using WTAnalyzer.iOS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(TabbedPage), typeof(MyTabbedPageRenderer))]
+[assembly: ExportRenderer(typeof(AppShell), typeof(MyTabbedPageRenderer))]
 namespace WTAnalyzer.iOS
 {
-    public class MyTabbedPageRenderer : TabbedRenderer
+    public class MyTabbedPageRenderer : ShellRenderer
     {
-        public override void ViewWillAppear(bool animated)
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            base.ViewWillAppear(animated);
-
-            foreach (var item in TabBar.Items)
-            {
-                item.Image = ScalingImageToSize(item.Image, new CGSize(30, 30)); // set the size here as you want 
-            }
+            base.OnElementPropertyChanged(sender, e);
         }
 
+        protected override IShellTabBarAppearanceTracker CreateTabBarAppearanceTracker()
+        {
+            return new CustomTabbarAppearance();
+        }
+    }
 
-
-        public UIImage ScalingImageToSize(UIImage sourceImage, CGSize newSize)
+    public class CustomTabbarAppearance : IShellTabBarAppearanceTracker
+    {
+        public void Dispose()
         {
 
-            if (UIScreen.MainScreen.Scale == 2.0) //@2x iPhone 6 7 8 
+        }
+
+        public void ResetAppearance(UITabBarController controller)
+        {
+
+        }
+
+        public void SetAppearance(UITabBarController controller, ShellAppearance appearance)
+        {
+
+        }
+
+        public void UpdateLayout(UITabBarController controller)
+        {
+
+            foreach (UIViewController vc in controller.ViewControllers)
             {
-                UIGraphics.BeginImageContextWithOptions(newSize, false, 2.0f);
+                vc.TabBarItem.ImageInsets = new UIEdgeInsets(50, 50, 50, 50);
             }
-
-
-            else if (UIScreen.MainScreen.Scale == 3.0) //@3x iPhone 6p 7p 8p...
-            {
-                UIGraphics.BeginImageContextWithOptions(newSize, false, 3.0f);
-            }
-
-            else
-            {
-                UIGraphics.BeginImageContext(newSize);
-            }
-
-            sourceImage.Draw(new CGRect(0, 0, newSize.Width, newSize.Height));
-
-            UIImage newImage = UIGraphics.GetImageFromCurrentImageContext();
-
-            UIGraphics.EndImageContext();
-
-            return newImage;
-
         }
     }
 }
