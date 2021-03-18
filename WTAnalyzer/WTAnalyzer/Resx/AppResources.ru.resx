@@ -514,4 +514,13 @@
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Политика конфиденциальности</value>
   </data>
+  <data name="WTAnalyzerAboutTextIOS" xml:space="preserve">
+    <value>Thunder Analyzer это неофициальное, must-have приложение для игроков популярной игры про военную тематику. Приложение использует собственную БД, данные для которой собраны с игрового клиента и wiki</value>
+  </data>
+  <data name="WillMeetInBattle" xml:space="preserve">
+    <value>Будут встречаться в бою</value>
+  </data>
+  <data name="WillNotMeetInBattle" xml:space="preserve">
+    <value>Не будут встречаться в бою</value>
+  </data>
 </root>

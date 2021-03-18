@@ -128,13 +128,13 @@
                 IsVisible="{Binding IsMainVisible}">
                 <Label HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"
-                       Text="Will meet in battle"
+                       Text="{x:Static properties:AppResources.WillMeetInBattle}"
                        FontAttributes="None"
                        FontSize="14"
                        Style="{StaticResource LabelStyle}" />
                 <Label HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"
-                       Text="Will not meet in battle"
+                       Text="{x:Static properties:AppResources.WillNotMeetInBattle}"
                        FontAttributes="None"
                        FontSize="14"
                        Style="{StaticResource LabelStyle}" />

@@ -1276,6 +1276,24 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Will meet in battle.
+        /// </summary>
+        internal static string WillMeetInBattle {
+            get {
+                return ResourceManager.GetString("WillMeetInBattle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Will not meet in battle.
+        /// </summary>
+        internal static string WillNotMeetInBattle {
+            get {
+                return ResourceManager.GetString("WillNotMeetInBattle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на World of Tanks Quiz.
         /// </summary>
         internal static string WorldOfTanksQuiz {
@@ -1299,6 +1317,15 @@ namespace WTAnalyzer.Resx {
         internal static string WTAnalyzerAboutText {
             get {
                 return ResourceManager.GetString("WTAnalyzerAboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Thunder Analyzer is an unofficial, must-have app for popular war game players. App uses own database with data collected from the game client and wiki.
+        /// </summary>
+        internal static string WTAnalyzerAboutTextIOS {
+            get {
+                return ResourceManager.GetString("WTAnalyzerAboutTextIOS", resourceCulture);
             }
         }
         

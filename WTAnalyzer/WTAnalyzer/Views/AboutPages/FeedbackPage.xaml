@@ -94,7 +94,7 @@
                         <TableSection Title="{x:Static properties:AppResources.TryOurApps}">
                             <ImageCell
                                     ImageSource="SkillMeter" 
-                                    Text="War Thunder Skill Meter" 
+                                    Text="Thunder Skill Meter" 
                                     Detail="{x:Static properties:AppResources.AppForCheckoutOfPlayerStatistics}"
                                     Command="{Binding SkillMeterCommand}"/>
                         </TableSection>

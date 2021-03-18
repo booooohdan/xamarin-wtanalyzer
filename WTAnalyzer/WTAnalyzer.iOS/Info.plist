@@ -39,5 +39,14 @@
 	<string>ca-app-pub-8211072909515345~6618099883</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
+	<key>SKAdNetworkItems</key>
+	<array>
+		<dict>
+			<key>SKAdNetworkIdentifier</key>
+			<string>cstr6suwn9.skadnetwork</string>
+		</dict>
+	</array>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
 </dict>
 </plist>

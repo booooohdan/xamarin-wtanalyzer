@@ -31,7 +31,27 @@
                 HorizontalTextAlignment="Center"
                 FontSize="14"
                 FontAttributes="None"
-                Style="{StaticResource LabelStyle}" />
+                Style="{StaticResource LabelStyle}">
+                <Label.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                            iOS="False"
+                            Android="True"/>
+                </Label.IsVisible>
+            </Label>
+            <Label
+                Padding="20,0,20,0"
+                Text="{x:Static properties:AppResources.WTAnalyzerAboutTextIOS}"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="14"
+                FontAttributes="None"
+                Style="{StaticResource LabelStyle}">
+                <Label.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean"
+                            iOS="True"
+                            Android="False"/>
+                </Label.IsVisible>
+            </Label>
             <Label
                 Text="{x:Static properties:AppResources.TheDatabaseContains}"
                 FontSize="10"

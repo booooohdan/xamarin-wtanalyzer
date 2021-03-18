@@ -455,7 +455,7 @@
     <value>Оціни цей крутий додаток для War Thunder</value>
   </data>
   <data name="WarThunderQuiz" xml:space="preserve">
-    <value>War Thunder Quiz</value>
+    <value>War Thunder</value>
   </data>
   <data name="WorldOfTanksQuiz" xml:space="preserve">
     <value>World of Tanks Quiz</value>
@@ -513,5 +513,14 @@
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Політика конфіденційності</value>
+  </data>
+  <data name="WTAnalyzerAboutTextIOS" xml:space="preserve">
+    <value>Thunder Analyzer це неофіційний, must-have додаток для гравців популярної гри про воєнну тематику. Додаток використовує власну БД, дані для якої зібрані з ігрового клієнту та wiki</value>
+  </data>
+  <data name="WillMeetInBattle" xml:space="preserve">
+    <value>Зустрічатимуться в боях</value>
+  </data>
+  <data name="WillNotMeetInBattle" xml:space="preserve">
+    <value>Не зустрічатимуться в боях</value>
   </data>
 </root>
