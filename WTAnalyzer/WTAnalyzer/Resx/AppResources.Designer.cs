@@ -781,6 +781,15 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Privacy policy.
+        /// </summary>
+        internal static string PrivacyPolicy {
+            get {
+                return ResourceManager.GetString("PrivacyPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Promotional.
         /// </summary>
         internal static string Promotional {

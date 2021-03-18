@@ -511,4 +511,7 @@
   <data name="BR" xml:space="preserve">
     <value>  БР</value>
   </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Політика конфіденційності</value>
+  </data>
 </root>

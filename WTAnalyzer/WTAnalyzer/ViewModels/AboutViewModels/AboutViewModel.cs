@@ -110,10 +110,10 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
             switch (Device.RuntimePlatform)
             {
                 case Device.Android:
-                    Launcher.OpenAsync(new Uri(""));
+                    Launcher.OpenAsync(new Uri("https://war-thunder-analyzer.flycricket.io/privacy.html"));
                     break;
                 case Device.iOS:
-                    Launcher.OpenAsync(new Uri(""));
+                    Launcher.OpenAsync(new Uri("https://thunder-analyzer-0.flycricket.io/privacy.html"));
                     break;
             }
         }

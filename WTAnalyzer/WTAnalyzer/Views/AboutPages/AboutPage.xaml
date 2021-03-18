@@ -53,7 +53,7 @@
                                 Command="{Binding ShareCommand}" />
                             <ImageCell
                                 ImageSource="Privacy"
-                                Text="{x:Static properties:AppResources.ShareWithFriends}"
+                                Text="{x:Static properties:AppResources.PrivacyPolicy}"
                                 Command="{Binding PrivacyCommand}" />
                             <ImageCell
                                 ImageSource="DbUpdate"
