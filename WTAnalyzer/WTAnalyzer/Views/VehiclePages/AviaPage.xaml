@@ -210,7 +210,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <controls:MTAdView            
-                PersonalizedAds="True" 
+                PersonalizedAds="True"
                 AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/3716042637', iOS='ca-app-pub-8211072909515345/7399496141'}"/>
     </StackLayout>
 </ContentPage>
