@@ -155,7 +155,7 @@
     <value>По убыванию</value>
   </data>
   <data name="Attacker" xml:space="preserve">
-    <value>Штурмовик</value>
+    <value>Ударный истребитель</value>
   </data>
   <data name="Bomber" xml:space="preserve">
     <value>Бомбардировщик</value>

@@ -133,7 +133,7 @@ namespace WTAnalyzer.Resx {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Attacker.
+        ///   Ищет локализованную строку, похожую на Strike Fighter.
         /// </summary>
         internal static string Attacker {
             get {

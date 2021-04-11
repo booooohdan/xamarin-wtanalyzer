@@ -20,7 +20,7 @@ namespace WTAnalyzer.Helpers
 #endif
                     break;
                 case Device.iOS:
-                    CrossMTAdmob.Current.LoadInterstitial("");
+                    CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-8211072909515345/2545248966");
                     break;
             }
         }
@@ -33,7 +33,7 @@ namespace WTAnalyzer.Helpers
                     CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-8211072909515345/4400795695");
                     break;
                 case Device.iOS:
-                    CrossMTAdmob.Current.LoadInterstitial("");
+                    CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-8211072909515345/7606003955");
                     break;
             }
         }
@@ -46,7 +46,7 @@ namespace WTAnalyzer.Helpers
                     CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-8211072909515345/9710345584");
                     break;
                 case Device.iOS:
-                    CrossMTAdmob.Current.LoadInterstitial("");
+                    CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-8211072909515345/6676065660");
                     break;
             }
         }

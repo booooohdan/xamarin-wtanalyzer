@@ -25,6 +25,11 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
         public ICommand OpenFilterModalPageCommand { get; }
         int adsCount = 0;
         int start_count = Preferences.Get("start_count", 0);
+        public bool FirstRun
+        {
+            get => Preferences.Get(nameof(FirstRun), true);
+            set => Preferences.Set(nameof(FirstRun), value);
+        }
 
         #endregion
 
@@ -39,6 +44,20 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
                 SetDataToListView();
                 Busy = false;
             });
+            if (FirstRun)
+            {
+                AppTrackingShowAsync();
+                FirstRun = false;
+            }
+        }
+
+        private async Task AppTrackingShowAsync()
+        {
+            if (Device.RuntimePlatform == Device.iOS && DeviceInfo.Version.Major >= 14)
+            {
+                var status = await DependencyService.Get<IAppTracking>().IsAuthorized();
+                CrossMTAdmob.Current.UserPersonalizedAds = await DependencyService.Get<IAppTracking>().RequestAuthorizationAsync();
+            }
         }
 
         private async void OpenFilterModalPageHandler(object obj)

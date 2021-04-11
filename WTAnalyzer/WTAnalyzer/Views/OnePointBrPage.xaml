@@ -250,7 +250,7 @@
             </StackLayout>
             <controls:MTAdView
                 PersonalizedAds="True"
-                AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/5162013910', iOS='ca-app-pub-8211072909515345/7340620549'}" />
+                AdsId="{OnPlatform Android='ca-app-pub-8211072909515345/5162013910', iOS='ca-app-pub-8211072909515345/2285039293'}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
