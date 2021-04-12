@@ -75,7 +75,7 @@ namespace WTAnalyzer.ViewModels.AboutViewModels
                     Launcher.OpenAsync(new Uri("https://play.google.com/store/apps/details?id=com.wave.skillmeter"));
                     break;
                 case Device.iOS:
-                    Launcher.OpenAsync(new Uri("https://apps.apple.com/us/app/id1542964380"));
+                    Launcher.OpenAsync(new Uri("https://apps.apple.com/us/app/skill-meter/id1542964380"));
                     break;
             }
         }
