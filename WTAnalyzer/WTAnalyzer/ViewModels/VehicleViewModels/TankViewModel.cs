@@ -25,11 +25,6 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
         public ICommand OpenFilterModalPageCommand { get; }
         int adsCount = 0;
         int start_count = Preferences.Get("start_count", 0);
-        public bool FirstRun
-        {
-            get => Preferences.Get(nameof(FirstRun), true);
-            set => Preferences.Set(nameof(FirstRun), value);
-        }
 
         #endregion
 
@@ -44,10 +39,9 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
                 SetDataToListView();
                 Busy = false;
             });
-            if (FirstRun)
+            if (start_count==0)
             {
-                AppTrackingShowAsync();
-                FirstRun = false;
+                Task.Run(AppTrackingShowAsync);
             }
         }
 
