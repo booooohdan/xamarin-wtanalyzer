@@ -39,20 +39,20 @@ namespace WTAnalyzer.ViewModels.VehicleViewModels
                 SetDataToListView();
                 Busy = false;
             });
-            if (start_count==0)
-            {
-                Task.Run(AppTrackingShowAsync);
-            }
+            //if (start_count==0)
+            //{
+            //    Task.Run(AppTrackingShowAsync);
+            //}
         }
 
-        private async Task AppTrackingShowAsync()
-        {
-            if (Device.RuntimePlatform == Device.iOS && DeviceInfo.Version.Major >= 14)
-            {
-                var status = await DependencyService.Get<IAppTracking>().IsAuthorized();
-                CrossMTAdmob.Current.UserPersonalizedAds = await DependencyService.Get<IAppTracking>().RequestAuthorizationAsync();
-            }
-        }
+        //private async Task AppTrackingShowAsync()
+        //{
+        //    if (Device.RuntimePlatform == Device.iOS && DeviceInfo.Version.Major >= 14)
+        //    {
+        //        var status = await DependencyService.Get<IAppTracking>().IsAuthorized();
+        //        CrossMTAdmob.Current.UserPersonalizedAds = await DependencyService.Get<IAppTracking>().RequestAuthorizationAsync();
+        //    }
+        //}
 
         private async void OpenFilterModalPageHandler(object obj)
         {
